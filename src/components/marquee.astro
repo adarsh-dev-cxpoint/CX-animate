@@ -1,0 +1,315 @@
+<!-- ---
+
+---
+
+<div class="marquee-container">
+    <div class="marquee" id="marquee">
+      {[...Array(2)].map(() => (
+        <div class="marquee-content">
+          {['Astro', 'GSAP', 'Marquee', 'Animation'].map((word) => (
+            <div class="word-container">
+              <span>{word}</span>
+              <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+  
+  <script>
+    import { gsap } from 'gsap';
+  
+    const marquee = document.getElementById('marquee');
+    const arrows = document.querySelectorAll('.arrow');
+  
+    if (marquee) {
+      gsap.to(marquee, {
+        x: '-50%',
+        ease: 'none',
+        duration: 20,
+        repeat: -1,
+      });
+  
+      marquee.addEventListener('mouseenter', () => {
+        gsap.to(arrows, {
+          rotation: 180,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      });
+  
+      marquee.addEventListener('mouseleave', () => {
+        gsap.to(arrows, {
+          rotation: 0,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      });
+    }
+  </script>
+  
+  <style>
+    .marquee-container {
+      overflow: hidden;
+      background-color: #f3f4f6;
+      padding: 1rem 0;
+    }
+  
+    .marquee {
+      display: flex;
+      white-space: nowrap;
+      width: fit-content;
+    }
+  
+    .marquee-content {
+      display: flex;
+    }
+  
+    .word-container {
+      display: flex;
+      align-items: center;
+      margin: 0 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  
+    .arrow {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-left: 0.5rem;
+    }
+  </style> -->
+
+  ---
+  
+  const words = ['Expertise', 'GSAP', 'Marquee', 'Animation'];
+  const repetitions = 4; // Number of times to repeat the word set
+  ---
+  
+  <div class="marquee-container">
+    <div class="marquee" id="marquee">
+      {[...Array(repetitions)].map(() => (
+        <div class="marquee-content">
+          {words.map((word) => (
+            <div class="word-container">
+              <span>{word}</span>
+              <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+  
+  <script>
+    import { gsap } from 'gsap';
+  
+    const marquee = document.getElementById('marquee');
+    const arrows = document.querySelectorAll('.arrow');
+    const marqueeContent = document.querySelector('.marquee-content');
+    const repetitions = 4; // Number of times to repeat the word set
+  
+    if (marquee && marqueeContent) {
+      const contentWidth = (marqueeContent as HTMLElement).offsetWidth; // Type assertion added
+      const totalWidth = contentWidth * Number(repetitions); // Ensure repetitions is a number
+  
+      gsap.set(marquee, { x: 0 });
+  
+      const tl = gsap.timeline({ repeat: -1 });
+      tl.to(marquee, {
+        x: -contentWidth,
+        duration: 6,
+        ease: 'linear',
+        onComplete: () => {
+          gsap.set(marquee, { x: 0 });
+        }
+      });
+  
+      marquee.addEventListener('mouseenter', () => {
+        gsap.to(arrows, {
+          rotation: 180,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      });
+  
+      marquee.addEventListener('mouseleave', () => {
+        gsap.to(arrows, {
+          rotation: 0,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      });
+    }
+  </script>
+  
+  <style>
+    .marquee-container {
+      overflow: hidden;
+      background-color: black;
+      padding: 0.5rem 0;
+      font-family: MediaanItalic;
+      font-weight: 100;
+      box-shadow: 0px 5px 9px 2px gray;
+    }
+  
+    .marquee {
+      display: flex;
+      white-space: nowrap;
+    }
+  
+    .marquee-content {
+      display: flex;
+      color: white;
+    }
+  
+    .word-container {
+      display: flex;
+      align-items: center;
+      margin: 0 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  
+    .arrow {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-left: 0.5rem;
+    }
+  </style>
+
+  <!-- ---
+// File: src/components/AngledMarquees.astro
+
+const words = ['Astro', 'GSAP', 'Marquee', 'Animation'];
+const repetitions = 4; // Number of times to repeat the word set
+const marqueeCount = 3; // Number of marquees to create
+---
+
+<div class="marquees-container">
+  {[...Array(marqueeCount)].map((_, index) => (
+    <div class="marquee-wrapper" style={`transform: rotate(${index * 5 - 5}deg);`}>
+      <div class="marquee-container">
+        <div class="marquee" id={`marquee-${index}`}>
+          {[...Array(repetitions)].map(() => (
+            <div class="marquee-content">
+              {words.map((word) => (
+                <div class="word-container">
+                  <span>{word}</span>
+                  <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const marqueeCount = 3; // Make sure this matches the marqueeCount in the component
+
+  for (let i = 0; i < marqueeCount; i++) {
+    const marquee = document.getElementById(`marquee-${i}`);
+    const arrows = marquee.querySelectorAll('.arrow');
+    const marqueeContent = marquee.querySelector('.marquee-content');
+
+    if (marquee && marqueeContent) {
+    const contentWidth = (marqueeContent as HTMLElement).offsetWidth; 
+
+      gsap.set(marquee, { x: 0 });
+
+      const tl = gsap.timeline({ repeat: -1 });
+      tl.to(marquee, {
+        x: -contentWidth,
+        duration: 15 + i * 5, // Different speed for each marquee
+        ease: 'linear',
+        onComplete: () => {
+          gsap.set(marquee, { x: 0 });
+        }
+      });
+
+      marquee.addEventListener('mouseenter', () => {
+        gsap.to(arrows, {
+          rotation: 180,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      });
+
+      marquee.addEventListener('mouseleave', () => {
+        gsap.to(arrows, {
+          rotation: 0,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      });
+    }
+  }
+</script>
+
+<style>
+  .marquees-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f3f4f6;
+  }
+
+  .marquee-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 60px;
+  }
+
+  .marquee-container {
+    overflow: hidden;
+    padding: 1rem 0;
+  }
+
+  .marquee {
+    display: flex;
+    white-space: nowrap;
+  }
+
+  .marquee-content {
+    display: flex;
+  }
+
+  .word-container {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.5rem;
+  }
+
+  .marquee-wrapper:nth-child(1) {
+    top: 20%;
+  }
+
+  .marquee-wrapper:nth-child(2) {
+    top: 50%;
+  }
+
+  .marquee-wrapper:nth-child(3) {
+    top: 80%;
+  }
+</style> -->

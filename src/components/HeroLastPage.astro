@@ -1,0 +1,140 @@
+---
+// PinnedScroll.astro
+---
+
+
+  
+<div class="container">
+    <div class="pinned-section relative" id="pinnedSection">
+        <div class="flex flex-col items-center justify-center ">
+            <p class="text-white font-mediaan text-4xl leading-none">Lets connect</p>
+            <h2 class="py-2 mt-14 mb-14 border-y-2z-10 leading-none">How it Works</h2>
+            <p class="text-white font-mediaan text-4xl leading-none">Scroll .</p>
+        </div>
+        
+        <div class="horizontal-animation flex items-center justify-center w-full z-40" id="horizontalAnimation">
+            <div class="horizontal-animation-item padding-top ">
+                <h3 class="font-akira">01</h3>
+                <p>Submit your resume</p>
+            </div>
+            <div class="horizontal-animation-item padding-bottom">
+                <h3 class="font-akira">02 </h3>
+                <p>Comprehensive Review</p>
+            </div>
+            <div class="horizontal-animation-item padding-top">
+                <h3 class="font-akira">03 </h3>
+                <p>Detailed Feedback</p>
+            </div>
+            <div class="horizontal-animation-item padding-bottom">
+                <h3 class="font-akira">04 </h3>
+                <p>No Obligation</p>
+            </div>
+        </div>
+    </div>
+    <div style="height: 200vh; background: #f9f9f9;">
+        <h3>Scroll Down to See the Effect</h3>
+    </div>
+</div>
+
+<style>
+
+    .font-akira{
+        font-family: "akira";
+    }
+
+    .font-mediaan{
+        font-family: "MediaanItalic";
+    }
+    .container {
+        height: 200vh; /* Make the container tall enough to scroll */
+        background-color: #1d1d1d;
+        position: relative;
+        text-align: center;
+        overflow: hidden;
+    }
+  
+    .pinned-section {
+        height: 100vh; /* Full viewport height */
+        background-color: #0C0C0C;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        position: relative; /* For pinning */
+    }
+  
+    h2 {
+        font-size: 7rem; /* Increase font size */
+        text-align: center; /* Center the text */
+        color: white; /* Optional: Change text color */
+        line-height: 0.47;
+        font-family: "akira";
+    }
+  
+    .horizontal-animation {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center items horizontally */
+        width: 100%;
+        position: absolute; /* Position absolute to center it */
+        top: 50%; /* Center vertically */
+        transform: translateY(-50%); /* Adjust for height */
+    }
+  
+    .horizontal-animation-item {
+        font-family: 'MediaanItalic';
+        width: 300px; /* Adjust width */
+        height: 400px; /* Adjust height */
+        background: #101010; /* Make background transparent */
+        border: 0.5px solid #868686; /* Add border */
+        color: white; /* Text color */
+        display: flex;
+        align-items: start;
+        padding:8px;
+        justify-content: space-between;
+        flex-direction: column;
+        position: relative; /* For positioning */
+        overflow: hidden; /* Hide overflow */
+        text-align: center; /* Center text */
+    }
+  
+    .horizontal-animation-item.padding-top {
+        margin-top: 70px; /* Padding for top */
+    }
+  
+    .horizontal-animation-item.padding-bottom {
+        margin-bottom: 7%; /* Padding for bottom */
+    }
+  
+    .horizontal-animation-item h3 {
+        font-size: 24px; /* Adjust font size */
+    }
+  
+    .horizontal-animation-item p {
+        margin: 0; /* Remove default margin */
+        font-size: 22px; /* Adjust font size */
+    }
+</style>
+  
+  <script>
+    // Ensure the DOM is fully loaded before running the script
+    document.addEventListener('DOMContentLoaded', () => {
+        const horizontalAnimation = document.getElementById('horizontalAnimation');
+
+        const t1 = gsap.timeline();
+        // GSAP ScrollTrigger setup
+        t1.fromTo(horizontalAnimation, 
+            { x: '100%'}, // Start from the right
+            { 
+                x: '0%', 
+                scrollTrigger: {
+                    trigger: '#pinnedSection',
+                    start: 'top top', // Start when the top of the pinned section hits the top of the viewport
+                    end: '+=100%', // End after scrolling down 100% of the viewport
+                    pin: true, // Pin the section
+                    scrub: 2 // Smooth scrubbing
+                }
+            }
+        );
+    });
+</script>

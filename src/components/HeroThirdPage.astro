@@ -1,0 +1,83 @@
+---
+
+---
+
+<style>
+.container {
+    width: 100vw;
+    min-height: 100vh; /* Changed from height to min-height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.item {
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    opacity: 1; /* Initial opacity */
+    flex-grow: 1; /* Allow item to grow and fill space */
+}
+
+.item:hover { /* Change color on hover */
+    color: black; /* Change text color on hover */
+}
+
+.item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s;
+    border-radius: 10px;
+}
+
+.item:hover::before {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.headline{
+    font-family: 'akira';
+}
+</style>
+
+<div class="container ">
+    <div class="item flex items-center justify-center gap-10 w-full text-6xl headline">
+        <div class="w-[8rem] h-[120px] bg-gray-400 rounded-2xl "></div>Video games
+    </div>
+    <div class="flex items-center justify-center w-full ">
+        <div class="item flex items-center justify-center gap-10 w-full text-4xl headline">
+            <div class="w-[24rem] h-[120px] bg-gray-400 rounded-2xl text-nowrap"></div>
+            SaaS and Tech
+        </div>
+        <div class="item flex items-center justify-center gap-10 w-full text-4xl headline">
+            <div class="w-[8rem] h-[120px] bg-gray-400 rounded-2xl"></div>
+            E-commerce
+        </div>
+    </div>
+    
+    <div class="item flex items-center justify-center gap-10 w-full text-4xl headline">Culture</div>
+</div>
+
+<script>
+    import { gsap } from 'gsap';
+
+
+    const items = document.querySelectorAll('.item');
+
+    items.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            gsap.to(items, { duration: 0.3, opacity: 0.5 });
+            gsap.to(item, { duration: 0.3, opacity: 1 });
+        });
+
+        item.addEventListener('mouseleave', () => {
+            gsap.to(items, { duration: 0.3, opacity: 1 });
+        });
+    });
+</script>

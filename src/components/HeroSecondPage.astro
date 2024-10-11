@@ -1,0 +1,104 @@
+---
+
+
+---
+
+
+<div class="w-screen min-h-screen flex flex-col items-center gap-10 secondPage text-black">
+    <div class="w-full h-[20%] animated-text mt-10 flex items-start justify-center">
+        <p class="py-16 text-xl font-inter">[ <span class="font-inter" >Who we are </span>]</p>
+    </div>
+    <div class="max-w-8xl mx-auto text-6xl ">    
+        <div class="flex items-end gap-2 ">
+            <div class="w-52 h-0 rounded-2xl bg-slate-400 thumbnails">
+                <img class="" src="">
+            </div>
+            <div class="w-full h-full overflow-hidden ">
+                <p class="animated-text">CXPoint delivers expert Contact </p>
+            </div>
+        </div>
+        <div class="w-full h-full overflow-hidden ">
+        <p class="animated-text">Center consulting, helping businesses transition </p>
+        </div>
+        <div class="w-full h-full overflow-hidden ">
+        <p class="animated-text">from legacy systems to modern cloud-based</p>
+        </div>
+        <div class="flex items-start ">
+            <div class="w-full h-full overflow-hidden ">
+            <p class="animated-text ">CCaaS platforms with bespoke solutions.</p>
+            </div>
+            <div class="w-32 h-0 rounded-2xl bg-slate-400 thumbnails">
+
+            </div>
+        </div>
+    </div>
+    <!-- <div class="w-full flex items-center justify-between">
+        <div class=" w-[50%] flex flex-col items-start">
+            <div class="w-[35%] h-[4rem] bg-red-600"></div>
+            <div class="w-[50%] h-[4rem] bg-red-600"></div>
+        </div>
+        <div class=" w-[50%] flex flex-col items-end">
+            <div class="w-[35%] h-[4rem] bg-red-600"></div>
+            <div class="w-[50%] h-[4rem] bg-red-600"></div>
+        </div>
+    </div> -->
+
+</div>
+
+<style>
+    .font-inter{
+        font-family: "MediaanItalic";
+		font-weight: 100;
+		line-height: 1;
+    }
+
+    .animated-text{
+        font-family: "akira";
+        font-size: 2.1rem;
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+
+    gsap.registerPlugin(ScrollTrigger)
+      
+      const textElements = document.querySelectorAll(".animated-text");
+      const thumbnailElements = document.querySelectorAll(".thumbnails"); // Select all thumbnail elements
+      
+      textElements.forEach((textElement , index) => {
+        const t1 = gsap.timeline({
+            scrollTrigger:{
+                trigger:".secondPage",
+                start:"top+=200 center",
+                end:"bottom bottom-=400",
+            },
+        })
+        // Animate each line
+       t1.from( textElement, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.8,
+            ease: "power2.out"
+        });  
+        t1.to(thumbnailElements[index], {
+            height: "8rem", // Animate to 32rem
+            duration: 1,
+            stagger: 0.2,
+            ease: "power2.out"
+        },
+        "-=0.8"
+        ); // Use "<" to start this animation at the same time as the previous one
+        t1.to(".secondPage", {
+            backgroundColor: "black",
+            color: "white",
+            duration: 1,
+            ease: "power2.out"
+        })
+
+    });
+
+        
+
+  </script>

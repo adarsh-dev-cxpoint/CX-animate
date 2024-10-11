@@ -1,0 +1,186 @@
+---
+// CustomCursor.astro
+const images = [
+  'src/assets/first.jpeg',
+  'src/assets/second.jpeg',
+  'src/assets/third.jpeg'
+];
+
+const images2 = [
+  'src/assets/fourth.jpeg',
+  'src/assets/fifth.jpeg',
+  'src/assets/sixth.jpeg'
+]
+
+const video = 'src/assets/heroVideo.mp4';
+
+const cursorTexts = ['Text 1', 'Text 2', 'Text 3'];
+const cursorTexts2 = ['Text 4', 'Text 5', 'Text 6'];
+---
+
+<div class="container bg-black">
+  <div id="custom-cursor" class="custom-cursor"></div>
+  <div class="flex flex-col items-center justify-between h-full w-full">
+  <div class="image-container">
+    {images.map((image, index) => (
+      index === 1 ? ( // Check if it's the second image
+        <div class="video-container">
+          <img src={image} alt={`Image ${index + 1}`} data-cursor-text={cursorTexts[index]} class="image" />
+          <video class="video" src={video} autoplay muted loop></video> 
+        </div>
+      ) : (
+        <img src={image} alt={`Image ${index + 1}`} data-cursor-text={cursorTexts[index]} />
+      )
+    ))}
+  </div>
+  <div class="w-[30%] text-wrap text-center py-12 text-white flex items-center justify-center font-median">
+    <p class="w-full text-xl">We're a global, culturally connected mix of professionals with a diversity of world-class creative skills. We see. We solve. We simplify. We scale.</p>
+  </div>
+  <div class="image-container">
+    {images2.map((image, index) => (
+      <img src={image} alt={`Image ${index + 1}`} data-cursor-text={cursorTexts2[index]} />
+    ))}
+  </div>
+</div>
+</div>
+
+<style>
+  .container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    font-family: 'MediaanItalic';
+    z-index: 10000; /* Ensure custom cursor is on top */
+    opacity: 0;
+    padding: 10px 15px;
+    background-color: white; /* Change to white for better contrast */
+    color: black; /* Change to black for better contrast */
+    font-size: 14px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: opacity 0.3s ease; /* Add this line for smooth transition */
+  }
+
+  .image-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .image-container img {
+    flex: 1;
+    object-fit: cover;
+    width: 33.33%; /* Each image takes up a third of the container */
+    height: 100%;
+    cursor: none;
+  }
+
+  .font-median{
+    font-family: "MediaanItalic";
+  }
+
+  .video-container {
+    position: relative; /* Position relative to allow absolute positioning of children */
+    width: 100%; /* Ensure it takes full width */
+    height: 100%; /* Ensure it takes full height */
+  }
+
+  .video-container .image {
+    position: absolute; /* Position the image on top of the video */
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover the entire container */
+    height: 100%; /* Cover the entire container */
+    object-fit: cover; /* Maintain aspect ratio */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+  }
+
+  .video-container .video {
+    width: 100%; /* Ensure video covers the container */
+    height: 100%; /* Ensure video covers the container */
+    object-fit: cover; /* Maintain aspect ratio */
+    display: none; /* Hide video initially */
+  }
+
+  .video-container:hover .video {
+    display: block; /* Show video on hover */
+  }
+
+  .video-container:hover .image {
+    opacity: 0; /* Hide image on hover */
+  }
+</style>
+
+<script>
+  const cursor = document.getElementById('custom-cursor');
+  const images = document.querySelectorAll('.image-container img');
+  const imageContainer = document.querySelector('.image-container');
+
+  let isVisible = false;
+
+  function updateCursorPosition(e) {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  }
+
+  function showCursor() {
+    if (!isVisible) {
+      cursor.style.opacity = '1';
+      isVisible = true;
+    }
+  }
+
+  function hideCursor() {
+    cursor.style.opacity = '0';
+    isVisible = false;
+  }
+
+  function updateCursorText(text) {
+    cursor.textContent = text;
+    showCursor();
+  }
+
+  document.addEventListener('mousemove', updateCursorPosition);
+
+  imageContainer.addEventListener('mouseenter', showCursor);
+  imageContainer.addEventListener('mouseleave', hideCursor);
+
+  images.forEach((img) => {
+    (img as HTMLElement).addEventListener('mouseenter', () => updateCursorText((img as HTMLElement).dataset.cursorText));
+    img.addEventListener('mouseleave', hideCursor);
+  });
+
+  const videoContainers = document.querySelectorAll('.video-container');
+
+  videoContainers.forEach((container) => {
+    const img = container.querySelector('.image');
+    const video = container.querySelector('.video');
+
+    container.addEventListener('mouseenter', () => {
+      (img as HTMLElement).style.opacity = '0'; // Hide the image when mouse enters
+    });
+
+    container.addEventListener('mouseleave', () => {
+      (img as HTMLElement).style.opacity = '1'; // Show the image when mouse leaves
+    });
+  });
+
+  gsap.from( ".font-median", {
+            scrollTrigger:{
+              trigger:".container",
+              start:"top bottom",
+              end:"bottom bottom",
+              scrub: true,
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.8,
+            ease: "power2.out"
+        });  
+</script>

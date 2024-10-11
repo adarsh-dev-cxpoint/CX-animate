@@ -1,0 +1,78 @@
+---
+import first from "../assets/first.jpeg"
+import second from "../assets/second.jpeg"
+import third from "../assets/third.jpeg"
+import fourth from "../assets/fourth.jpeg"
+
+
+---
+
+<div class="w-screen h-[130vh] flex items-end justify-center bg-black contain relative">
+  <p class="absolute text-white top-12 left-[30%] text-[8rem] leading-none font-variable text-down">RAISED <br><span class="text-down">BY</span></p>
+    <div class="relative w-96 h-[80%] z-20 box rounded-lg"> <!-- Increased height from h-64 to h-96 -->
+        <img src={first.src} alt="Image 1" class="absolute inset-x-0 bottom-4 w-full h-full object-cover z-40 image-wrapper rounded-lg" />
+        <img src={second.src} alt="Image 2" class="absolute inset-x-0 bottom-4 w-full h-full object-cover z-30 image-wrapper rounded-lg" />
+        <img src={third.src} alt="Image 3" class="absolute inset-x-0 bottom-4 w-full h-full object-cover z-20 image-wrapper rounded-lg" />
+        <img src={fourth.src} alt="Image 4" class="absolute inset-x-0 bottom-4 w-full h-full object-cover z-10 image-wrapper rounded-lg" />
+    </div>
+    <p class="absolute text-white top-48 right-[26%] text-[8rem] leading-none font-variable text-end z-50 text-down">The <br><span class="text-end z-50 text-white mix-blend-difference text-down">Waves</span></p>
+    <p class="absolute inset-x-0 bottom-32 font-inter text-white max-w-5xl mx-auto">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </div>
+
+<style>
+  .font-inter{
+    font-family: MediaanItalic;
+  }
+
+  .font-variable{
+    font-family: "new";
+    font-weight: 700;
+    font-stretch: 400%;
+    letter-spacing: -0.2rem;
+    color: white;
+    transition: all 0.5s ease-in;
+  }
+</style>
+  
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  
+    gsap.registerPlugin(ScrollTrigger);
+  
+    document.addEventListener('DOMContentLoaded', () => {
+        const images = gsap.utils.toArray('.image-wrapper');
+        const texts = gsap.utils.toArray('.text-down')
+
+        const t1 = gsap.timeline({
+          scrollTrigger: {
+                trigger: '.contain',
+                start: "top top",
+                end: "center top",
+                scrub: 2,
+                pin: true,
+    
+            }
+        })
+        
+        
+        t1.to(".box" , {
+          y:-90,
+
+        },"<")
+
+        t1.to(images, {
+            opacity: 0,
+            stagger: 0.5, // Adjust this value to control the stagger effect
+            ease: "power2.inOut",  
+ 
+        },"<")
+        
+        t1.to(".font-inter" ,{
+          y:20,
+        })
+
+    });
+  </script>
