@@ -1,0 +1,308 @@
+---
+import Layout from '../layouts/Layout.astro';
+import gsap from "gsap"
+import heroVideo from "../../public/assets/heroVideo2.mp4"
+import Marquee from "../components/marquee.astro"
+import HeroSecond from '../components/HeroSecondPage.astro';
+import HeroFourthPage from '../components/HeroFourthPage.astro';
+import HeroFifthPage from '../components/HeroFifthPage.astro';
+import HeroSixthPage from '../components/HeroSixthPage.astro';
+import HeroLastPage from '../components/HeroLastPage.astro';
+---
+
+<Layout title="CX-Point">
+	<main class="relative w-full h-full bg-white">
+        <section class="loader z-40 scroll-disabled h-[100vh] w-[100vw]">
+            <div class="second w-[60%] h-[1200px] absolute flex items-center justify-center ">
+                <div class=" w-[50%] flex flex-col gap-4 items-center scroll opacity-0 translate-y-full pointer-events-none">
+                    <div class="placeholders object-cover">
+                        <img class="w-full h-full object-cover rounded-2xl" src="/assets/third.jpeg"/>
+                    </div>
+                    <div class="placeholders object-cover">
+                        <img class="w-full h-full object-cover rounded-2xl" src="assets/second.jpeg"/>
+                    </div>
+                    <div class="placeholders object-cover">
+                        <img class="w-full h-full object-cover rounded-2xl" src="/assets/third.jpeg"/>
+                    </div>
+                    <div class="placeholders object-cover">
+                        <img class="w-full h-full object-cover rounded-2xl" src="/assets/fourth.jpeg"/>
+                    </div>
+                    <div class="picture"><img class="w-full h-full object-cover rounded-2xl" src="/assets/first.jpeg"/></div>
+                    <div class="placeholders object-cover">
+                        <img class="w-full h-full object-cover rounded-2xl" src="/assets/fifth.jpeg"/>
+                    </div>
+                    <div class="placeholders object-cover">
+                        <img class="w-full h-full object-cover rounded-2xl" src="/assets/sixth.jpeg"/>
+                    </div>
+                    <div class="placeholders object-cover">
+                        <img class="w-full h-full object-cover rounded-2xl" src="/assets/second.jpeg"/>
+                    </div>
+                    <div class="placeholders object-cover">
+                        <img class="w-full h-full object-cover rounded-2xl" src="/assets/third.jpeg"/>	
+                    </div>
+                </div>
+            </div>
+		</section>
+		<div class="w-full h-full relative page1">
+			<nav class="navbar fixed top-0 left-0 w-full bg-white shadow-md z-50">
+				<div class="container mx-auto flex justify-between items-center p-4">
+					<div class="text-xl font-bold"><a href="/">Logo</a></div>
+					<ul class="flex space-x-4">
+						<li class="nav-links"><a href="/products" class="text-white hover:text-blue-500">Products</a></li>
+						<li class="nav-links"><a href="#about" class="text-white hover:text-blue-500">About</a></li>
+						<li class="nav-links"><a href="#services" class="text-white hover:text-blue-500">Services</a></li>
+						<li class="nav-links"><a href="#contact" class="text-white hover:text-blue-500">Contact</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="font-items absolute top-[56%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black">
+				<p class="tagline text-6xl h-[40vh]  top opacity-0">We are</p> 
+			</div>
+			<div class="w-[100vw] h-[100vh] overflow-hidden flex items-center justify-center">
+
+				<video src={heroVideo} autoplay loop muted class="w-[100%] h-[100%] object-cover vid "/>
+				<div class="absolute inset-0 bg-black opacity-10"></div> 
+			</div>
+			<div class="font-items absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#23131] text-center">
+				<p class="font-black text-7xl headline tagline opacity-0">Experience</p>
+			</div>
+			<div class=" bottom font-items absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#23131] text-center">
+				<span class="tagline text-6xl  opacity-0">Designers</span>
+			</div>
+		</div> 
+		<HeroSecond/>
+	
+		<div>
+			<HeroFourthPage/>
+		</div>
+
+		<div class="w-screen h-screen bg-white">
+			<HeroFifthPage/>
+		</div>
+		<HeroSixthPage/>
+			
+		<HeroLastPage/>
+		<div class="w-screen h-screen bg-white">
+			<p>test</p>
+		</div>
+
+
+		
+		
+	</main>
+</Layout>
+
+<style>
+
+	.no-scroll{
+		overflow: hidden;
+	}
+
+	section{
+		margin: 0;
+		padding: 1rem;
+		box-sizing:border-box;
+		width: 100%;
+		height: 100vh;
+		background-color: rgb(29, 29, 29);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow:hidden
+	}
+
+	.sides{
+    font-family: 'Space Grotesk', sans-serif;
+  	}
+
+	.second{
+		overflow: visible;
+	}
+
+	.picture {
+		width: 100%;
+		height: 200px;
+		border-radius: 6%;
+		object-fit: cover;
+	}
+
+
+	.placeholders{
+		width: 100%;
+		height: 200px;
+		background-color: rgb(105, 105, 105);
+		border: 20px;
+		border-color: black;
+		border-radius: 6%;
+
+	}
+
+	.headline{
+		/* font-family: "Big Shoulders Display", sans-serif; */
+		font-family: "akira";
+		/* font-family: new; */
+		font-stretch:ultra-expanded;
+		font-weight: 900;	
+	}
+	
+	.font-items{
+		font-family: "MediaanItalic";
+		font-weight: 100;
+		line-height: 1;
+	}
+
+	.nav-links a{
+		color: white;
+		font-weight: 150;
+		font-stretch: 1000%;
+		font-size: 1vw;
+		mix-blend-mode: difference;
+		cursor: pointer;
+		transition: all 0.5s ease-in;
+		z-index: 10;
+	}
+
+</style>
+
+<script>
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+function startLoader() {
+    let counterElement = document.querySelector(".counter");
+    let currentValue = 0;
+
+    // Disable scrolling by hiding overflow
+    document.body.style.overflow = "hidden";
+    document.body.classList.add('no-scroll');
+
+    function updateCounter() {
+        if (currentValue === 100) {
+            setTimeout(startAnimation, 500); // Start animation after 0.5s delay
+            return;
+        }
+
+        currentValue += Math.floor(Math.random() * 10) + 1;
+
+        if (currentValue > 100) {
+            currentValue = 100;
+        }
+
+        counterElement.textContent = `${currentValue}`;
+
+        let delay = Math.floor(Math.random() * 100) + 50;
+        setTimeout(updateCounter, delay);
+    }
+
+    updateCounter();
+}
+
+function startAnimation() {
+
+	//_______ THE REAL ONE ________
+    const t1 = gsap.timeline();
+
+    t1.to(".scroll", {
+        opacity: 1,
+        y: 0,
+        duration: 2.6,
+        ease: "expo.inOut",
+    }, "-=0.6");
+
+    t1.to(".picture", {
+        scaleX: 0.94,
+        scaleY: 0.94,
+        duration: 0.5,
+    })
+    .to(".picture", {
+        scaleX: 1,
+        scaleY: 1,
+        width: "100vw",
+        height: "100vh",
+        borderRadius: 0,
+        duration: 1.5,
+        ease: "power2.inOut",
+    })
+    .to(".loader", {
+        opacity: 0,
+    }, "+=1")
+    .call(() => {
+        // Re-enable scrolling after animation
+        document.body.style.overflow = "";
+        document.body.classList.remove('no-scroll');
+
+		homePage()
+    });
+	// const t1 = gsap.timeline();
+
+    // t1.to(".scroll", {
+    //     opacity: 1,
+    //     y: 0,
+    //     duration: 0.2,
+    //     ease: "expo.inOut",
+    // }, "-=0.6");
+
+    // t1.to(".picture", {
+    //     scaleX: 0.94,
+    //     scaleY: 0.94,
+    //     duration: 0.5,
+    // })
+    // .to(".picture", {
+    //     scaleX: 1,
+    //     scaleY: 1,
+    //     width: "100vw",
+    //     height: "100vh",
+    //     borderRadius: 0,
+    //     duration: 0.2,
+    //     ease: "power2.inOut",
+    // })
+    // .to(".loader", {
+    //     opacity: 0,
+    // }, "+=1")
+    // .call(() => {
+    //     // Re-enable scrolling after animation
+    //     document.body.style.overflow = "";
+    //     document.body.classList.remove('no-scroll');
+
+	// 	homePage()
+    // });
+}
+
+function homePage() {
+
+	gsap.to(".navbar", {
+            y: '0%',
+            duration: 1,
+            ease: "power2.out"
+    });
+}
+
+
+// Start the loader when the script runs
+startLoader();
+
+
+
+const home = gsap.timeline({
+	scrollTrigger:{
+		trigger:".page1",
+		start:'top top',
+		end:'bottom top-=300',
+		scrub:1,
+		pin:true,
+	}
+})
+	home.to(".vid",{
+		width:'10%',
+	}).to(".vid" , {
+		height:"0%"
+	}).to(".tagline" ,{
+		opacity:1
+	})
+
+
+
+
+
+</script>

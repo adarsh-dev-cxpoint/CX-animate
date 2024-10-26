@@ -1,0 +1,422 @@
+---
+import { Download } from "@astropub/icons";
+const cards = [
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/first-card.png",
+    overlay_text: "Aerospace and Defense",
+    pdfLink: "/assets/Aerospace_and_Defense.pdf"
+  },
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/third-card.png",
+    overlay_text: "Automotive"
+  },
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/second-card.png",
+    overlay_text: "Banking"
+  },
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/first-card.png",
+    overlay_text: "Communication and Media"
+  },
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/first-card.png",
+    overlay_text: "Consumer Goods and Services"
+  },
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/first-card.png",
+    overlay_text: "Energy"
+  },
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/first-card.png",
+    overlay_text: "Health"
+  },
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/first-card.png",
+    overlay_text: "Insurance"
+  },
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/first-card.png",
+    overlay_text: "Public Service"
+  },
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/first-card.png",
+    overlay_text: "Retail"
+  },
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/first-card.png",
+    overlay_text: "Travel"
+  },
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: "/assets/first-card.png",
+    overlay_text: "Utilities"
+  },
+  // Add more card data here...
+];
+---
+
+<div class="container-box">
+  <div class="card-grid">
+    {cards.map((card, index) => (
+      <div class={`card-wrapper card-${index + 1}`}>
+        <div class="card">
+          <div class="card-content">
+            <h2>{card.title}</h2>
+            <div class="">
+              <p>{card.description}</p>
+              <a href={card.pdfLink} download class="text-white my-4 font-semibold">Download PDF<Download class="inline-flex ms-2" size={15}/></a>
+            </div>
+          </div>
+          <div class="card-image">
+            <img src={card.image} alt="Product concept visualization" />
+          </div>
+        </div>
+        <div class={`overlay overlay-${index + 1}`}>{card.overlay_text}</div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .container-box {
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 1rem;
+  }
+
+  .card-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-1 {
+    border-bottom-right-radius: 5rem;
+    border-top-left-radius: 5rem;
+  }
+
+  .card-2 {
+    border-bottom-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+  }
+
+  .card-3 {
+    border-top-right-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+  }
+
+  .card-4 {
+    border-top-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+  .card-5{
+    border-top-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+  .card-6{
+    border-top-right-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+  }
+  .card-7{
+    border-top-right-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+  }
+  .card-8{
+    border-top-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+  .card-9{
+    border-top-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+  .card-10{
+    border-top-right-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+  }
+  .card-11{
+    border-top-right-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+  }
+  .card-12{
+    border-top-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+
+  .card {
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .card h2 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+  }
+
+  .card p {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .card a{
+    text-decoration: none;
+    margin-top: 2rem;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(86, 48, 255);
+    transition: opacity 0.3s ease;
+  }
+
+  .overlay-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+
+  .overlay-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+
+  .overlay-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+
+  .overlay-4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+
+  .overlay-5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+  .overlay-6{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+  .overlay-7{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+  .overlay-8{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+  .overlay-9{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+  .overlay-10{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+  .overlay-11{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+  .overlay-12{
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height:0.9;
+    color:white
+  }
+
+  .card-wrapper:hover .overlay {
+    opacity: 0;
+  }
+
+  @media (max-width: 768px) {
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const cardWrappers = document.querySelectorAll('.card-wrapper');
+
+    cardWrappers.forEach((wrapper) => {
+      const overlay = wrapper.querySelector('.overlay') as HTMLElement;
+
+
+      wrapper.addEventListener('mouseenter', () => {
+        overlay.style.opacity = '0';
+      });
+
+      wrapper.addEventListener('mouseleave', () => {
+        overlay.style.opacity = '1';
+        
+      });
+    });
+  });
+</script>

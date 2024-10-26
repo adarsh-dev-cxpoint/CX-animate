@@ -85,17 +85,19 @@
 
   ---
   
-  const words = ['Expertise', 'GSAP', 'Marquee', 'Animation'];
-  const repetitions = 4; // Number of times to repeat the word set
+  const images = ['Astro', 'GSAP', 'Marquee', 'Animation'];
+  const repetitions = 4;
   ---
   
   <div class="marquee-container">
+    <p class="ps-20">Trusted by:</p>
     <div class="marquee" id="marquee">
+      
       {[...Array(repetitions)].map(() => (
         <div class="marquee-content">
-          {words.map((word) => (
-            <div class="word-container">
-              <span>{word}</span>
+          {images.map((image) => (
+            <div class="word-container text-black">
+              <img src={image} alt="Marquee Image" />
               <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
@@ -151,16 +153,20 @@
   <style>
     .marquee-container {
       overflow: hidden;
-      background-color: black;
+      background-color: #FBF8F4;
       padding: 0.5rem 0;
-      font-family: MediaanItalic;
-      font-weight: 100;
-      box-shadow: 0px 5px 9px 2px gray;
+      font-family: 'new';
+      font-weight: 800;
+      font-stretch: 450%;
+      height: 18rem;
+      /* box-shadow: 0px 5px 9px 2px gray; */
     }
   
     .marquee {
       display: flex;
+      align-items: center;
       white-space: nowrap;
+      height: 100%;
     }
   
     .marquee-content {

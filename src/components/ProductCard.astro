@@ -1,0 +1,173 @@
+---
+import firstCard from '../../public/assets/first-card.png';
+import secondCard from '../../public/assets/second-card.png';
+import thirdCard from '../../public/assets/third-card.png';
+
+import astrix from '../../public/assets/asterisk.png';
+
+const services = [
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: firstCard
+  },
+  {
+    title: "(Re)build an app or SaaS that customers love",
+    description: "Prototype your success with an amazing user experience and customer retention. We develop working products that not only function flawlessly but also captivate and retain customers, ensuring your app or SaaS is a hit.",
+    image: secondCard
+  },
+  {
+    title: "Brand your whole vision",
+    description: "Build a cohesive and recognizable brand that stands out and resonates with your audience. We create a strong visual identity that ensures your brand is easily identifiable and memorable, fostering customer loyalty and trust.",
+    image: thirdCard
+  }
+];
+---
+
+<div class="service-cards">
+  <div class="flex flex-col items-start justify-center max-w-[700px] px-10 mb-20">
+    <div class="flex items-center justify-center gap-2 new">
+      <img src={astrix.src} alt="astrix" class="w-8 h-8 astrix "  />
+      <p class="animated-text">Create something amazing from the start.</p>
+    </div>
+    <p class=" new animated-text">We handle everything from branding to product development, transforming your vision into a thriving business. Using data-driven insights and creative innovation, we build cohesive, scalable solutions.</p>
+  </div>
+  <div class="flex items-start justify-around">
+  {services.map(service => (
+    <div class="card">
+      <div class="card-content px-8 py-4 overflow-hidden">
+        <h2 class="leading-[1]">{service.title}</h2>
+        <p class="text-muted">{service.description}</p>
+      </div>
+      <img src={service.image.src} alt={service.title} />
+    </div>
+    ))}
+    </div>
+  </div>
+</div>
+
+<div id="custom-cursor" class="custom-cursor flex items-center justify-center bg-white/55 font-bold">See More</div>
+
+<style>
+
+  .new{
+    font-family: 'new', sans-serif;
+    font-size: 2rem; 
+    font-weight: 600;
+    font-stretch: 450%;
+    line-height: 1;
+  }
+  .service-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .card {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 10px;
+    padding-top: 20px;
+    height: 600px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top-right-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-top-left-radius: 80px;
+  }
+
+  .card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    font-family: 'MediaanItalic';
+    z-index: 10000;
+    opacity: 0;
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    color: black;
+    border: 2px solid white;
+    font-size: 14px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%); /* Center the cursor */
+    
+  }
+
+  @media (max-width: 768px) {
+    .service-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>
+
+<script>
+  const cursor = document.getElementById('custom-cursor');
+  let isVisible = false;
+
+  gsap.from('.astrix', {
+        rotation: 360,
+        duration: 4,
+        ease: 'linear',
+        repeat: -1
+    });
+
+  function updateCursorPosition(e) {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  }
+
+  function showCursor() {
+    if (!isVisible) {
+      cursor.style.opacity = '1';
+      isVisible = true;
+    }
+  }
+
+  function hideCursor() {
+    cursor.style.opacity = '0';
+    isVisible = false;
+  }
+
+  document.addEventListener('mousemove', updateCursorPosition);
+
+  const imageContainers = document.querySelectorAll('.card');
+  imageContainers.forEach(container => {
+    container.addEventListener('mouseenter', showCursor);
+    container.addEventListener('mouseleave', hideCursor);
+    container.addEventListener('mousemove', (e) => {
+      updateCursorPosition(e);
+    });
+  });
+</script>

@@ -1,0 +1,175 @@
+---
+
+
+
+---
+
+<div id="main">
+    <div class="page6">
+        <div class="moreCases">
+            <p>MORE</p>
+            <p>CASES</p>
+        </div>
+        <div class="bottomtext">
+            <p>Ready </p>
+            <p>For your Success</p>
+            <p>Journey ?</p>
+            <div class="mt-24 contact-button text-sm text-center py-4 px-5 bg-[#f9fc50] rounded-full w-fit hover:bg-black hover:text-white transition-all duration-300 ">Contact us</div>
+        </div>
+        <div class="footertext">
+            <p>this is your team of brand experts,</p>
+            <p>get ready to make your brand stand out.</p>
+        </div>
+    </div>
+    <div id="custom-cursor-product">
+    </div>
+</div>
+
+<style>
+
+#main {
+    cursor: none;
+}
+
+#custom-cursor-product {
+    position: fixed;
+    pointer-events: none;
+    font-family: 'MediaanItalic';
+    z-index: 10000;
+    opacity: 0;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    font-size: 14px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%); /* Center the cursor */
+    
+  }
+
+.page6 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    color: black;
+}
+
+.moreCases {
+    display: flex;
+    gap: 10px;
+}
+
+.moreCases p {
+    font-family: 'new', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    font-stretch: 700%;
+    transition: all 0.5s ease;
+}
+
+.moreCases p:hover {
+    font-weight: 900;
+}
+
+.bottomtext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'new', sans-serif;
+    font-weight: 700;
+    font-size: 100px;
+    font-stretch: 700%;
+
+}
+
+.bottomtext p {
+    line-height: 0.8;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.bottomtext p:hover {
+    font-weight: 900;
+}
+
+.footertext {
+    display: flex;
+    flex-direction: column;
+    font-family: 'MediaanItalic', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-stretch: 700%;
+}
+
+.footertext p {
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+}
+</style>
+
+    <script>
+
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cursor = document.getElementById('custom-cursor-product');
+    let isVisible = false;
+
+    gsap.from('.astrix', {
+            rotation: 360,
+            duration: 4,
+            ease: 'linear',
+            repeat: -1
+        });
+
+    function updateCursorPosition(e) {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+    }
+
+    function showCursor() {
+        if (!isVisible) {
+        cursor.style.opacity = '1';
+        isVisible = true;
+        }
+    }
+
+    function hideCursor() {
+        cursor.style.opacity = '0';
+        isVisible = false;
+    }
+
+    document.addEventListener('mousemove', updateCursorPosition);
+
+    const main = document.getElementById('main');
+    
+        main.addEventListener('mouseenter', showCursor);
+        main.addEventListener('mouseleave', hideCursor);
+        main.addEventListener('mousemove', (e) => {
+        updateCursorPosition(e);
+        });
+
+
+gsap.to(".page6", {
+    scrollTrigger: {
+        trigger: ".page6",
+        start: "top 10%",
+        end: "bottom -200",
+        scrub: 1,
+        markers: true
+ 
+    },
+});
+</script>

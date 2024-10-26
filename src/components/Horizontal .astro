@@ -1,0 +1,109 @@
+---
+import firstCard from '../../public/assets/first-card.png';
+import secondCard from '../../public/assets/second-card.png';
+import thirdCard from '../../public/assets/third-card.png';
+
+const services = [
+  {
+    title: "Evaluate and improve your product concept",
+    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    image: firstCard
+  },
+  {
+    title: "(Re)build an app or SaaS that customers love",
+    description: "Prototype your success with an amazing user experience and customer retention. We develop working products that not only function flawlessly but also captivate and retain customers, ensuring your app or SaaS is a hit.",
+    image: secondCard
+  },
+  {
+    title: "Brand your whole vision",
+    description: "Build a cohesive and recognizable brand that stands out and resonates with your audience. We create a strong visual identity that ensures your brand is easily identifiable and memorable, fostering customer loyalty and trust.",
+    image: thirdCard
+  }
+];
+
+---
+
+<div class="scroll">
+    <span class="flex items-center justify-center gap-4 cont">
+        {services.map(service => (
+            <div class="card">
+              <div class="card-content px-8 py-4 overflow-hidden">
+                <h2>{service.title}</h2>
+                <p class="text-muted">{service.description}</p>
+              </div>
+              <img src={service.image.src} alt={service.title} />
+            </div>
+        ))}
+    </span>
+</div>
+
+<style>
+    .scroll {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative; /* Added for positioning */
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .scroll span{
+    color: white;
+    position: absolute; /* Added for animation */
+    left: 50%; /* Start off-screen */
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.card {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 10px;
+    padding-top: 20px;
+    height: 650px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top-right-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-top-left-radius: 80px;
+  }
+
+  .card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+</style>
+
+<script>
+    var t1 = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".scroll",
+        start: 'top 0%',
+        end: "top -400%",
+        scrub: true,
+        pin: true,
+    }
+});
+
+    t1.to(".scroll span", {
+    x: "-50%", // Move text to the left
+
+});
+
+
+</script>

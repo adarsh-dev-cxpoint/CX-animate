@@ -1,0 +1,113 @@
+---
+import astrix from "../../../public/assets/asterisk.png";
+// import HeroSixthPage from "../pages/HeroSixthPage.astro";
+---
+
+<div class="w-screen h-full ">
+    <nav class="navbar w-[88%] bg-transparent z-50 mx-auto pt-8 bg-red-500">
+        <div class=" flex justify-between items-center p-4">
+            <div class="text-xl font-bold text-black mix-blend-difference"><a href="/">Logo</a></div>
+            <ul class="flex space-x-4 px-6 py-4 bg-[#373737] rounded-full ">
+                <li class="nav-links"><a href="/products" class="text-white hover:rounded-full">Products</a></li>
+                <li class="nav-links"><a href="#about" class="text-white ">About</a></li>
+                <li class="nav-links"><a href="/services" class="text-white ">Services</a></li>
+                <li class="nav-links"><a href="#contact" class="text-white ">Contact</a></li>
+            </ul>
+            <button class=" text-black text-[0.9rem] px-6 py-4 rounded-full bg-[#F9FC50] font-semibold">Get in touch</button>
+        </div>
+    </nav>
+    <div class="container h-full px-20 pt-24 bg-red-500">
+            <div class="w-full flex items-center gap-4">
+                <img class="w-[30px] h-auto astrix"src={astrix.src} alt="astrix" />
+                <div class="w-full h-full overflow-hidden first-text">
+                    <p class="text-[45px] akira animated-text">At cx point, we don't just make </p>
+                </div>
+            </div>
+            <div class="w-full ">
+                <div class="w-full h-full overflow-hidden">
+                    <div class="w-full h-full overflow-hidden">
+                    <p class="text-[45px] akira animated-text">things look good-we make them work.</p>
+                    </div>
+                    <div class="w-full h-full overflow-hidden">
+                    <p class="text-[45px] akira animated-text">No fancy promises, no over-complicated</p>
+                    </div>
+                    <div class="w-full h-full overflow-hidden">
+                    <p class="text-[45px] akira animated-text">jargon-just real solutions that deliver.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full h-full flex px-18 pt-16">
+                <div class="w-[50%] h-full flex items-center p-12 opaq">
+                    <div>
+                        <p class="text-[20px] font-bold">
+                            Our story
+                        </p>
+                        <div class="text-[16px] font-semibold text-gray-500">
+                            Founded by Tom Garcy, a designer who's spent nearly two decades in the industry, we focus on solving your real-world challenges. It's not about fancy designs or promises that dont deliver. It's about crafting solutions that can help you grow, engage users and get real results.
+                        </div>
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+                <div class="w-[50%] h-full flex items-center p-12 opaq">
+                    <div>
+                        <p class="text-[20px] font-bold">
+                            Our Approach
+                        </p>
+                        <div class="text-[16px] font-semibold text-gray-500">
+                            We don't just create designs - we solve your problems. It all starts with listening. We dive deep into understanding your business, your challenges, and your goals. Then we use data, creativity and practical solutions to craft a plan that works. No unnecessary extras, no bloated budgets - just what makes sense for you.  
+                        </div>
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- <HeroSixthPage/> -->
+</div>
+
+<style>
+    .akira{
+        font-family: 'new', sans-serif;
+        font-weight: 700;
+        font-stretch: 420%;
+        line-height: 100%;
+    }
+</style>
+
+<script>
+import gsap from "gsap";
+
+const textElements = document.querySelectorAll('.animated-text');
+
+gsap.from('.astrix', {
+        rotation: 360,
+        duration: 4,
+        ease: 'linear',
+        repeat: -1
+});
+
+const t1 = gsap.timeline()
+
+t1.from('.astrix', {
+   opacity: 0,
+   duration: 0.6,
+   delay: 0.6
+})
+t1.from(textElements, {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    ease: "power2.out",
+})
+
+t1.from(".opaq", {
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+})
+</script>
+

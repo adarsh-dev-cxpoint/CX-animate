@@ -1,0 +1,163 @@
+---
+import astrix from "../../public/assets/whiteAsterisk.png"
+import firstImage from "../../public/assets/first-card.png"
+import secondImage from "../../public/assets/second-card.png"
+import thirdImage from "../../public/assets/third-card.png"
+
+---
+
+<div class="w-screen h-screen main_container relative">
+    <div class="absolute left-0 top-0 w-screen h-screen z-40 bg-red-500  child_container">
+        <div class="w-full h-full flex items-center justify-center">
+            <div class="w-[50%] h-full bg-[#273DFF] px-14 py-2 flex flex-col">
+                <div class="flex flex-col">
+                    <p class="font-new statistics leading-none">
+                        CX
+                    </p>
+                    <p class="text-white/70 ps-2 text-[2rem] font-bold">
+                        Customer Experience
+                    </p>
+                </div>
+                <div class="flex flex-col mt-16">
+                    <p class="text-white text-[1.2rem] font-bold">
+                        First Impressions matter
+                    </p>
+                    <p class="text-white text-[1.1rem] font-semibold leading-[100%] w-[70%] text-white/70">
+                        Your website, product, or branding is the first interaction potential customers have with your business.A professional design creates a strong, positive first impression, leading to increased trust and credibility.
+                    </p>
+                </div>
+                
+                <p class="w-[80%] text-white text-[1.1rem] font-semibold leading-[100%] text-white/70 mt-4">
+                    A well designed website can make a lasting impression, setting the stage for long-term success.
+                </p>
+            </div>
+            <div class="w-[50%] h-full bg-[#273DFF] flex items-start justify-center">
+                <!-- <img src={astrix.src} alt="asterisk" class="w-[20%] astrix-clock">
+                <img src={astrix.src} alt="asterisk" class="w-[20%] ">
+                <img src={astrix.src} alt="asterisk" class="w-[20%] astrix-clock">
+                <img src={astrix.src} alt="asterisk" class="w-[20%] astrix-anticlock"> -->
+                <div class="w-full h-full flex items-center justify-center overflow-hidden">
+                    <img src={firstImage.src} class="w-full h-full object-fit">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute left-0 top-0 w-screen h-screen z-30 bg-blue-500  child_container">
+        <div class="w-full h-full flex items-center justify-center">
+            <div class="w-[50%] h-full bg-[#273DFF] px-14 py-2 flex flex-col">
+                <div class="flex flex-col">
+                    <p class="font-new statistics leading-none">
+                        DX
+                    </p>
+                    <p class="text-white/70 ps-2 text-[2rem] font-bold">
+                        Developer Experience
+                    </p>
+                </div>
+                <div class="flex flex-col mt-16">
+                    <p class="text-white text-[1.2rem] font-bold">
+                        First Impressions matter
+                    </p>
+                    <p class="text-white text-[1.1rem] font-semibold leading-[100%] w-[70%] text-white/70">
+                        Your website, product, or branding is the first interaction potential customers have with your business.A professional design creates a strong, positive first impression, leading to increased trust and credibility.
+                    </p>
+                </div>
+                
+                <p class="w-[80%] text-white text-[1.1rem] font-semibold leading-[100%] text-white/70 mt-4">
+                    A well designed website can make a lasting impression, setting the stage for long-term success.
+                </p>
+            </div>
+            <div class="w-[50%] h-full bg-[#273DFF] flex items-start justify-center">
+                <div class="w-full h-full flex items-center justify-center overflow-hidden">
+                    <img src={thirdImage.src} class="w-full h-full object-fit">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute left-0 top-0 w-screen h-screen z-20 bg-green-500  child_container">
+        <div class="w-full h-full flex items-center justify-center">
+            <div class="w-[50%] h-full bg-[#273DFF] px-14 py-2 flex flex-col">
+                <div class="flex flex-col">
+                    <p class="font-new statistics leading-none">
+                        BX
+                    </p>
+                    <p class="text-white/70 ps-2 text-[2rem] font-bold">
+                        Business Experience
+                    </p>
+                </div>
+                <div class="flex flex-col mt-16">
+                    <p class="text-white text-[1.2rem] font-bold">
+                        First Impressions matter
+                    </p>
+                    <p class="text-white text-[1.1rem] font-semibold leading-[100%] w-[70%] text-white/70">
+                        Your website, product, or branding is the first interaction potential customers have with your business.A professional design creates a strong, positive first impression, leading to increased trust and credibility.
+                    </p>
+                </div>
+                
+                <p class="w-[80%] text-white text-[1.1rem] font-semibold leading-[100%] text-white/70 mt-4">
+                    A well designed website can make a lasting impression, setting the stage for long-term success.
+                </p>
+            </div>
+            <div class="w-[50%] h-full bg-[#273DFF] flex items-start justify-center">
+                <div class="w-full h-full flex items-center justify-center overflow-hidden">
+                    <img src={secondImage.src} class="w-full h-full object-fit">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute left-0 top-0 w-screen h-screen z-10 bg-yellow-500 ">
+        <div class="w-full h-full flex items-center justify-center bg-[#273DFF] text-white overflow-hidden relative">
+            <p class="font-new text-[70rem] company absolute top-[20%] text-nowrap">CX POINT</p>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .font-new{
+        font-family: 'new';
+    }
+
+    .statistics{
+        font-stretch: 300%;
+        font-weight: 900;
+        font-size: 24rem;
+        line-height: 100%;
+        color: white;
+    }
+
+    .company{
+        font-size: 32rem;
+        font-stretch: 400%;
+        font-weight: 900;
+    }
+
+</style>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const child_containers = document.querySelectorAll(".child_container");
+
+    // Stagger scale to 0 animation for child_containers
+    gsap.to(child_containers, {
+        scrollTrigger: {
+            trigger: ".main_container",
+            start: "top top",
+            end: "bottom+=200% top",
+            pin: true, // Pin the main_container
+            scrub: 2,
+        },
+        scale: 0,
+        stagger: 4, // Stagger the animation by 0.2 seconds
+        ease: "power1.inOut",
+        duration: 1 // Duration of the scale animation
+    });
+
+    gsap.to(".astrix-clock", {
+        rotate: 360,
+        ease: "none",
+        duration: 10,
+        repeat: -1
+    })
+
+</script>

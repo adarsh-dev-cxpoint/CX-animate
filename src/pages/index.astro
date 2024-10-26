@@ -2,103 +2,98 @@
 import Layout from '../layouts/Layout.astro';
 import gsap from "gsap"
 import heroVideo from "../../public/assets/heroVideo2.mp4"
+import heroVideo3 from "../../public/assets/heroVideo3.mp4"
 import Marquee from "../components/marquee.astro"
 import HeroSecond from '../components/HeroSecondPage.astro';
 import HeroFourthPage from '../components/HeroFourthPage.astro';
 import HeroFifthPage from '../components/HeroFifthPage.astro';
 import HeroSixthPage from '../components/HeroSixthPage.astro';
 import HeroLastPage from '../components/HeroLastPage.astro';
+import astrixwhite from "../../public/assets/whiteAsterisk.png"
+import astrixblack from "../../public/assets/asterisk.png"
+import StackingCards from '../components/StackingCards.astro';
+import Horizontal from '../components/Horizontal .astro';
+import HeroSeventhPage from '../components/HeroSeventhPage.astro';
 ---
 
 <Layout title="CX-Point">
-	<main class="relative w-full h-full bg-white">
-		<section class="loader absolute z-40 scroll-disabled h-[100vh] w-[100vw">
-			<div class="first w-[100%] relative flex items-center justify-start text-white sides">
-				<p>[</p>
-				<span class="px-2">We are Experience Designers</span>
-				<p>]</p>
-			</div>
-			<div class="second w-[60%] h-[1200px] absolute flex items-center justify-center ">
-				<div class=" w-[50%] flex flex-col gap-4 items-center scroll opacity-0 translate-y-full pointer-events-none">
-					<div class="placeholders object-cover">
-						<img class="w-full h-full object-cover rounded-2xl" src="/assets/third.jpeg"/>
-					</div>
-					<div class="placeholders object-cover">
-						<img class="w-full h-full object-cover rounded-2xl" src="assets/second.jpeg"/>
-					</div>
-					<div class="placeholders object-cover">
-						<img class="w-full h-full object-cover rounded-2xl" src="/assets/third.jpeg"/>
-					</div>
-					<div class="placeholders object-cover">
-						<img class="w-full h-full object-cover rounded-2xl" src="/assets/fourth.jpeg"/>
-					</div>
-					<div class="picture"><img class="w-full h-full object-cover rounded-2xl" src="/assets/first.jpeg"/></div>
-					<div class="placeholders object-cover">
-						<img class="w-full h-full object-cover rounded-2xl" src="/assets/fifth.jpeg"/>
-					</div>
-					<div class="placeholders object-cover">
-						<img class="w-full h-full object-cover rounded-2xl" src="/assets/sixth.jpeg"/>
-					</div>
-					<div class="placeholders object-cover">
-						<img class="w-full h-full object-cover rounded-2xl" src="/assets/second.jpeg"/>
-					</div>
-					<div class="placeholders object-cover">
-						<img class="w-full h-full object-cover rounded-2xl" src="/assets/third.jpeg"/>	
-					</div>
-				</div>
-			</div>
-			<div class="third w-[20%] sides flex items-center justify-end text-white">
-				<span>[</span>
-				<p class="ps-2 counter min-w-10 text-">0 </p><span class="pe-2">Percent</span>
-				<span class="">]</span>
-			</div>
-		</div>
+	<main class="w-[100vw] h-[100vh] bg-white">
+        <section class="loader absolute z-40 h-[100vh] w-[100vw]">
+            <div class="second w-full h-full flex items-center justify-center ">
+                <div class=" w-[50%] flex flex-col gap-4 items-center pointer-events-none">
+                    <div class="picture"><img class="w-full h-full object-cover" src="/assets/loader-picture.png"/></div>
+                </div>
+            </div>
 		</section>
-		<div class="w-full h-full relative page1">
-			<nav class="navbar fixed top-0 left-0 w-full bg-white shadow-md z-50 opacity-0">
+		<div class="w-full h-full page1 relative">
+			<nav class="navbar absolute top-[4%] left-1/2 transform -translate-x-1/2 w-[88%] bg-transparent z-50">
 				<div class="container mx-auto flex justify-between items-center p-4">
-					<div class="text-xl font-bold">Logo</div>
-					<ul class="flex space-x-4">
-						<li class="nav-links"><a href="#home" class="text-white mix-blend-difference hover:text-blue-500">Home</a></li>
-						<li class="nav-links"><a href="#about" class="text-white hover:text-blue-500">About</a></li>
-						<li class="nav-links"><a href="#services" class="text-white hover:text-blue-500">Services</a></li>
-						<li class="nav-links"><a href="#contact" class="text-white hover:text-blue-500">Contact</a></li>
+					<div class="text-xl font-bold text-white"><a href="/">Logo</a></div>
+					<ul class="flex space-x-4 px-6 py-4 bg-[#373737] rounded-full ">
+						<li class="nav-links"><a href="/products" class="text-white hover:rounded-full">Products</a></li>
+						<li class="nav-links"><a href="#about" class="text-white ">About</a></li>
+						<li class="nav-links"><a href="/services" class="text-white ">Services</a></li>
+						<li class="nav-links"><a href="#contact" class="text-white ">Contact</a></li>
 					</ul>
+					<button class=" text-black text-[0.9rem] px-6 py-4 rounded-full bg-[#F9FC50] font-semibold">Get in touch</button>
 				</div>
 			</nav>
-			<div class="font-items absolute top-[56%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black">
-				<p class="tagline text-6xl h-[40vh] top opacity-0">We are</p> 
-			</div>
 			<div class="w-[100vw] h-[100vh] overflow-hidden flex items-center justify-center">
-
-				<video src={heroVideo} autoplay loop muted class="w-[100%] h-[100%] object-cover vid "/>
-				<div class="absolute inset-0 bg-black opacity-10"></div> 
-			</div>
-			<div class="font-items absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#23131] text-center">
-				<p class="font-black text-7xl headline tagline opacity-0">Experience</p>
-			</div>
-			<div class=" bottom font-items absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#23131] text-center">
-				<span class="tagline text-6xl opacity-0">Designers</span>
+					<video 
+						src={heroVideo3} 
+						autoplay 
+						loop 
+						muted 
+						class="w-full h-full object-cover vid relative"
+					/>
+					<div class="absolute top-[36%] left-[38%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-100 ">
+						<div class="flex flex-col items-center justify-center">
+							<div class="flex items-center justify-start gap-4 h-full" >
+								<svg width="6%" height="6%" viewBox="0 0 56 62" fill="none" xmlns="http://www.w3.org/2000/svg" class="astrix opacity-0">
+									<path d="M25.39 61.3035V34.7442L2.50559 47.9404L0 43.9314L23.0515 30.5682L0 17.3721L2.50559 13.1961L25.39 26.5593V0H30.2342V26.3923L53.1186 13.1961L55.4571 17.3721L32.5727 30.5682L55.4571 43.9314L53.1186 47.9404L30.2342 34.7442V61.3035H25.39Z" fill="white"></path>
+								</svg>
+								<div class="w-full h-full overflow-hidden">
+									<p class="new font-semibold text-[4.2rem] text-white animated-text text-nowrap ">Success-Driven Approach</p>
+								</div>
+							</div>
+							<div class="w-full h-full overflow-hidden">
+							<p class="text-white new font-semibold text-[4rem] animated-text ">
+								for ambitious Leaders
+							</p>
+							</div>
+							<div class="w-full h-full overflow-hidden mt-2 py-4">
+								<p class="text-white new font-normal text-[1.2rem] animated-text ">We design <span class=" px-3 py-2 mx-2 bg-white text-black rounded-full mediaan">Experiences</span> that transform visions into reality</p>
+							</div>
+						</div>
+					</div>
 			</div>
 		</div> 
-		<HeroSecond/>
-	
-		<div>
+		<StackingCards />
+		<div class="w-screen h-[350px] bg-white flex items-center justify-start px-28">
+			<div class="flex flex-col items-start justify-center w-[60%]">
+				<div class="flex items-center justify-start gap-4">
+					<img src={astrixblack.src} alt="astrix" class="w-[4%] h-[4%] rotate"/>
+					<p class="text-black font-semibold new text-[2.2rem]">We don’t just design, we engineer your</p>
+				</div>
+					<p class="text-black text-[2.2rem] font-semibold new">success by leveraging data-driven insights and creative innovation. We take ownership of your business, deeply understanding its unique challenges and goals, like these:</p>
+			</div>
+		</div>
+		<Horizontal />
+		<HeroSeventhPage/>
+		<!-- <HeroSecond/> -->
+		<!-- <div>
 			<HeroFourthPage/>
-		</div>
-		<div class="w-screen h-screen bg-white">
+		</div> -->
+
+		<!-- <div class="w-screen h-screen bg-white">
 			<HeroFifthPage/>
-		</div>
+		</div> -->
 		<HeroSixthPage/>
 			
 		<HeroLastPage/>
 		<div class="w-screen h-screen bg-white">
 			<p>test</p>
 		</div>
-
-
-		
-		
 	</main>
 </Layout>
 
@@ -108,49 +103,39 @@ import HeroLastPage from '../components/HeroLastPage.astro';
 		overflow: hidden;
 	}
 
+	.mediaan{
+		font-family: "MediaanItalic";
+	}
+
 	section{
 		margin: 0;
 		padding: 1rem;
 		box-sizing:border-box;
 		width: 100%;
 		height: 100vh;
-		background-color: rgb(29, 29, 29);
+		background-color: rgb(255, 255, 255);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		overflow:hidden
 	}
 
-	.sides{
-    font-family: 'Space Grotesk', sans-serif;
-  	}
-
-	.second{
-		overflow: visible;
-	}
-
 	.picture {
 		width: 100%;
 		height: 200px;
-		border-radius: 6%;
+		scale:0;
 		object-fit: cover;
 	}
 
-
-	.placeholders{
-		width: 100%;
-		height: 200px;
-		background-color: rgb(105, 105, 105);
-		border: 20px;
-		border-color: black;
-		border-radius: 6%;
+	.new{
+		font-family: "new";
+		font-stretch: 520%;
+		line-height: 1;
 
 	}
 
 	.headline{
-		/* font-family: "Big Shoulders Display", sans-serif; */
 		font-family: "akira";
-		/* font-family: new; */
 		font-stretch:ultra-expanded;
 		font-weight: 900;	
 	}
@@ -163,13 +148,17 @@ import HeroLastPage from '../components/HeroLastPage.astro';
 
 	.nav-links a{
 		color: white;
-		font-weight: 150;
+		font-weight: 600;
 		font-stretch: 1000%;
 		font-size: 1vw;
-		mix-blend-mode: difference;
 		cursor: pointer;
 		transition: all 0.5s ease-in;
 		z-index: 10;
+	}
+
+	.nav-links a:hover{
+		color: yellow;
+		border-radius: 10px;
 	}
 
 </style>
@@ -179,138 +168,59 @@ import HeroLastPage from '../components/HeroLastPage.astro';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function startLoader() {
-    let counterElement = document.querySelector(".counter");
-    let currentValue = 0;
+	gsap.to(".rotate", {
+		rotate: 360,
+		repeat: -1,
+		ease: "linear",
+		duration: 3,
+	})
+	const t1 = gsap.timeline()
 
-    // Disable scrolling by hiding overflow
-    document.body.style.overflow = "hidden";
-    document.body.classList.add('no-scroll');
-
-    function updateCounter() {
-        if (currentValue === 100) {
-            setTimeout(startAnimation, 500); // Start animation after 0.5s delay
-            return;
-        }
-
-        currentValue += Math.floor(Math.random() * 10) + 1;
-
-        if (currentValue > 100) {
-            currentValue = 100;
-        }
-
-        counterElement.textContent = `${currentValue}`;
-
-        let delay = Math.floor(Math.random() * 100) + 50;
-        setTimeout(updateCounter, delay);
-    }
-
-    updateCounter();
-}
-
-function startAnimation() {
-
-	//_______ THE REAL ONE ________
-    const t1 = gsap.timeline();
-
-    t1.to(".scroll", {
-        opacity: 1,
-        y: 0,
-        duration: 2.6,
-        ease: "expo.inOut",
-    }, "-=0.6");
-
-    t1.to(".picture", {
-        scaleX: 0.94,
-        scaleY: 0.94,
-        duration: 0.5,
-    })
-    .to(".picture", {
+	t1.to(".picture", {
         scaleX: 1,
         scaleY: 1,
         width: "100vw",
         height: "100vh",
-        borderRadius: 0,
         duration: 1.5,
+		opacity:1,
         ease: "power2.inOut",
     })
-    .to(".loader", {
-        opacity: 0,
-    }, "+=1")
-    .call(() => {
-        // Re-enable scrolling after animation
-        document.body.style.overflow = "";
-        document.body.classList.remove('no-scroll');
-
-		homePage()
-    });
-	// const t1 = gsap.timeline();
-
-    // t1.to(".scroll", {
-    //     opacity: 1,
-    //     y: 0,
-    //     duration: 0.2,
-    //     ease: "expo.inOut",
-    // }, "-=0.6");
-
-    // t1.to(".picture", {
-    //     scaleX: 0.94,
-    //     scaleY: 0.94,
-    //     duration: 0.5,
-    // })
-    // .to(".picture", {
-    //     scaleX: 1,
-    //     scaleY: 1,
-    //     width: "100vw",
-    //     height: "100vh",
-    //     borderRadius: 0,
-    //     duration: 0.2,
-    //     ease: "power2.inOut",
-    // })
-    // .to(".loader", {
-    //     opacity: 0,
-    // }, "+=1")
-    // .call(() => {
-    //     // Re-enable scrolling after animation
-    //     document.body.style.overflow = "";
-    //     document.body.classList.remove('no-scroll');
-
-	// 	homePage()
-    // });
-}
-
-function homePage() {
-
-	gsap.to(".navbar", {
-            y: '0%',
-            duration: 1,
-            ease: "power2.out"
-    });
-}
-
-
-// Start the loader when the script runs
-startLoader();
-
-
-
-const home = gsap.timeline({
-	scrollTrigger:{
-		trigger:".page1",
-		start:'top top',
-		end:'bottom top-=300',
-		scrub:1,
-		pin:true,
-	}
-})
-	home.to(".vid",{
-		width:'10%',
-	}).to(".vid" , {
-		height:"0%"
-	}).to(".tagline" ,{
-		opacity:1
+	.to(".loader" , {
+		opacity:0,
+	})
+	.to(".vid", {  // Correct syntax: target both .vid and .overlay
+		scaleX: 0.99,
+		scaleY: 0.97,
+		borderRadius: 90,
+		duration: 1,
+	})
+	t1.from(".navbar",{
+		y:"-100%",
+		duration:0.5,
+		opacity:0,
 	})
 
+	.to(".astrix", {
+		opacity:1,
+	},"anim")
+	.to(".astrix", {
+		rotate: "360deg",
+		repeat: -1,
+		ease: "linear",
+		duration: 3,
+		delay:-0.5,
+	},"anim")
+
+	t1.fromTo(".animated-text", 
+    { opacity: 0, y: 50 }, // Starting properties: fully transparent and 50 pixels down
+    { opacity: 1, y: 0, duration: 1, ease: "power2.out" ,delay:-0.9 } ,// Ending properties: fully visible and at original position
+	);
+	
+
+	
+	
+	
+	
 
 
 

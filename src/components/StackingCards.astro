@@ -1,0 +1,105 @@
+---
+// Import necessary libraries
+const astrix = '/assets/asterisk.png';
+import * as Icon from '@astropub/icons'
+
+
+---
+
+<section class="cardStacking flex items-center justify-center min-h-screen bg-white">
+  <div class="container mx-auto">
+    <div class="flex ">
+      <div class="w-full flex items-center justify-center">
+        <div class="cardStacking__cards flex flex-col items-center justify-center gap-10">
+
+          <div class="stackCard flex items-center justify-between bg-[#FBFF47] w-[450px]">
+            <div class="stackCard__body w-full flex-col flex items-start justify-start">
+              <span class="stackCard__body-content-header block akira text-[40px] mt-2">You have a vision but need one expert team to bring it to life ?</span>
+              <div class=" px-[2px] py-[2px] rounded-full bg-black mt-10"><Icon.ChevronDown size={40} color="white"/></div>
+            </div>
+          </div>
+
+          <div class="stackCard flex items-center justify-between bg-purple-500 w-[450px]">
+            <div class="stackCard__body w-full flex-col flex items-start justify-start">
+              <span class="stackCard__body-content-header block akira text-[40px] mt-2">Your concept needs validation and refinement by a single team.</span>
+              <div class=" px-[2px] py-[2px] rounded-full bg-black mt-10"><Icon.ChevronDown size={40} color="white"/></div>
+            </div>
+          </div>
+
+          <div class="stackCard flex items-center justify-between bg-purple-700 w-[450px]">
+            <div class="stackCard__body w-full flex-col flex items-start justify-start">
+              <span class="stackCard__body-content-header block akira text-[40px] mt-2">You need seamless experience and functionality under one roof ?</span>
+              <div class=" px-[2px] py-[2px] rounded-full bg-black mt-10"><Icon.ChevronDown size={40} color="white"/></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="spacer bg-white"></section>
+
+<style>
+.akira{
+  font-family: 'new';
+  font-stretch: 400%;
+  font-weight: 800;
+  line-height: 100%;
+}
+.cardStacking {
+  overflow: hidden;
+  padding: 60px 0;
+
+  .stackCard {
+    border-radius: 70px;
+    position: relative;
+    min-height: 450px;
+    padding: 40px 35px;
+    transform-origin: 50% -160%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.spacer {
+  height: 100px;
+}
+</style>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger); // Register the ScrollTrigger plugin
+
+    let cards = gsap.utils.toArray<HTMLElement>(".stackCard"); // Ensure cards are typed as HTMLElement[]
+
+    let stickDistance = 0;
+
+    let firstCardST = ScrollTrigger.create({
+      trigger: cards[0],
+      start: "center center"
+    });
+
+    let lastCardST = ScrollTrigger.create({
+      trigger: cards[cards.length - 1],
+      start: "center center"
+    });
+
+    cards.forEach((card, index) => {
+      var scale = 1 - (cards.length - index) * 0.025;
+      let scaleDown = gsap.fromTo(card, 
+        { scale: 1, transformOrigin: `50% ${lastCardST.start + stickDistance}` }, // Starting state
+        { scale: scale, transformOrigin: `50% ${lastCardST.start + stickDistance}`, duration: 0.5 } // Ending state
+      );
+
+      ScrollTrigger.create({
+        trigger: card,
+        start: "center center",
+        end: () => lastCardST.start + stickDistance,
+        pin: true,
+        pinSpacing: false,
+        animation: scaleDown,
+        toggleActions: "restart none none reverse"
+      });
+    });
+  
+</script>

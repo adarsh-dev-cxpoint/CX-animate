@@ -1,0 +1,164 @@
+---
+const astrix = '/assets/asterisk.png';
+import Layout from "../../layouts/Layout.astro";
+import ServiceCards from '../../components/ServiceCards.astro';
+---
+<Layout title="CX-Point">
+<div class="w-full min-h-screen bg-white">
+    <nav class="navbar absolute top-[4%] left-1/2 transform -translate-x-1/2 w-[88%] bg-transparent z-50">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="text-xl font-bold text-black mix-blend-difference"><a href="/">Logo</a></div>
+            <ul class="flex space-x-4 px-6 py-4 bg-[#373737] rounded-full ">
+                <li class="nav-links"><a href="/products" class="text-white hover:rounded-full">Products</a></li>
+                <li class="nav-links"><a href="#about" class="text-white ">About</a></li>
+                <li class="nav-links"><a href="/services" class="text-white ">Services</a></li>
+                <li class="nav-links"><a href="#contact" class="text-white ">Contact</a></li>
+            </ul>
+            <button class=" text-black text-[0.9rem] px-6 py-4 rounded-full bg-[#F9FC50] font-semibold">Get in touch</button>
+        </div>
+    </nav>
+    <div class="w-full h-[90vh] flex flex-col justify-start pt-40 px-20 pb-20">
+        <div>
+            <div class="w-full flex items-center gap-4">
+                <img class="w-[60px] h-[60px] astrix"src={astrix} alt="astrix" />
+                <div class="w-full h-full overflow-hidden">
+                    <p class="text-[80px] akira animated-text ">We’re here </p>
+                </div>
+            </div>
+            <div class="w-full ">
+                <div class="w-full h-full overflow-hidden">
+                    <p class="text-[80px] akira animated-text"> to solve real problems and drive your business forward.</p>
+                </div>
+            </div>
+            <div class="w-full h-[10vh]overflow-hidden">
+                <p class="text-[20px] akira mt-4 animated-text">We design <span class="px-4 py-2 rounded-full border-2 border-black text-black median mx-2">Experiences</span> that transform visions into thriving businesses </p>
+            </div>
+        </div>
+    </div>
+    <div class="w-screen h-full bg-white">
+        <ServiceCards />
+    </div>
+    <div class="w-full h-[100vh] flex flex-col items-start justify-start gap-10 px-20 pt-20">
+        <div class="w-[70%]  font-new text-[4rem] leading-[100%] font-bold">
+            <p>We blend unmatched expertise, tailored solutions, and proven results to make your app/SaaS thrive.</p>
+        </div>
+    </div>
+
+</div>
+</Layout>
+
+
+<style>
+    .horizontal-animation-item {
+        font-family: 'MediaanItalic';
+        width: 300px; /* Adjust width */
+        height: 400px; /* Adjust height */
+        background: #101010; /* Make background transparent */
+        border: 0.5px solid #868686; /* Add border */
+        color: white; /* Text color */
+        display: flex;
+        align-items: start;
+        padding:8px;
+        justify-content: space-between;
+        flex-direction: column;
+        position: relative; /* For positioning */
+        overflow: hidden; /* Hide overflow */
+        text-align: center; /* Center text */
+    }
+    .akira{
+        font-family: 'new', sans-serif;
+        font-weight: 700;
+        font-stretch: 420%;
+        line-height: 100%;
+    }
+
+    .median{
+        font-family: 'MediaanItalic';
+        font-weight: 100;
+    }
+
+    .animated-text{
+        opacity: 1;
+    }
+
+    .service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f0f0f0;
+  }
+
+  .card-settings {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top-right-radius: 60px;
+  }
+
+  .card-settings h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-settings p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-settings img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 768px) {
+    .service-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>
+
+<script>
+
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    gsap.registerPlugin(ScrollTrigger);
+
+    const textElements = document.querySelectorAll('.animated-text');
+    gsap.from('.astrix', {
+        rotation: 360,
+        duration: 4,
+        ease: 'linear',
+        repeat: -1
+    });
+    const t1 = gsap.timeline({
+
+    })
+
+    t1.from('.astrix', {
+       opacity: 0,
+       duration: 0.6,
+       delay: 0.6
+    })
+    t1.from(textElements, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power2.out",
+    })
+
+
+</script>

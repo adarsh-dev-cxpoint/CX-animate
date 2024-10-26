@@ -1,0 +1,467 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import astrix from "../../../public/assets/asterisk.png";
+import Marquee from "../../components/marquee.astro";
+import HeroSixthPage from "../../components/HeroSixthPage.astro";
+import CTAPage from "../../components/CTAPage.astro";
+
+const sections = [
+    {
+        number: "01",
+        title: "Experiences",
+        content: "With 17 years in the business, we know what works and how to apply it to your unique situation."
+    },
+    {
+        number: "02",
+        title: "Focus",
+        content: "We focus on practical solutions that drive real results for your business."
+    },
+    {
+        number: "03",
+        title: "Approach",
+        content: "Our approach combines data-driven insights with creative problem-solving."
+    },
+    {
+        number: "04",
+        title: "Commitment",
+        content: "We're committed to delivering value and measurable outcomes for every project."
+    }
+];
+---
+
+
+<Layout title="CX-Point">
+    <div class="w-full h-full bg-[#FBF8F4]">
+        <nav class="navbar absolute top-[4%] left-1/2 transform -translate-x-1/2 w-[88%] bg-transparent z-50">
+            <div class="container mx-auto flex justify-between items-center p-4">
+                <div class="text-xl font-bold text-black mix-blend-difference"><a href="/">Logo</a></div>
+                <ul class="flex space-x-4 px-6 py-4 bg-[#373737] rounded-full ">
+                    <li class="nav-links"><a href="/products" class="text-white hover:rounded-full">Products</a></li>
+                    <li class="nav-links"><a href="#about" class="text-white ">About</a></li>
+                    <li class="nav-links"><a href="/services" class="text-white ">Services</a></li>
+                    <li class="nav-links"><a href="#contact" class="text-white ">Contact</a></li>
+                </ul>
+                <button class=" text-black text-[0.9rem] px-6 py-4 rounded-full bg-[#F9FC50] font-semibold">Get in touch</button>
+            </div>
+        </nav>
+        <div class="w-full min-h-screen px-20 pt-20">
+            <div class="w-full pt-24">
+                <div class="w-full h-full overflow-hidden">
+                    <p class="text-[80px] akira animated-text ">With over 17 years of design</p>
+                </div>
+                <div class="w-full h-full overflow-hidden">
+                    <p class="text-[80px] akira animated-text">experience, we’re here to</p>
+                </div>
+                <div class="w-full h-full overflow-hidden">
+                    <p class="text-[80px] akira animated-text">solve real problems and drive</p>
+                </div>
+                <div class="w-full h-full overflow-hidden">
+                    <p class="text-[80px] akira animated-text">your business forward.</p>
+                </div>
+            </div>
+            <div class="w-full flex px-18 pt-2">
+                <div class="w-full h-full p-12">
+                    <p class="text-[20px] font-bold">
+                        Who we are
+                    </p>
+                    <div class="text-[16px] font-semibold text-gray-500">
+                        Sure! Here’s a 200-word passage of Lorem Ipsum text:
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                    </div>
+                </div>
+            </div>
+            <div class="w-full flex px-18 pt-6">
+                <div class="w-[50%] h-full flex items-center p-12 opaq">
+                    <div>
+                        <p class="text-[20px] font-bold">
+                            Our story
+                        </p>
+                        <div class="text-[16px] font-semibold text-gray-500">
+                            Founded by Tom Garcy, a designer who's spent nearly two decades in the industry, we focus on solving your real-world challenges. It's not about fancy designs or promises that dont deliver. It's about crafting solutions that can help you grow, engage users and get real results.
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[50%] h-full flex items-center p-12 opaq">
+                    <div>
+                        <p class="text-[20px] font-bold">
+                            Our Approach
+                        </p>
+                        <p class="text-[16px] font-semibold text-gray-500">
+                            We don't just create designs - we solve your problems. It all starts with listening. We dive deep into understanding your business, your challenges, and your goals. Then we use data, creativity and practical solutions to craft a plan that works. No unnecessary extras, no bloated budgets - just what makes sense for you.  
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-20">
+            <Marquee />
+        </div>
+        <div class="w-full h-screen flex flex-col items-center justify-around px-20 space-y-4 my-28">
+            {sections.map((section) => (
+                <div class="w-full flex justify-around items-center space-y-14">
+                    <div class="flex items-start justify-center gap-2">
+                        <p class="text-2xl font-semibold">{section.number}</p>
+                        <p class="text-4xl font-bold">{section.title}</p>
+                    </div>
+                    <p class="text-xl font-bold w-3/4 text-end h-full">
+                        {section.content}
+                    </p>
+                </div>
+                <hr class="w-full my-4 border-t border-gray-300" />
+            ))}
+        </div>
+        <div id="testimonialv" class="testimonial-content-sticky flex items-center justify-center mt-20" style=" overflow-x: hidden;">
+            <div class="testimonial-content-block-v2 flex gap-10">
+                <div class="testimonial-single-card-block">
+                    <div class="testimonial-image-block">
+                        <img src="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0b2e9f8328911bfe1_loren.png" loading="lazy" sizes="(max-width: 479px) 200px, (max-width: 991px) 250px, (max-width: 1439px) 15vw, 14vw" srcset="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0b2e9f8328911bfe1_loren-p-500.png 500w, https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0b2e9f8328911bfe1_loren.png 800w" alt="" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-content-block">
+                        <h3 class="testimonial-author-name">Loren</h3>
+                        <div class="testimonial-designation-text">Project manager</div>
+                    </div>
+                </div>
+                <div class="testimonial-single-card-block">
+                    <div class="testimonial-image-block">
+                        <img src="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0cad94a1b82e31b6a_david.png" loading="lazy" sizes="(max-width: 479px) 200px, (max-width: 991px) 250px, (max-width: 1439px) 15vw, 14vw" srcset="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0cad94a1b82e31b6a_david-p-500.png 500w, https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0cad94a1b82e31b6a_david.png 801w" alt="" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-content-block">
+                        <h3 class="testimonial-author-name">David</h3>
+                        <div class="testimonial-designation-text">UX Designer, Research</div>
+                    </div>
+                </div>
+                <div class="testimonial-single-card-block">
+                    <div class="testimonial-image-block">
+                        <img src="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d080115bb772af2a6c_helena.png" loading="lazy" sizes="(max-width: 479px) 200px, (max-width: 991px) 250px, (max-width: 1439px) 15vw, 14vw" srcset="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d080115bb772af2a6c_helena-p-500.png 500w, https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d080115bb772af2a6c_helena.png 801w" alt="" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-content-block">
+                        <h3 class="testimonial-author-name">Helena</h3>
+                        <div class="testimonial-designation-text">Brand Designer</div>
+                    </div>
+                </div>
+                <div class="testimonial-single-card-block">
+                    <div class="testimonial-image-block">
+                        <img src="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d06fbefee4ba36d54e_nizam.png" loading="lazy" sizes="(max-width: 479px) 200px, (max-width: 991px) 250px, (max-width: 1439px) 15vw, 14vw" srcset="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d06fbefee4ba36d54e_nizam-p-500.png 500w, https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d06fbefee4ba36d54e_nizam.png 801w" alt="" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-content-block">
+                        <h3 class="testimonial-author-name">Nizam</h3>
+                        <div class="testimonial-designation-text">UI Designer, Webflow</div>
+                    </div>
+                </div>
+                <div class="testimonial-single-card-block">
+                    <div class="testimonial-image-block">
+                        <img src="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d01d1274373b538f0d_jaydip.png" loading="lazy" sizes="(max-width: 479px) 200px, (max-width: 991px) 250px, (max-width: 1439px) 15vw, 14vw" srcset="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d01d1274373b538f0d_jaydip-p-500.png 500w, https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d01d1274373b538f0d_jaydip.png 801w" alt="" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-content-block">
+                        <h3 class="testimonial-author-name">Jaydip</h3>
+                        <div class="testimonial-designation-text">UX &amp; UI Designer</div>
+                    </div>
+                </div>
+                <div class="testimonial-single-card-block">
+                    <div class="testimonial-image-block">
+                        <img src="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0124be164a91d60be_tom.png" loading="lazy" sizes="(max-width: 479px) 200px, (max-width: 991px) 250px, (max-width: 1439px) 15vw, 14vw" srcset="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0124be164a91d60be_tom-p-500.png 500w, https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0124be164a91d60be_tom.png 800w" alt="" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-content-block">
+                        <h3 class="testimonial-author-name">Tom</h3>
+                        <div class="testimonial-designation-text">Founder</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <div class="page6"> 
+                <div class="bottomtext">
+                    <p>Let's Talk</p>
+                    <span class="mt-24">Ready to take your brand, product, or business to the next level? No hard sell, no big pitch—just a conversation about how we can help you reach your goals.</span>
+                    <div class="mt-24 contact-button text-sm text-center py-5 px-8 bg-[#f9fc50] rounded-full w-fit font-medium hover:bg-black hover:text-white transition-all duration-300 ">Start Your Success</div>
+            </div>
+                <div id="custom-cursor-product"></div>
+        </div>
+        
+        <section class="contact-section ">
+            <div class="container">
+              <h2 class="akira">Ready to stand out and grow?</h2>
+              <p class="text-gray-500 akira font-semibold">
+                Share your goals and ideas with us, and we'll get back to you within 24-48 hours. We're excited to dive into your project and discuss how we can help bring your vision to life. Let's get started on your path to success!
+              </p>
+              
+              <form>
+                <div class="form-group">
+                  <label for="name">Your name</label>
+                  <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" placeholder="Enter your email address" required>
+                </div>
+                
+                <div class="form-group">
+                  <label>What are you interested in?</label>
+                  <div class="button-group">
+                    <button type="button">Full Product</button>
+                    <button type="button">Branding</button>
+                    <button type="button">Website</button>
+                    <button type="button">App/SaaS</button>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label>Select your budget range</label>
+                  <div class="button-group">
+                    <button type="button">$5k-$10k</button>
+                    <button type="button">$10k-$20k</button>
+                    <button type="button">$20k-$50k</button>
+                    <button type="button">$50k+</button>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="details">Project Details</label>
+                  <textarea id="details" placeholder="Briefly describe your project or needs" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button">Submit Request</button>
+              </form>
+            </div>
+          </section>
+    </div>
+</Layout>
+
+<style>
+    .akira{
+        font-family: 'new', sans-serif;
+        font-weight: 700;
+        font-stretch: 420%;
+        line-height: 100%;
+    }
+
+    #main {
+    cursor: none;
+}
+
+#custom-cursor-product {
+    position: fixed;
+    pointer-events: none;
+    font-family: 'MediaanItalic';
+    z-index: 10000;
+    opacity: 0;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    font-size: 14px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%); /* Center the cursor */
+    
+  }
+
+.page6 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+}
+
+.moreCases {
+    display: flex;
+    gap: 10px;
+}
+
+.moreCases p {
+    font-family: 'new', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    font-stretch: 700%;
+    transition: all 0.5s ease;
+}
+
+.moreCases span {
+    font-family: 'new', sans-serif;
+    font-weight: 300;
+    font-size: 0.5rem;
+    font-stretch: 700%;
+}
+
+.moreCases p:hover {
+    font-weight: 900;
+}
+
+.bottomtext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'new', sans-serif;
+    font-weight: 700;
+    font-size: 80px;
+    font-stretch: 700%;
+
+}
+
+.bottomtext p {
+    line-height: 0.8;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.bottomtext span {
+    font-family: 'new', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    font-stretch: 700%;
+    width: 70%;
+    text-wrap: balance;
+    text-align: center;
+    line-height: 1.2;
+
+}   
+
+.bottomtext p:hover {
+    font-weight: 900;
+}
+
+.footertext {
+    display: flex;
+    flex-direction: column;
+    font-family: 'new', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-stretch: 700%;
+}
+
+.footertext p {
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.contact-section {
+    background-color: #FBF8F4;
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-section p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .button-group button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+
+  .submit-button {
+    background-color: #f9fc50;
+    color: black;
+    font-weight: 700;
+    border: none;
+    padding: 1.1rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 30%;
+    transition: all 0.5s ease;
+  }
+
+  .submit-button:hover {
+    background-color: black;
+    color: white;
+  }
+</style>
+<script>
+
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cursor = document.getElementById('custom-cursor-product');
+    let isVisible = false;
+
+    function updateCursorPosition(e) {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+    }
+
+    function showCursor() {
+        if (!isVisible) {
+        cursor.style.opacity = '1';
+        isVisible = true;
+        }
+    }
+
+    function hideCursor() {
+        cursor.style.opacity = '0';
+        isVisible = false;
+    }
+
+    document.addEventListener('mousemove', updateCursorPosition);
+
+    const main = document.getElementById('main');
+    
+        main.addEventListener('mouseenter', showCursor);
+        main.addEventListener('mouseleave', hideCursor);
+        main.addEventListener('mousemove', (e) => {
+        updateCursorPosition(e);
+        });
+</script>
+
+
+
+
+////hello@cxpoint.co.uk
