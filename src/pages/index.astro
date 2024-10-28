@@ -2,14 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import gsap from "gsap"
 import heroVideo from "../../public/assets/heroVideo2.mp4"
-import heroVideo3 from "/public/assets/heroVideo3.mp4"
-import Marquee from "../components/marquee.astro"
-import HeroSecond from '../components/HeroSecondPage.astro';
-import HeroFourthPage from '../components/HeroFourthPage.astro';
-import HeroFifthPage from '../components/HeroFifthPage.astro';
+import heroVideo3 from "/assets/HeroVideo3.mp4"
 import HeroSixthPage from '../components/HeroSixthPage.astro';
 import HeroLastPage from '../components/HeroLastPage.astro';
-import astrixwhite from "/assets/whiteAsterisk.png"
 import astrixblack from "/public/assets/asterisk.png"
 import StackingCards from '../components/StackingCards.astro';
 import Horizontal from '../components/Horizontal .astro';
@@ -215,14 +210,5 @@ gsap.registerPlugin(ScrollTrigger);
     { opacity: 0, y: 50 }, // Starting properties: fully transparent and 50 pixels down
     { opacity: 1, y: 0, duration: 1, ease: "power2.out" ,delay:-0.9 } ,// Ending properties: fully visible and at original position
 	);
-	
-
-	
-	
-	
-	
-
-
-
 
 </script>
