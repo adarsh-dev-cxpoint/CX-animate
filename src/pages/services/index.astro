@@ -2,6 +2,7 @@
 const astrix = '/assets/asterisk.png';
 import Layout from "../../layouts/Layout.astro";
 import ServiceCards from '../../components/ServiceCards.astro';
+import CTAPage from "../../components/CTAPage.astro";
 ---
 <Layout title="CX-Point">
 <div class="w-full min-h-screen bg-white">
@@ -10,7 +11,7 @@ import ServiceCards from '../../components/ServiceCards.astro';
             <div class="text-xl font-bold text-black mix-blend-difference"><a href="/">Logo</a></div>
             <ul class="flex space-x-4 px-6 py-4 bg-[#373737] rounded-full ">
                 <li class="nav-links"><a href="/products" class="text-white hover:rounded-full">Products</a></li>
-                <li class="nav-links"><a href="#about" class="text-white ">About</a></li>
+                <li class="nav-links"><a href="/company" class="text-white ">Company </a></li>
                 <li class="nav-links"><a href="/services" class="text-white ">Services</a></li>
                 <li class="nav-links"><a href="#contact" class="text-white ">Contact</a></li>
             </ul>
@@ -43,7 +44,7 @@ import ServiceCards from '../../components/ServiceCards.astro';
             <p>We blend unmatched expertise, tailored solutions, and proven results to make your app/SaaS thrive.</p>
         </div>
     </div>
-
+    <CTAPage />
 </div>
 </Layout>
 
