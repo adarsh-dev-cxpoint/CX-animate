@@ -1,0 +1,110 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import astrixblack from "/public/assets/asterisk.png"
+import mockup from "/public/assets/mockup1.jpg"
+import placeholder from "/public/assets/user.jpg"
+import articles from "../../data/articleData.js";
+---
+
+
+<Layout title="CX-Point">
+    <div class="w-screen h-full bg-[#FBF8F4]">
+        <Navbar/>
+        <div class="w-full pt-40 new stretch px-16 pb-24 content">
+            <div class="w-full h-full flex items-center justify-start gap-4">
+                <img src={astrixblack.src} alt="astrix" class="w-[3rem] h-auto astrix"/>
+                <p class="text-[4rem] font-semibold leading-[100%]">Transformative Success:</p>
+            </div>
+            <p class="w-[56%] text-[4rem] font-semibold leading-[100%]">Inspiring Stories from Our Valued Customers</p>
+        </div>
+        <div class="w-full px-16 pb-24">
+            <div class="w-full h-fit rounded-[100px] overflow-hidden relative">
+                <a href="#">
+                    <img src={mockup.src} alt="customer" class="w-full h-[90vh] object-cover object-top hover:scale-105 transition-all duration-700"/>
+                </a>
+                <div class="absolute bottom-[8%] left-0 transfrom translate-y-1/2 w-[40%] h-[60%] z-40  bg-black text-white text-center rounded-tr-[100px] py-10 px-12 flex flex-col items-start justify-start gap-4" >
+                    <div class="text-[2rem] font-semibold leading-[100%] text-start">
+                        The seven second rule: How users subconsciously judge your business
+                    </div>
+                    <div class="flex items-center justify-start gap-4 leading-[100%]">
+                        <img src={placeholder.src} alt="author" class="w-[4rem] h-auto rounded-full"/>
+                        <div class="flex flex-col items-start justify-center">
+                            <p class="font-bold">Tom Garcy</p>
+                            <p class="text-sm font-bold text-[#ADADAD]">Founder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        <div class="w-full px-16 pb-24">
+            <p class="new text-[2rem] font-semibold stretch leading-[100%]">Latest Articles</p>
+        </div>
+        <div class="w-full px-24 pb-24 flex flex-wrap gap-4">
+            {articles.map((article, index) => (
+                <a href={`/resources/${article.id}`} class="max-w-sm h-fit mx-auto bg-white hover:bg-lime-300 rounded-[50px] overflow-hidden shadow-lg transition-colors duration-300 group ">
+                    <div class=" p-6 relative py-16">
+                        <div class="absolute top-4 right-4 bg-black bg-opacity-10 rounded-full p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                            </svg>
+                        </div>
+                        <p class="text-sm font-medium text-gray-600 mb-2">*{article.readTime} read</p>
+                        <h2 class="text-2xl font-bold mb-2 leading-tight">{article.title}</h2>
+                        <p class="text-gray-600 mb-4">{article.subtitle}</p>
+                        <div class="flex items-center">
+                            <img src={placeholder.src} alt="author" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <p class="font-semibold">{article.authorName}</p>
+                                <p class="text-sm text-gray-600">{article.authorRole}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" overflow-hidden">
+                        <img src={article.illustrationSrc} alt="Article illustration" class="w-full h-auto group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                </a>
+            ))}
+        </div>
+        </div>
+        
+    </div>
+</Layout>
+
+<style>
+    .new{
+        font-family: 'new';
+    }
+
+    .stretch{
+        font-stretch: 500%;
+    }
+</style>
+
+<script>
+    
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const t1 = gsap.timeline()
+
+    t1.from(".navbar",{
+		y:"-100%",
+		duration:0.5,
+		opacity:0,
+	})
+    t1.from(".content",{
+        opacity:0,
+    })
+    t1.to(".astrix", {
+		rotate: 360,
+		repeat: -1,
+		ease: "linear",
+		duration: 3,
+	})
+
+
+</script>

@@ -9,6 +9,9 @@ import astrixblack from "/public/assets/asterisk.png"
 import StackingCards from '../components/StackingCards.astro';
 import Horizontal from '../components/Horizontal .astro';
 import HeroSeventhPage from '../components/HeroSeventhPage.astro';
+import Navbar from '../components/Navbar.astro';
+import Stats from '../components/Stats.astro';
+import CTAPage from '../components/CTAPage.astro';
 ---
 
 <Layout title="CX-Point">
@@ -21,18 +24,7 @@ import HeroSeventhPage from '../components/HeroSeventhPage.astro';
             </div>
 		</section>
 		<div class="w-full h-full page1 relative">
-			<nav class="navbar absolute top-[4%] left-1/2 transform -translate-x-1/2 w-[88%] bg-transparent z-50">
-				<div class="container mx-auto flex justify-between items-center p-4">
-					<div class="text-xl font-bold text-white"><a href="/">Logo</a></div>
-					<ul class="flex space-x-4 px-6 py-4 bg-[#373737] rounded-full ">
-						<li class="nav-links"><a href="/products" class="text-white hover:rounded-full">Products</a></li>
-						<li class="nav-links"><a href="/company" class="text-white ">Company </a></li>
-						<li class="nav-links"><a href="/services" class="text-white ">Services</a></li>
-						<li class="nav-links"><a href="#contact" class="text-white ">Contact</a></li>
-					</ul>
-					<button class=" text-black text-[0.9rem] px-6 py-4 rounded-full bg-[#F9FC50] font-semibold">Get in touch</button>
-				</div>
-			</nav>
+			<Navbar/>
 			<div class="w-[100vw] h-[100vh] overflow-hidden flex items-center justify-center">
 					<video 
 						src={heroVideo3} 
@@ -75,20 +67,10 @@ import HeroSeventhPage from '../components/HeroSeventhPage.astro';
 		</div>
 		<Horizontal />
 		<HeroSeventhPage/>
-		<!-- <HeroSecond/> -->
-		<!-- <div>
-			<HeroFourthPage/>
-		</div> -->
-
-		<!-- <div class="w-screen h-screen bg-white">
-			<HeroFifthPage/>
-		</div> -->
-		<HeroSixthPage/>
-			
 		<HeroLastPage/>
-		<!-- <div class="w-screen h-screen bg-white">
-			<p>test</p>
-		</div> -->
+		<!-- <Stats /> -->
+		<CTAPage />
+		
 	</main>
 </Layout>
 

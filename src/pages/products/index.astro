@@ -8,21 +8,11 @@ import CTAPage from "../../components/CTAPage.astro";
 import ProductSections from "../../components/ProductSections.astro";
 import Stats from "../../components/Stats.astro";
 import Pricing from "../../components/Pricing.astro";
+import Navbar from "../../components/Navbar.astro";
 ---
 <Layout title="CX-Point">
-<div class="w-full h-full bg-white">
-    <nav class="navbar absolute top-[4%] left-1/2 transform -translate-x-1/2 w-[88%] bg-transparent z-50">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <div class="text-xl font-bold text-black mix-blend-difference"><a href="/">Logo</a></div>
-            <ul class="flex space-x-4 px-6 py-4 bg-[#373737] rounded-full ">
-                <li class="nav-links"><a href="/products" class="text-white hover:rounded-full">Products</a></li>
-                <li class="nav-links"><a href="/company" class="text-white ">Company </a></li>
-                <li class="nav-links"><a href="/services" class="text-white ">Services</a></li>
-                <li class="nav-links"><a href="#contact" class="text-white ">Contact</a></li>
-            </ul>
-            <button class=" text-black text-[0.9rem] px-6 py-4 rounded-full bg-[#F9FC50] font-semibold">Get in touch</button>
-        </div>
-    </nav>
+<div class="w-full h-full bg-white ">
+    <Navbar/>
     <div class="w-full h-screen flex flex-col justify-evenly px-20 pt-20">
         <div>
             <div class="w-full flex items-center gap-4">
