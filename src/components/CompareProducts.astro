@@ -1,0 +1,113 @@
+---
+// QuarterDivs.astro
+---
+
+<div class="quarter-container">
+    <div class="quarter top-left rounded-br-[100px] rounded-tl-[100px]">
+        <div class="content">
+            <h2>Top Left</h2>
+            <p>Hover to expand</p>
+        </div>
+    </div>
+    <div class="quarter top-right rounded-bl-[100px] rounded-tr-[100px]">
+        <div class="content">
+            <h2>Top Right</h2>
+            <p>Hover to expand</p>
+        </div>
+    </div>
+    <div class="quarter bottom-left rounded-tr-[100px] rounded-bl-[100px]">
+        <div class="content">
+            <h2>Bottom Left</h2>
+            <p>Hover to expand</p>
+        </div>
+    </div>
+    <div class="quarter bottom-right rounded-br-[100px] rounded-tl-[100px]">
+        <div class="content">
+            <h2>Bottom Right</h2>
+            <p>Hover to expand</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .quarter-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .quarter {
+        position: absolute;
+        width: 45%;
+        height: 45vh;
+        transform: scale(0.9);
+        opacity: 0.8;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+    }
+
+    .top-left {
+        top: 2%;
+        left: 2%;
+        transform-origin: top left;
+        background-color: #2476FF;
+    }
+
+    .top-right {
+        top: 2%;
+        right: 2%;
+        transform-origin: top right;
+        background-color: #bdff15;
+    }
+
+    .bottom-left {
+        bottom: 2%;
+        left: 2%;
+        transform-origin: bottom left;
+        background-color: #ff159d;
+    }
+
+    .bottom-right {
+        bottom: 2%;
+        right: 2%;
+        transform-origin: bottom right;
+        background-color: #ff1515;
+    }
+
+    .content {
+        color: white;
+        text-align: center;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+
+    .content h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .quarter:hover {
+        width: 47%;
+        height: 47vh;
+        transform: scale(1.3);
+        opacity: 1;
+        z-index: 100;
+    }
+</style>
+
+<script>
+    document.querySelectorAll('.quarter').forEach((quarter) => {
+        (quarter as HTMLElement).addEventListener('click', () => {
+            const isExpanded = quarter.classList.contains('expanded');
+            // First collapse any expanded quarters
+            document.querySelectorAll('.quarter.expanded').forEach(q => 
+                q.classList.remove('expanded')
+            );
+            // Then toggle current quarter if it wasn't already expanded
+            if (!isExpanded) {
+                quarter.classList.add('expanded');
+            }
+        });
+    });
+</script>

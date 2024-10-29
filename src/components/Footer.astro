@@ -1,0 +1,158 @@
+---
+// Footer.astro
+---
+
+<footer class="bg-[#2D2D2D] text-white py-16 px-8">
+    <div class="max-w-7xl mx-auto">
+        <!-- Logo and Social Links Row -->
+        <div class="flex justify-between items-center mb-20">
+            <!-- Logo -->
+            <div class="w-16">
+                <!-- <svg class="w-full" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M40 40 L60 40 L70 60 L50 70 L30 60 Z"/>
+                    <path d="M70 30 L80 40 L75 45 L65 35 Z"/>
+                </svg> -->
+                <p>Logo </p>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="flex gap-4">
+                <a href="#" class="social-link">
+                    <div class="bg-[#FBFF47] p-3 rounded-xl hover:bg-[#FBFF47] transition-colors">
+                        <img src="/assets/insta.svg" alt="Instagram" class="w-6 h-6">
+                    </div>
+                </a>
+                <a href="#" class="social-link">
+                    <div class="bg-[#FBFF47] p-3 rounded-xl hover:bg-[#FBFF47] transition-colors">
+                        <img src="assets/fb.svg" alt="YouTube" class="w-6 h-6">
+                    </div>
+                </a>
+                <a href="#" class="social-link">
+                    <div class="bg-[#FBFF47] p-3 rounded-xl hover:bg-[#FBFF47] transition-colors">
+                        <img src="/assets/twitter.svg" alt="LinkedIn" class="w-6 h-6">
+                    </div>
+                </a>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="#" class="new stretch font-bold bg-[#FBFF47] text-black px-8 py-3 rounded-full hover:bg-[#E6EF75] transition-colors">
+                Start Your Success
+            </a>
+        </div>
+
+        
+
+        <!-- Policy Links Section -->
+        <div class="pt-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1: Main Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Main Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="/products" class="text-gray-400 hover:text-white transition-colors">Products</a></li>
+                        <li><a href="/services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="/company" class="text-gray-400 hover:text-white transition-colors">Company</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Legal -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Security Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Compliance -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Compliance</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Accessibility Statement</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Preferences</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Additional -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Additional</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sitemap</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- Copyright -->
+            <div class="text-gray-400 text-sm">
+                © 2024 garcy.studio. All rights reserved.
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-gray-400">
+                © 2024 CXpoint
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .stretch{
+        font-stretch: 500%;
+    }
+
+    .new{
+        font-family: "new";
+    }
+    .stretch{
+        font-stretch: 500%;
+    }
+
+    .new{
+        font-family: "new";
+    }
+    .stretch{
+        font-stretch: 500%;
+    }
+
+    .new{
+        font-family: "new";
+    }
+    .service-card h3 svg {
+        transition: transform 0.3s ease;
+    }
+
+    .service-card:hover h3 svg {
+        transform: rotate(45deg) translate(2px, -2px);
+    }
+
+    .social-link {
+        transition: transform 0.3s ease;
+    }
+
+    .social-link:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Smooth hover effect for links */
+    a {
+        transition: all 0.3s ease;
+    }
+
+    /* Responsive adjustments for mobile */
+    @media (max-width: 768px) {
+        .grid {
+            gap: 2rem;
+        }
+    }
+</style>
+
+<script>
+    // Add any JavaScript functionality here if needed
+</script>

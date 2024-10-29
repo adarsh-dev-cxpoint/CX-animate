@@ -9,9 +9,11 @@ import ProductSections from "../../components/ProductSections.astro";
 import Stats from "../../components/Stats.astro";
 import Pricing from "../../components/Pricing.astro";
 import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import CompareProducts from "../../components/CompareProducts.astro";
 ---
 <Layout title="CX-Point">
-<div class="w-full h-full bg-white ">
+<div class="w-full h-full bg-[#FBF8F4] ">
     <Navbar/>
     <div class="w-full h-screen flex flex-col justify-evenly px-20 pt-20">
         <div>
@@ -54,9 +56,12 @@ import Navbar from "../../components/Navbar.astro";
     <StackingCards />
     <ProductCard />
     <ProductSections/>
+    
     <Stats />
+    <CompareProducts/>
     <CTAPage />
     <Pricing />
+    <Footer/>
 </div>
 </Layout>
 
