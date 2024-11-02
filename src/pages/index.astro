@@ -13,13 +13,14 @@ import Navbar from '../components/Navbar.astro';
 import Stats from '../components/Stats.astro';
 import CTAPage from '../components/CTAPage.astro';
 import Footer from '../components/Footer.astro';
+import STackingCardsNew from '../components/STackingCardsNew.astro';
 ---
 
 <Layout title="CX-Point">
-	<main class="w-[100vw] h-[100vh] bg-[#FBF8F4]">
+	<main class="w-[100vw] h-[100vh] bg-[#E7E7D6]">
         <section class="loader absolute z-40 h-[100vh] w-[100vw]">
             <div class="second w-full h-full flex items-center justify-center ">
-                <div class=" w-[50%] flex flex-col gap-4 items-center pointer-events-none">
+                <div class=" flex flex-col gap-4 items-center pointer-events-none">
                     <div class="picture"><img class="w-full h-full object-cover" src="/assets/loader-picture.png"/></div>
                 </div>
             </div>
@@ -27,43 +28,50 @@ import Footer from '../components/Footer.astro';
 		<div class="w-full h-full page1 relative">
 			<Navbar/>
 			<div class="w-[100vw] h-[100vh] overflow-hidden flex items-center justify-center">
-					<video 
-						src={heroVideo3} 
-						autoplay 
-						loop 
-						muted 
-						class="w-full h-full object-cover vid relative"
-					/>
-					<div class="absolute top-[36%] left-[38%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-100 ">
-						<div class="flex flex-col items-center justify-center">
-							<div class="flex items-center justify-start gap-4 h-full" >
-								<svg width="6%" height="6%" viewBox="0 0 56 62" fill="none" xmlns="http://www.w3.org/2000/svg" class="astrix opacity-0">
-									<path d="M25.39 61.3035V34.7442L2.50559 47.9404L0 43.9314L23.0515 30.5682L0 17.3721L2.50559 13.1961L25.39 26.5593V0H30.2342V26.3923L53.1186 13.1961L55.4571 17.3721L32.5727 30.5682L55.4571 43.9314L53.1186 47.9404L30.2342 34.7442V61.3035H25.39Z" fill="white"></path>
-								</svg>
-								<div class="w-full h-full overflow-hidden">
-									<p class="new font-semibold text-[4.2rem] text-white animated-text text-nowrap ">Success-Driven Approach</p>
-								</div>
-							</div>
+				<video 
+					src={heroVideo3} 
+					autoplay 
+					loop 
+					muted 
+					class="w-full h-full object-cover vid relative"
+				/>
+				<div class="absolute top-[48%] md:top-[36%] left-[50%] md:left-[36%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-100 ">
+					<div class="flex flex-col items-center justify-center">
+						<div class="flex flex-col md:flex-row items-center justify-start gap-2 md:gap-4 h-full" >
+							<svg width="10%" height="10%" viewBox="0 0 56 62" fill="none" xmlns="http://www.w3.org/2000/svg" class="astrix opacity-0 md:w-[6%] md:h-[6%]">
+								<path d="M25.39 61.3035V34.7442L2.50559 47.9404L0 43.9314L23.0515 30.5682L0 17.3721L2.50559 13.1961L25.39 26.5593V0H30.2342V26.3923L53.1186 13.1961L55.4571 17.3721L32.5727 30.5682L55.4571 43.9314L53.1186 47.9404L30.2342 34.7442V61.3035H25.39Z" fill="white"></path>
+							</svg>
 							<div class="w-full h-full overflow-hidden">
-							<p class="text-white new font-semibold text-[4rem] animated-text ">
-								for ambitious Leaders
-							</p>
-							</div>
-							<div class="w-full h-full overflow-hidden mt-2 py-4">
-								<p class="text-white new font-normal text-[1.2rem] animated-text ">We design <span class=" px-3 py-2 mx-2 bg-white text-black rounded-full mediaan">Experiences</span> that transform visions into reality</p>
+								<p class="new font-semibold text-[1.6rem] md:text-[4.2rem] text-white animated-text text-nowrap w-full">Success-Driven Approach</p>
 							</div>
 						</div>
+						<div class="w-full h-full overflow-hidden">
+							<p class="text-white new font-semibold text-[1.6rem] md:text-[4rem] animated-text test ">
+								for ambitious Leaders
+							</p>
+						</div>
+						<div class="w-full h-full overflow-hidden mt-20 md:mt-2 py-4 hidden md:flex ">
+							<p class="text-white new font-normal text-[1.2rem] animated-text ">We design <span class=" px-3 py-2 mx-2 bg-white text-black rounded-full mediaan">Experiences</span> that transform visions into reality</p>
+						</div>
+						<div class="w-full h-full overflow-hidden mt-40 md:mt-2 py-4 flex flex-col items-center justify-center md:hidden">
+							<p class="text-white new font-normal text-[1.4rem] animated-text ">We design Experiences that</p> 
+							<span class="px-3 py-2 my-2 bg-white text-black rounded-full mediaan w-fit animated-text">Transform </span>
+							<p class="text-white new font-normal text-[1.4rem] animated-text ">visions into reality</p>
+						</div>
 					</div>
+				</div>
 			</div>
 		</div> 
-		<StackingCards />
-		<div class="w-screen h-[350px] bg-[#FBF8F4] flex items-center justify-start px-28">
-			<div class="flex flex-col items-start justify-center w-[60%]">
-				<div class="flex items-center justify-start gap-4">
-					<img src={astrixblack.src} alt="astrix" class="w-[4%] h-[4%] rotate"/>
-					<p class="text-black font-semibold new text-[2.2rem]">We don’t just design, we engineer your</p>
+		<div class=" relative">
+			<STackingCardsNew />
+		</div>
+		<div class="w-screen h-[350px] bg-[#E7E7D6] flex items-center justify-start md:px-28 px-2">
+			<div class="flex flex-col items-start justify-center md:w-[60%]">
+				<div class="flex md:flex-row flex-col md:items-center items-start justify-start gap-4">
+					<img src={astrixblack.src} alt="astrix" class="w-[10%] h-[10%] md:w-[4%] md:h-[4%] rotate"/>
+					<p class="text-black font-semibold new md:text-[2.2rem]">We don’t just design, we engineer your</p>
 				</div>
-					<p class="text-black text-[2.2rem] font-semibold new">success by leveraging data-driven insights and creative innovation. We take ownership of your business, deeply understanding its unique challenges and goals, like these:</p>
+				<p class="text-black md:text-[2.2rem] font-semibold new">success by leveraging data-driven insights and creative innovation. We take ownership of your business, deeply understanding its unique challenges and goals, like these:</p>
 			</div>
 		</div>
 		<Horizontal />
@@ -77,9 +85,10 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-
-	.no-scroll{
-		overflow: hidden;
+	@media (max-width: 768px) {
+		.test{
+			text-align: center;
+		}
 	}
 
 	.mediaan{
@@ -92,7 +101,7 @@ import Footer from '../components/Footer.astro';
 		box-sizing:border-box;
 		width: 100%;
 		height: 100vh;
-		background-color: rgb(255, 255, 255);
+		background-color: #E7E7D6;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -167,12 +176,11 @@ gsap.registerPlugin(ScrollTrigger);
 	.to(".loader" , {
 		opacity:0,
 	})
-	.to(".vid", {  // Correct syntax: target both .vid and .overlay
-		scaleX: 0.99,
-		scaleY: 0.97,
-		borderRadius: 90,
-		duration: 1,
-	})
+	.to(".vid", {  
+    ...(window.innerWidth > 768 ? { scaleX: 0.99, scaleY: 0.97 } : {}),
+    borderRadius: window.innerWidth > 768 ? 90 : 0, // Only apply border radius on larger screens
+    duration: 1,
+})
 	t1.from(".navbar",{
 		y:"-100%",
 		duration:0.5,

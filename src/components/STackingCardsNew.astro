@@ -1,0 +1,197 @@
+---
+import secondImage from "/public/assets/second-card.png";
+import * as Icon from '@astropub/icons'
+---
+
+
+<div class="container bg-[#E7E7D6]">
+
+    <section class="hero pinned">
+        <h1>We Design <br />Experiences</h1>
+    </section>
+
+    <section class="card pinned">
+        <div class="img">
+            <div class="card-content w-full h-full flex items-center justify-center bg-[#1E1E1D] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden">
+                <div class="w-[50%] flex-col flex items-start justify-start ps-12">
+                    <span class=" akira text-[2rem] mt-2 new leading-[1] text-white">You have a vision but need one expert team to bring it to life ?</span>
+                    <div class=" px-[2px] py-[2px] rounded-full bg-white mt-10"><Icon.ChevronDown size={40} color="black"/></div>
+                </div>
+                <div class="w-[50%] h-full flex items-center justify-center ps-8">
+                    <img class="w-[100%] h-[100%] object-cover" src="/public/assets/second-card.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="card pinned">
+        <div class="img">
+            <div class="card-content w-full h-full flex items-center justify-center bg-[#1E1E1D] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden">
+                <div class="w-[50%] flex-col flex items-start justify-start ps-12">
+                    <span class=" akira text-[2rem] mt-2 new leading-[1] text-white">You have a vision but need one expert team to bring it to life ?</span>
+                    <div class=" px-[2px] py-[2px] rounded-full bg-white mt-10"><Icon.ChevronDown size={40} color="black"/></div>
+                </div>
+                <div class="w-[50%] h-full flex items-center justify-center ps-8">
+                    <img class="w-[100%] h-[100%] object-cover" src="/public/assets/second-card.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="card pinned">
+        <div class="img">
+            <div class="card-content w-full h-full flex items-center justify-center bg-[#1E1E1D] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden">
+            <div class="w-[50%] flex-col flex items-start justify-start ps-12">
+                <span class=" akira text-[2rem] mt-2 new leading-[1] text-white">You have a vision but need one expert team to bring it to life ?</span>
+                    <div class=" px-[2px] py-[2px] rounded-full bg-white mt-10"><Icon.ChevronDown size={40} color="black"/></div>
+                </div>
+                <div class="w-[50%] h-full flex items-center justify-center ps-8">
+                    <img class="w-[100%] h-[100%] object-cover" src="/public/assets/second-card.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="card scroll">
+        <div class="img">
+            <div class="card-content w-full h-full flex items-center justify-center bg-[#1E1E1D] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden">
+                <div class="w-[50%] flex-col flex items-start justify-start ps-12">
+                    <span class=" akira text-[8rem] mt-2 new leading-[1] text-white">Scroll To See More</span>
+                    <!-- <div class=" px-[2px] py-[2px] rounded-full bg-white mt-10"><Icon.ChevronDown size={40} color="black"/></div> -->
+                </div>
+                <div class="w-[50%] h-full flex items-center justify-center ps-8">
+                    <img class="w-[100%] h-[100%] object-cover" src="/public/assets/second-card.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <h1 class="text-white"> footer </h1>
+    </section>
+    
+</div>
+
+<style>
+    .new{
+        font-family:"new";
+        font-stretch:500%;
+        font-weight:700;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+
+    section {
+        width: 100vw;
+        height: 100vh; /* Ensure each section takes full viewport height */
+        position: relative;
+    }
+
+    .hero h1 {
+        position: absolute;
+        width:100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-family: "MediaanItalic";
+        line-height: 1;
+        font-stretch: 900%;
+        font-weight: 700;
+        font-size: 10rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+    }
+
+    .card {
+        margin-bottom: 20px; /* Add margin to prevent overlap */
+        overflow: hidden;
+    }
+
+    .card:last-child {
+        margin-bottom: 0;
+    }
+
+    .card .scroll{
+        position: relative;
+        background-color: #E7E7D6;
+    }
+
+    .img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1000px;
+        height: 700px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .img {
+            width: 300px;
+            height: 500px;
+        }
+    }
+
+    .footer{
+        height:20vh;
+        width:100%;
+        background-color:#E7E7D6;
+    }
+</style>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener('DOMContentLoaded', function () { 
+        const footer = document.querySelector('.footer');
+        const lastCard = document.querySelector('.card.scroll');
+
+        const pinnedSections = gsap.utils.toArray('.pinned');
+        
+        pinnedSections.forEach((section, index, sections) => {
+            let img = (section as HTMLElement).querySelector('.img');
+
+            let nextSection = sections[index + 1] || lastCard;
+
+            let endScalePoint = `top+=${(nextSection as HTMLElement).offsetTop - (section as HTMLElement).offsetTop} top`;
+
+            gsap.to(section as HTMLElement, {
+                scrollTrigger: {
+                    trigger: section as HTMLElement,
+                    start: 'top top',
+                    end: index === sections.length ? `+=${(lastCard as HTMLElement).offsetHeight/2 }` : (footer as HTMLElement).offsetTop - window.innerHeight,
+                    pin: true,
+                    pinSpacing: false,
+                    scrub: 1
+                },
+            });
+
+            gsap.fromTo(img, { scale: 1 }, {
+                scale: 0.5,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: section as HTMLElement,
+                    start: 'top top',
+                    end: endScalePoint,
+                    scrub: 1
+                }
+            });
+        });
+
+        const heroh1 = document.querySelector('.hero h1');
+        gsap.fromTo(heroh1, {opacity:1}, {opacity:0, scrollTrigger:{trigger:heroh1, start:'top top', end:'bottom top', scrub:1}})
+    });
+</script>

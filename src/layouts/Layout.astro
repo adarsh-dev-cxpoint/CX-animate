@@ -29,7 +29,7 @@ const { title } = Astro.props;
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	</head>
+</head>
 	<body class="overflow-auto scrollbar-hide">
 		<slot />		
 	</body>
@@ -53,11 +53,28 @@ const { title } = Astro.props;
 			Courier New,
 			monospace;
 	}
-
-	.scrollbar-hide::-webkit-scrollbar {
-    display: none; /* Hides the scrollbar */
+	.scrollbar-hide{
+		overflow-x:hidden
 	}
 
+	.scrollbar-hide::-webkit-scrollbar {
+		width: 8px; /* Width of the scrollbar */
+		height: 8px; /* Height of the scrollbar */
+	}
+
+	.scrollbar-hide::-webkit-scrollbar-thumb {
+		background-color: #888; /* Color of the scrollbar thumb */
+		border-radius: 10px; /* Rounded corners for the thumb */
+	}
+
+	.scrollbar-hide::-webkit-scrollbar-thumb:hover {
+		background-color: #555; /* Color of the scrollbar thumb on hover */
+	}
+
+	.scrollbar-hide::-webkit-scrollbar-track {
+		background: #f1f1f1; /* Background of the scrollbar track */
+		border-radius: 10px; /* Rounded corners for the track */
+	}
 	@font-face {
 		font-family: 'akira';
 		src: url("/fonts/Akira.ttf");

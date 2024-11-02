@@ -45,7 +45,7 @@
     }
     .container {
         height: 200vh; /* Make the container tall enough to scroll */
-        background-color: white;
+        background-color: #E7E7D6;
         position: relative;
         text-align: center;
         overflow: hidden;
@@ -53,7 +53,7 @@
   
     .pinned-section {
         height: 100vh; /* Full viewport height */
-        background-color: white;
+        background-color: #E7E7D6;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -67,6 +67,12 @@
         color: black; /* Optional: Change text color */
         line-height: 0.47;
         font-family: "akira";
+    }
+
+    @media screen and (max-width: 768px) {
+        h2 {
+            font-size: 2rem;
+        }
     }
   
     .horizontal-animation {
