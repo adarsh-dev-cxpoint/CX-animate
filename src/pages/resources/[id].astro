@@ -1,246 +1,153 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Navbar from "../../components/Navbar.astro";
-import articles from "../../data/articleData.js";
-import CTAPage from "../../components/CTAPage.astro";
-import astrix from "/public/assets/asterisk.png";
 import Navbar2 from "../../components/Navbar2.astro";
+import Footer from "../../components/Footer.astro";
+import { carouselData } from "../../data/carouselData.js";
+import articles from "../../data/articleData.js";
 
-// Export getStaticPaths to generate paths for all articles
-export async function getStaticPaths() {
-    return articles.map(article => ({
-        params: { id: article.id.toString() },
+export function getStaticPaths() {
+    const carouselPaths = carouselData.map(story => ({
+        params: { id: story.id },
+        props: { type: 'story', content: story }
     }));
+
+    const articlePaths = articles.map(article => ({
+        params: { id: article.id },
+        props: { type: 'article', content: article }
+    }));
+
+    return [...carouselPaths, ...articlePaths];
 }
 
-const { id } = Astro.params;
-const article = articles.find(article => article.id === Number(id));
-
-if (!article) {
-    return Astro.redirect('/404');
-}
+const { type, content } = Astro.props;
 ---
 
-<Layout title={article.title}>
+<Layout title={content.title}>
     <div class="w-screen min-h-screen bg-[#E7E7D6]">
-        <Navbar2/>
-        <div class="w-full mx-auto pt-40 px-4 lg:px-8 pb-8">
-            <img src={article.illustrationSrc} alt="Article illustration" class="w-full h-auto rounded-md lg:rounded-[100px] object-cover">
-            <div class= p-12">
-                
-                <div class="mt-12 text-center lg:px-64">
-                    <!-- <p class="text-sm font-medium text-gray-600 mb-2">*{article.readTime} read</p> -->
-                    <h1 class="text-2xl lg:text-6xl font-bold mb-4">{article.title}</h1>
-                    <div class="flex flex-col items-center justify-center mb-8 mt-8">
-                        <img src="/assets/user.jpg" alt="author" class="w-12 h-12 rounded-full ">
-                        <div class="flex flex-col items-center justify-center text-center" >
-                            <p class="font-semibold">{article.authorName}</p>
-                            <p class="text-sm text-gray-600">{article.authorRole}</p>
+        <Navbar2 />
+        {type === 'story' && (
+            <div class="w-full h-full mb-32">
+                {/* Hero Section */}
+                <div class="w-full h-[60vh] relative">
+                    <img src={content.image} alt="hero" class="w-full h-full object-cover"/>
+                    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#E7E7D6] to-transparent"></div>
+                </div>
+
+                {/* Article Header */}
+                <div class="max-w-4xl mx-auto mb-12">
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6">{content.title}</h1>
+                    <div class="flex items-center gap-6 mb-8">
+                        <div class="flex items-center gap-3">
+                            <img src={content.authorImage} alt={content.authorName} class="w-12 h-12 rounded-full"/>
+                            <div>
+                                <p class="font-semibold">{content.authorName}</p>
+                                <p class="text-gray-600">{content.authorRole}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 text-gray-600">
+                            <span>{content.date}</span>
+                            <span>•</span>
+                            <span>{content.readTime} read</span>
                         </div>
                     </div>
-                    <div class="text-sm font-bold text-start text-gray-600 my-12">{article.date}</div>
-                    <!-- <p class="text-xl text-gray-600 mb-6">{article.subtitle}</p> -->
-                    <p class="text-xl text-black mb-6 text-start">{article.content1}</p>
-                    <p class="text-xl text-black mb-6 text-start">{article.content2}</p>
-                    <p class="text-xl text-black mb-6 text-start">{article.content3}</p>
+                </div>
+
+                {/* Article Content */}
+                <div class="max-w-4xl mx-auto ">
+                    <p class="text-xl mb-8">{content.content.introduction}</p>
+
+                    {content.content.sections.map((section) => (
+                        <div class="mb-8">
+                            <h2 class="text-2xl font-bold mb-4">{section.title}</h2>
+                            <p class="whitespace-pre-line">{section.content}</p>
+                        </div>
+                    ))}
+
+                    <p class="text-xl mt-12">{content.content.conclusion}</p>
                 </div>
             </div>
-        </div>
-        <div id="main">
-            <div class="page-container"> 
-                <div class="bottomtext flex flex-col items-center justify-center">
-                    <img src={astrix.src} alt="astrix" class="astrix w-[50px] mb-8 "/>
-                    <p>Ready to stand out and grow ?</p>
-                    <div class="mt-24 contact-button text-sm text-center py-5 px-8 bg-[#FF8C00] rounded-full w-fit font-medium hover:bg-black hover:text-white transition-all duration-300 ">Start Your Success</div>
-            </div>
-            <div id="custom-cursor-product"></div>
-        </div>
-        
-    </div>
-</Layout> 
+        )}
 
+        {type === 'article' && (
+            <div class="w-full h-full">
+                <div class="w-full h-[60vh] relative">
+                    <img src={content.illustrationSrc} alt="hero" class="w-full h-full object-cover"/>
+                    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#E7E7D6] to-transparent"></div>
+                </div>
+                <div class="w-full px-4 lg:px-16 -mt-32 relative z-10">
+                    <div class="max-w-4xl mx-auto">
+                        <p class="text-sm font-medium text-gray-600 mb-2">*{content.readTime} read</p>
+                        <h1 class="text-4xl lg:text-6xl font-bold mb-6">{content.title}</h1>
+                        <p class="text-xl text-gray-600 mb-8">{content.subtitle}</p>
+                        <div class="flex items-center gap-6 mb-12">
+                            <div class="flex items-center gap-3">
+                                <img src="/assets/user.jpg" alt={content.authorName} class="w-12 h-12 rounded-full"/>
+                                <div>
+                                    <p class="font-semibold">{content.authorName}</p>
+                                    <p class="text-gray-600">{content.authorRole}</p>
+                                </div>
+                            </div>
+                            <div class="text-gray-600">
+                                <span>{content.date}</span>
+                            </div>
+                        </div>
+                        <div class="">
+                            {/* Section 1 */}
+                            <div class="mb-12">
+                                <p class="text-lg leading-relaxed">
+                                    {content.content1}
+                                </p>
+                            </div>
+
+                            {/* Section 2 */}
+                            <div class="mb-12">
+                                <p class="text-lg leading-relaxed">
+                                    {content.content2}
+                                </p>
+                            </div>
+
+                            {/* Section 3 */}
+                            <div class="mb-12">
+                                <p class="text-lg leading-relaxed">
+                                    {content.content3}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )}
+        <Footer />
+    </div>
+</Layout>
 
 <style>
-
-#main{
-    cursor: none;
-}
-
-
-#custom-cursor-product {
-    position: fixed;
-    pointer-events: none;
-    font-family: 'MediaanItalic';
-    z-index: 10000;
-    opacity: 0;
-    width:50px;
-    height:50px;
-    border-radius: 50%;
-    color: rgb(0, 0, 0);
-    border: 2px solid rgb(0, 0, 0);
-    font-size: 14px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translate(-50%, -50%); /* Center the cursor */
-    
-}
-
-.page-container {
-height: 80vh;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
-color: black;
-}
-
-.moreCases {
-    display: flex;
-    gap: 10px;
-}
-
-.moreCases p {
-    font-family: 'new', sans-serif;
-    font-weight: 300;
-    font-size: 1rem;
-    font-stretch: 700%;
-    transition: all 0.5s ease;
-}
-
-.moreCases span {
-    font-family: 'new', sans-serif;
-    font-weight: 300;
-    font-size: 0.5rem;
-    font-stretch: 700%;
-}
-
-.moreCases p:hover {
-    font-weight: 900;
-}
-
-.bottomtext {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    font-family: 'new', sans-serif;
-    font-weight: 400;
-    font-size: 70px;
-    font-stretch: 700%;
-}
-
-@media (max-width: 768px) {
-    .bottomtext {
-        font-size: 2rem;
+    .prose {
+        max-width: 65ch;
+        margin: 0 auto;
     }
-}
+    
+    .prose h2 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-top: 2.5rem;
+        margin-bottom: 1.25rem;
+    }
 
-.bottomtext p {
-    line-height: 0.8;
-    text-align: center;
-    transition: all 0.5s ease;
-}
+    .prose p {
+        margin-bottom: 1.25rem;
+        line-height: 1.75;
+    }
 
-.bottomtext span {
-    font-family: 'new', sans-serif;
-    font-weight: 600;
-    font-size: 1.5rem;
-    font-stretch: 700%;
-    width: 70%;
-    text-wrap: balance;
-    text-align: center;
-    line-height: 1.2;
+    .prose ul {
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+        list-style-type: disc;
+        padding-left: 1.625rem;
+    }
 
-}   
-
-.bottomtext p:hover {
-    font-weight: 900;
-}
-
-.footertext {
-    display: flex;
-    flex-direction: column;
-    font-family: 'new', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    font-stretch: 700%;
-}
-
-.footertext p {
-    line-height: 1;
-    text-transform: uppercase;
-    text-align: center;
-}
+    .prose li {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
 </style>
-
-<script>
-    const cursor = document.getElementById('custom-cursor-product');
-    let isVisible = false;
-
-    function updateCursorPosition(e) {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-    }
-
-    function showCursor() {
-        if (!isVisible) {
-        cursor.style.opacity = '1';
-        isVisible = true;
-        }
-    }
-
-    function hideCursor() {
-        cursor.style.opacity = '0';
-        isVisible = false;
-    }
-
-    document.addEventListener('mousemove', updateCursorPosition);
-
-    const main = document.getElementById('main');
-    
-        main.addEventListener('mouseenter', showCursor);
-        main.addEventListener('mouseleave', hideCursor);
-        main.addEventListener('mousemove', (e) => {
-        updateCursorPosition(e);
-    });
-
-    // Ensure GSAP and ScrollTrigger are loaded
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Create a timeline for sequential animations
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#main",
-            start: "top 70%",
-            end: "bottom bottom",
-
-        }
-    });
-
-    // First animation: move from bottom to top
-    tl.fromTo(".astrix", {
-        y: 50, // Start from below
-        opacity: 0
-    }, {
-        y: 0, // Move to the original position
-        opacity: 1,
-        duration: 1
-    });
-
-    // Second animation: move from left to right
-    tl.to(".astrix", {
-        x: 550, // Move to the right
-        duration: 1,
-        rotate:360,
-        ease:'ease-in-out',
-
-    });
-    tl.to("#main",{
-        borderRadius:"50%",
-        duration:1,
-    })
-</script>
