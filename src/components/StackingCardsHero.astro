@@ -1,0 +1,185 @@
+---
+import * as Icon from '@astropub/icons'
+---
+
+<div class="container-box">
+
+  <section class="hero pinned">
+    <h1>We Automate <br />Customer Experience</h1>
+  </section>
+
+  <section class="card pinned">
+    <div class="img">
+      <img src="/public/assets/Mockup-1.jpg" alt="" />
+    </div>
+  </section>
+
+  <section class="card pinned">
+    <div class="img">
+      <img src="/public/assets/Mockup-4.jpg" alt="" />
+    </div>
+  </section>
+
+  <section class="card pinned">
+    <div class="img">
+      <img src="/public/assets/Mockup-5.jpg" alt="" />
+    </div>
+  </section>
+
+  <section class="card scroll">
+    <div class="img">
+      <img src="/public/assets/Mockup-9.jpg" alt="" />
+    </div>
+  </section>
+
+  <section class="footer">
+    <!-- <h1>Footer</h1> -->
+  </section>
+</div>
+
+ <style>
+    .logo {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2em;
+        z-index: 2;
+    }
+
+    .logo a {
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .container-box {
+        width: 100%;
+        height: 100%;
+        background-color: #E7E7D6;
+    }
+
+    .hero h1 {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'MediaanItalic';
+        text-align: center;
+        font-weight: 400;
+        font-size: 150px;
+        color: #1E1E1D;
+        letter-spacing: -8px;
+        line-height: 90%;
+    }
+
+    @media screen and (max-width: 768px) {
+        .hero h1 {
+            font-size: 60px;
+        }
+    }
+
+    section {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .card.scroll {
+        position: relative;
+    }
+
+    .img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1000px;
+        height: 700px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .img {
+            width: 300px;
+            height: 200px;
+        }
+    }
+    .footer {
+        width: 100%;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+
+    .footer h1 {
+        font-size: 48px;
+        font-weight: 400;
+        letter-spacing: -2px;
+    }
+</style>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener('DOMContentLoaded', function () { 
+        const footer = document.querySelector('.footer');
+        const lastCard = document.querySelector('.card.scroll');
+        const pinnedSections = gsap.utils.toArray('.pinned');
+        
+        pinnedSections.forEach((section: HTMLElement, index, sections) => {
+            let img = section.querySelector('.img');
+            let nextSection = sections[index + 1] || lastCard;
+            let endScalePoint = `top+=${(nextSection as HTMLElement).offsetTop - section.offsetTop} top`;
+
+            gsap.to(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top top",
+                    end: index === sections.length 
+                        ? `+=${(lastCard as HTMLElement).offsetHeight / 2}`
+                        : (footer as HTMLElement).offsetTop - window.innerHeight + (window.innerHeight),
+                    pin: true,
+                    pinSpacing: false,
+                    scrub: 1,
+                },
+            });
+
+            gsap.fromTo(img, 
+                { scale: 1 }, 
+                {
+                    scale: 0.5,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top top',
+                        end: endScalePoint,
+                        scrub: 1
+                    }
+                }
+            );
+        });
+
+        // const heroheader = document.querySelector('.hero h1') as HTMLElement;
+        // ScrollTrigger.create({
+        //     trigger: document.body,
+        //     start: "top top",
+        //     end: "+=400vh",
+        //     scrub: 1,
+        //     onUpdate: (self) => {
+        //         let opacityProgress = self.progress;
+        //         heroheader.style.opacity = 1 - opacityProgress;
+        //     },
+        // });
+        const heroh1 = document.querySelector('.hero h1');
+        gsap.fromTo(heroh1, {opacity:1}, {opacity:0, scrollTrigger:{trigger:heroh1, start:'top top', end:'bottom top', scrub:1}})
+    });
+</script>

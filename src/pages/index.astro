@@ -14,6 +14,7 @@ import Stats from '../components/Stats.astro';
 import CTAPage from '../components/CTAPage.astro';
 import Footer from '../components/Footer.astro';
 import STackingCardsNew from '../components/STackingCardsNew.astro';
+import StackingCardsHero from '../components/StackingCardsHero.astro';
 ---
 
 <Layout title="CX-Point">
@@ -63,12 +64,14 @@ import STackingCardsNew from '../components/STackingCardsNew.astro';
 			</div>
 		</div> 
 		<div class=" relative">
-			<STackingCardsNew />
+			<StackingCardsHero />
 		</div>
 		<div class="w-screen h-[350px] bg-[#E7E7D6] flex items-center justify-start md:px-28 px-2">
 			<div class="flex flex-col items-start justify-center md:w-[60%]">
 				<div class="flex md:flex-row flex-col md:items-center items-start justify-start gap-4">
-					<img src={astrixblack.src} alt="astrix" class="w-[10%] h-[10%] md:w-[4%] md:h-[4%] rotate"/>
+					<svg class="astrix" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12.311 30.7873V21.195L3.95649 25.9911L0.862207 20.6535L9.21676 15.8574L0.862207 11.0612L3.95649 5.64626L12.311 10.4424V0.850127H18.577V10.4424L26.8541 5.64626L30.0258 11.0612L21.6712 15.8574L30.0258 20.6535L26.8541 25.9911L18.577 21.2724V30.7873H12.311Z" fill="black"></path>
+					</svg>
 					<p class="text-black font-semibold new md:text-[2.2rem]">We don’t just design, we engineer your</p>
 				</div>
 				<p class="text-black md:text-[2.2rem] font-semibold new">success by leveraging data-driven insights and creative innovation. We take ownership of your business, deeply understanding its unique challenges and goals, like these:</p>

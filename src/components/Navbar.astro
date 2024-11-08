@@ -1,16 +1,20 @@
 <nav class="navbar absolute md:top-[4%] left-1/2 transform -translate-x-1/2 w-[88%] bg-transparent z-50">
     <div class="container mx-auto flex justify-between items-center p-4">
-        <div class="text-xl font-bold text-white mix-blend-difference"><a href="/"><img src="/public/assets/Transparent-Logo.png" alt="logo" class="w-[100px] h-auto"></a></div>
+        <div class="text-xl font-bold text-white mix-blend-difference">
+            <a href="/">
+                <img src="/public/assets/Transparent-Logo.png" alt="logo" class="w-[50px] md:w-[80px] h-auto">
+            </a>
+        </div>
         <div class="hidden md:flex items-center justify-between"> <!-- Show on medium screens and up -->
             <ul class="flex space-x-4 px-6 py-4 bg-[#373737] rounded-full ">
-                <li class="nav-links"><a href="/products" class="text-white hover:rounded-full">Products</a></li>
-                <li class="nav-links"><a href="/company" class="text-white ">Company </a></li>
-                <li class="nav-links"><a href="/services" class="text-white ">Services</a></li>
-                <li class="nav-links"><a href="/resources" class="text-white ">Resources</a></li>
+                <li class="nav-links"><a href="/products" class="text-white hover:text-[#ff5800] transition-all duration-300">Products</a></li>
+                <li class="nav-links"><a href="/company" class="text-white hover:text-[#ff5800] transition-all duration-300">Company </a></li>
+                <li class="nav-links"><a href="/services" class="text-white hover:text-[#ff5800] transition-all duration-300">Services</a></li>
+                <li class="nav-links"><a href="/resources" class="text-white hover:text-[#ff5800] transition-all duration-300">Resources</a></li>
             </ul>
-            <button class="text-black text-[0.9rem] px-6 py-4 rounded-full bg-[#F9FC50] font-semibold ml-4">Get in touch</button> <!-- Get in touch button -->
+            <button class="text-white text-[0.9rem] px-6 py-4 rounded-full bg-[#ff5800] font-semibold ml-4">Get in touch</button> <!-- Get in touch button -->
         </div>
-        <button class="text-black text-[0.9rem] px-6 py-4 rounded-full bg-[#F9FC50] font-semibold md:hidden" id="hamburger">☰</button> <!-- Hamburger button -->
+        <button class="text-black text-[0.9rem] px-6 py-4 rounded-full bg-[#ff5800] font-semibold md:hidden" id="hamburger">☰</button> <!-- Hamburger button -->
     </div>
     <div id="mobile-menu" class="absolute -right-[1.2rem] bg-[#e7e7d6] w-screen p-0 m-0 h-screen hidden rounded-t-2xl"> <!-- Mobile menu -->
         <ul class="flex flex-col space-y-4 p-4 h-full">

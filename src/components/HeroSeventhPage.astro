@@ -98,7 +98,7 @@ import astrix from "../../public/assets/whiteAsterisk.png"
     </div>
     <div class="absolute left-0 top-0 w-screen h-screen z-10">
         <div class="w-full h-full flex items-center justify-center bg-[#1E1E1D] text-[#E7E7D6] overflow-hidden relative">
-            <p class="font-new  company absolute top-[50%] md:top-[20%] text-nowrap">CX POINT</p>
+            <p class="font-new  company absolute top-[50%] md:top-[20%] xl:top-[25%] text-nowrap">CX POINT</p>
 
         </div>
     </div>
@@ -133,6 +133,12 @@ import astrix from "../../public/assets/whiteAsterisk.png"
         .company{
             font-size: 6rem;
             transform: translateY(-50%);
+        }
+    }
+
+    @media screen and (min-width:1440px ) {
+        .company{
+            font-size: 30rem;
         }
     }
 </style>

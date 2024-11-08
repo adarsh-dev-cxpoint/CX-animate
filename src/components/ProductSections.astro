@@ -7,14 +7,14 @@ import thirdImage from "../../public/assets/third-card.png"
 ---
 
 <div class="w-screen h-screen main_container relative">
-    <div class="absolute left-0 top-0 w-screen h-screen z-40   child_container">
+    <div class="absolute left-0 top-0 w-screen h-screen z-[50]   child_container">
         <div class="w-full h-full flex items-center justify-center">
-            <div class="w-[50%] h-full bg-[#1E1E1D] px-14 py-2 flex flex-col">
+            <div class="w-full md:w-[50%] h-screen md:h-full bg-[#1E1E1D] px-2 lg:px-14 py-2 flex flex-col">
                 <div class="flex flex-col">
                     <p class="font-new statistics leading-none">
                         CX
                     </p>
-                    <p class="text-white/70 ps-2 text-[2rem] font-bold">
+                    <p class="text-white/70 ps-2 text-[2rem] font-bold leading-[100%] lg:leading-[100%]" >
                         Customer Experience
                     </p>
                 </div>
@@ -22,7 +22,7 @@ import thirdImage from "../../public/assets/third-card.png"
                     <p class="text-white text-[1.2rem] font-bold">
                         First Impressions matter
                     </p>
-                    <p class="text-white text-[1.1rem] font-semibold leading-[100%] w-[70%] text-white/70">
+                    <p class="text-white text-[1.1rem] font-semibold leading-[100%] w-[100%] lg:w-[70%] text-white/70">
                         Your website, product, or branding is the first interaction potential customers have with your business.A professional design creates a strong, positive first impression, leading to increased trust and credibility.
                     </p>
                 </div>
@@ -31,7 +31,42 @@ import thirdImage from "../../public/assets/third-card.png"
                     A well designed website can make a lasting impression, setting the stage for long-term success.
                 </p>
             </div>
-            <div class="w-[50%] h-full bg-[#1E1E1D] flex items-start justify-center">
+            <div class="w-[50%] h-full bg-[#1E1E1D] md:flex hidden items-start justify-center">
+                <!-- <img src={astrix.src} alt="asterisk" class="w-[20%] astrix-clock">
+                <img src={astrix.src} alt="asterisk" class="w-[20%] ">
+                <img src={astrix.src} alt="asterisk" class="w-[20%] astrix-clock">
+                <img src={astrix.src} alt="asterisk" class="w-[20%] astrix-anticlock"> -->
+                <div class="w-full h-full flex items-center justify-center overflow-hidden">
+                    <img src={firstImage.src} class="w-full h-full object-fit">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute left-0 top-0 w-screen h-screen z-40  child_container">
+        <div class="w-full h-full flex items-center justify-center">
+            <div class="w-full md:w-[50%] h-full bg-[#1E1E1D] px-2 lg:px-14 py-2 flex flex-col">
+                <div class="flex flex-col">
+                    <p class="font-new statistics leading-none">
+                        AX
+                    </p>
+                    <p class="text-white/70 ps-2 text-[2rem] font-bold leading-[100%] lg:leading-[100%]">
+                        Customer Experience
+                    </p>
+                </div>
+                <div class="flex flex-col mt-16">
+                    <p class="text-white text-[1.2rem] font-bold">
+                        First Impressions matter
+                    </p>
+                    <p class="text-white text-[1.1rem] font-semibold leading-[100%] w-[100%] lg:w-[70%] text-white/70">
+                        Your website, product, or branding is the first interaction potential customers have with your business.A professional design creates a strong, positive first impression, leading to increased trust and credibility.
+                    </p>
+                </div>
+                
+                <p class="w-[80%] text-white text-[1.1rem] font-semibold leading-[100%] text-white/70 mt-4">
+                    A well designed website can make a lasting impression, setting the stage for long-term success.
+                </p>
+            </div>
+            <div class="w-[50%] h-full bg-[#1E1E1D] md:flex hidden items-start justify-center">
                 <!-- <img src={astrix.src} alt="asterisk" class="w-[20%] astrix-clock">
                 <img src={astrix.src} alt="asterisk" class="w-[20%] ">
                 <img src={astrix.src} alt="asterisk" class="w-[20%] astrix-clock">
@@ -44,12 +79,12 @@ import thirdImage from "../../public/assets/third-card.png"
     </div>
     <div class="absolute left-0 top-0 w-screen h-screen z-30   child_container">
         <div class="w-full h-full flex items-center justify-center">
-            <div class="w-[50%] h-full bg-[#1E1E1D] px-14 py-2 flex flex-col">
+            <div class="w-full md:w-[50%] h-full bg-[#1E1E1D] px-2 lg:px-14 py-2 flex flex-col">
                 <div class="flex flex-col">
                     <p class="font-new statistics leading-none">
                         DX
                     </p>
-                    <p class="text-white/70 ps-2 text-[2rem] font-bold">
+                    <p class="text-white/70 ps-2 text-[2rem] font-bold leading-[100%] lg:leading-[100%]">
                         Developer Experience
                     </p>
                 </div>
@@ -57,7 +92,7 @@ import thirdImage from "../../public/assets/third-card.png"
                     <p class="text-white text-[1.2rem] font-bold">
                         First Impressions matter
                     </p>
-                    <p class="text-white text-[1.1rem] font-semibold leading-[100%] w-[70%] text-white/70">
+                    <p class="text-white text-[1.1rem] font-semibold leading-[100%] w-[100%] lg:w-[70%] text-white/70">
                         Your website, product, or branding is the first interaction potential customers have with your business.A professional design creates a strong, positive first impression, leading to increased trust and credibility.
                     </p>
                 </div>
@@ -66,7 +101,7 @@ import thirdImage from "../../public/assets/third-card.png"
                     A well designed website can make a lasting impression, setting the stage for long-term success.
                 </p>
             </div>
-            <div class="w-[50%] h-full bg-[#1E1E1D] flex items-start justify-center">
+            <div class="w-[50%] h-full bg-[#1E1E1D] md:flex hidden items-start justify-center">
                 <div class="w-full h-full flex items-center justify-center overflow-hidden">
                     <img src={thirdImage.src} class="w-full h-full object-fit">
                 </div>
@@ -75,12 +110,12 @@ import thirdImage from "../../public/assets/third-card.png"
     </div>
     <div class="absolute left-0 top-0 w-screen h-screen z-20  child_container">
         <div class="w-full h-full flex items-center justify-center">
-            <div class="w-[50%] h-full bg-[#1E1E1D] px-14 py-2 flex flex-col">
+            <div class="w-full md:w-[50%] h-full bg-[#1E1E1D] px-2 lg:px-14 py-2 flex flex-col">
                 <div class="flex flex-col">
                     <p class="font-new statistics leading-none ">
                         BX
                     </p>
-                    <p class=" ps-2 text-[2rem] font-bold text-[#E7E7D6]">
+                    <p class=" ps-2 text-[2rem] font-bold text-[#E7E7D6] leading-[100%] lg:leading-[100%]">
                         Business Experience
                     </p>
                 </div>
@@ -88,7 +123,7 @@ import thirdImage from "../../public/assets/third-card.png"
                     <p class="text-white text-[1.2rem] font-bold">
                         First Impressions matter
                     </p>
-                    <p class="text-white text-[1.1rem] font-semibold leading-[100%] w-[70%] text-white/70">
+                    <p class="text-white text-[1.1rem] font-semibold leading-[100%] w-[100%] lg:w-[70%] text-white/70">
                         Your website, product, or branding is the first interaction potential customers have with your business.A professional design creates a strong, positive first impression, leading to increased trust and credibility.
                     </p>
                 </div>
@@ -97,16 +132,16 @@ import thirdImage from "../../public/assets/third-card.png"
                     A well designed website can make a lasting impression, setting the stage for long-term success.
                 </p>
             </div>
-            <div class="w-[50%] h-full bg-[#1E1E1D] flex items-start justify-center">
+            <div class="w-[50%] h-full bg-[#1E1E1D] md:flex hidden items-start justify-center">
                 <div class="w-full h-full flex items-center justify-center overflow-hidden">
                     <img src={secondImage.src} class="w-full h-full object-fit">
                 </div>
             </div>
         </div>
     </div>
-    <div class="absolute left-0 top-0 w-screen h-screen z-10 ">
+    <div class="flex absolute left-0 top-0 w-screen h-screen z-10 ">
         <div class="w-full h-full flex items-center justify-center bg-[#1E1E1D] text-[#E7E7D6] overflow-hidden relative">
-            <p class="font-new text-[70rem] company absolute top-[20%] text-nowrap">CX POINT</p>
+            <p class="font-new text-10px lg:text-[70rem] company absolute top-[40%] lg:top-[20%] text-nowrap">CX POINT</p>
 
         </div>
     </div>
@@ -125,10 +160,22 @@ import thirdImage from "../../public/assets/third-card.png"
         color: #E7E7D6;
     }
 
+    @media (max-width: 768px) {
+        .statistics{
+            font-size: 18rem;
+        }
+    }
+
     .company{
         font-size: 32rem;
         font-stretch: 400%;
         font-weight: 900;
+    }
+
+    @media (max-width: 768px) {
+        .company{
+            font-size: 5rem;
+        }
     }
 
 </style>

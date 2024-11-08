@@ -1,0 +1,510 @@
+---
+// Define the features data
+const brandingFeatures = [
+    {
+        title: "Voyage",
+        description: "Streamline your workflow with comprehensive file management and analysis tools designed for optimal performance.",
+        features: [
+            "SCXML/ VXML File upload to and from workspace",
+            "Flow Summary generation",
+            "Audio file transcription and playback",
+            "Notification for Upgrade",
+            "CSV"
+        ]
+    },
+    {
+        title: "NEXA",
+        description: "Experience real-time monitoring and secure automation with our advanced integration capabilities.",
+        features: [
+                "User Management",
+            "Role Management",
+            "Division Management",
+            "Queue Management",
+            "Skill Management",
+            "Language Management",
+        "Call Routing Management",
+        "Emergency Groups Management",
+                "Schedule Management",
+            "Prompts Management",
+        ]
+    },
+    {
+        title: "Common Features",
+        description: "Develop a comprehensive brand manual that outlines how to use your brand elements consistently across all platforms. This guide ensures that your messaging and visuals are uniform, helping to build a strong, trustworthy brand that communicates effectively with your audience.",
+        features: [
+            "AD based authentication",
+            "GDPR compliant",
+            "Supports integration with Leading contact centers",
+            "Role based access",
+            "End to End encryption",
+            "Raise support tickets",
+            "Platform Uptime status and monitoring"
+        ]
+    },
+    {
+        title: "Upcoming Tools",
+        isSpecial: true,
+        sections: [
+            {
+                heading: "AI-Powered Analytics",
+                description: "Advanced analytics tools powered by machine learning to provide deeper insights into your operations."
+            },
+            {
+                heading: "Automated Workflows",
+                description: "Smart automation systems to streamline your processes and boost productivity."
+            }
+        ]
+    }
+];
+---
+
+<section class="bg-[#E7E7D6] w-full flex items-center justify-start ps-2 lg:ps-0 lg:px-20 md:py-10">
+    <div class="flex flex-col items-start justify-center">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-start gap-2 md:gap-4 h-full">
+            <svg class="rotating-asterisk" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.311 30.7873V21.195L3.95649 25.9911L0.862207 20.6535L9.21676 15.8574L0.862207 11.0612L3.95649 5.64626L12.311 10.4424V0.850127H18.577V10.4424L26.8541 5.64626L30.0258 11.0612L21.6712 15.8574L30.0258 20.6535L26.8541 25.9911L18.577 21.2724V30.7873H12.311Z" fill="black"></path>
+            </svg>
+            <div class="w-full">
+                <p class="new animated-text text-sm md:text-[4rem]" data-astro-cid-tjdfhdqb="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">Create something amazing from the start.</p>
+            </div>
+        </div>
+        <p class="max-w-[700px] new animated-text" data-astro-cid-tjdfhdqb="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">We handle everything from branding to product development, transforming your vision into a thriving business. Using data-driven insights and creative innovation, we build cohesive, scalable solutions.</p>
+    </div>
+</section>
+
+<div class="features-container">
+    <div class="features-scroll-container">
+        <div class="features-grid ps-4">
+            {brandingFeatures.map((section) => (
+                <div class="feature-card">
+                    <div class="content">
+                        <div class="header-wrapper">
+                            <svg class="rotating-asterisk" width="24" height="24" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.311 30.7873V21.195L3.95649 25.9911L0.862207 20.6535L9.21676 15.8574L0.862207 11.0612L3.95649 5.64626L12.311 10.4424V0.850127H18.577V10.4424L26.8541 5.64626L30.0258 11.0612L21.6712 15.8574L30.0258 20.6535L26.8541 25.9911L18.577 21.2724V30.7873H12.311Z" fill="#FF6D00"/>
+                            </svg>
+                            <h2>{section.title}</h2>
+                        </div>
+                        {!section.isSpecial ? (
+                            <>
+                                <p class="description">{section.description}</p>
+                                <ul class="feature-list">
+                                    {section.features.map((feature) => (
+                                        <li>{feature}</li>
+                                    ))}
+                                </ul>
+                            </>
+                        ) : (
+                            <div class="special-content">
+                                <p class="special-intro">Coming Soon</p>
+                                <ul class="upcoming-features-list">
+                                    {section.sections.map((item) => (
+                                        <li class="upcoming-feature">
+                                            <div class="feature-marker"></div>
+                                            <div class="feature-content">
+                                                <h3 class="upcoming-heading">{item.heading}</h3>
+                                                <p class="upcoming-description">{item.description}</p>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .new{
+        font-size: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .new{
+            font-size: 2rem;
+        }
+    }
+
+    .features-container {
+        background-color: #E7E7D6;
+        padding: 2rem 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .features-scroll-container {
+        width: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        cursor: grab;
+    }
+
+    .features-scroll-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .features-grid {
+        display: flex;
+        gap: 0.75rem;
+        padding: 1rem 0;
+        padding-left: 2rem;
+        width: max-content;
+    }
+
+    .feature-card {
+        max-width: 450px;
+        background-color: #1E1E1D;
+        padding: 2.5rem 2rem;
+        border-top-left-radius: 75px;
+        border-top-right-radius: 75px;
+        border-bottom-left-radius: 75px;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        height: 95vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .header-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .rotating-asterisk {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: white;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: white;
+        margin: 0;
+        opacity: 0.9;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        flex-grow: 1;
+    }
+
+    .feature-list li {
+        position: relative;
+        padding-left: 1.5rem;
+        font-size: 0.95rem;
+        color: white;
+        line-height: 1.4;
+    }
+
+    .feature-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        background: white;
+        border-radius: 50%;
+    }
+
+    .feature-list li::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: calc(50% - 2px);
+        transform: translateY(-50%) rotate(45deg);
+        width: 5px;
+        height: 8px;
+        border-right: 1.5px solid #1E1E1D;
+        border-bottom: 1.5px solid #1E1E1D;
+    }
+
+    @media (max-width: 1400px) {
+        .features-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .feature-card {
+            height: 500px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .features-container {
+            padding: 1rem;
+            min-height: auto;
+        }
+
+        .features-scroll-container {
+            overflow-x: hidden;
+            overflow-y: auto;
+            cursor: default;
+        }
+
+        .features-grid {
+            flex-direction: column;
+            width: 100%;
+            padding: 1rem 0;
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            width: 100%;
+            max-width: 100%;
+            min-width: unset;
+            height: auto;
+            min-height: auto;
+            /* padding: 2rem; */
+            border-radius: 50px;
+        }
+
+        .content {
+            gap: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        .description {
+            font-size: 0.9rem;
+        }
+
+        .feature-list {
+            gap: 1rem;
+        }
+
+        .feature-list li {
+            font-size: 0.9rem;
+        }
+    }
+
+    /* Add these new styles for the hero section */
+    .animated-text {
+        opacity: 0;
+        transform: translateY(100%);
+        animation: slideUp 0.8s ease forwards;
+    }
+
+    .astrix {
+        animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes slideUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+
+    .special-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 2rem 0;
+    }
+
+    .special-intro {
+        font-size: 1rem;
+        color: #FF6D00;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 3rem;
+        font-weight: 500;
+    }
+
+    .upcoming-features-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .upcoming-feature {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .feature-marker {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        background: #FF6D00;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 0.5rem;
+    }
+
+    .feature-marker::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        width: 1px;
+        height: 4rem;
+        background: rgba(255, 109, 0, 0.3);
+        transform: translateX(-50%);
+    }
+
+    .upcoming-feature:last-child .feature-marker::after {
+        display: none;
+    }
+
+    .feature-content {
+        flex-grow: 1;
+    }
+
+    .upcoming-heading {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .upcoming-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 90%;
+    }
+
+    @media (max-width: 768px) {
+        .special-intro {
+            margin-bottom: 2rem;
+        }
+
+        .upcoming-features-list {
+            gap: 3rem;
+        }
+
+        .upcoming-heading {
+            font-size: 1.5rem;
+        }
+
+        .upcoming-description {
+            font-size: 0.9rem;
+            max-width: 100%;
+        }
+
+        .feature-marker {
+            width: 20px;
+            height: 20px;
+        }
+
+        .feature-marker::after {
+            height: 3rem;
+        }
+    }
+</style>
+
+<script>
+    import gsap from 'gsap';
+    
+    // Set up the rotation animation for all asterisks
+    const asterisks = document.querySelectorAll('.rotating-asterisk');
+    asterisks.forEach(asterisk => {
+        gsap.to(asterisk, {
+            rotation: 360,
+            duration: 8,
+            repeat: -1,
+            ease: "none"
+        });
+    });
+
+    // Add drag scroll functionality
+    const scrollContainer = document.querySelector('.features-scroll-container');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    scrollContainer.addEventListener('mousedown', (e: MouseEvent) => {
+        isDown = true;
+        (scrollContainer as HTMLElement).style.cursor = 'grabbing';
+        startX = e.pageX - (scrollContainer as HTMLElement).offsetLeft;
+        scrollLeft = (scrollContainer as HTMLElement).scrollLeft;
+    });
+
+    scrollContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        (scrollContainer as HTMLElement).style.cursor = 'grab';
+    });
+
+    scrollContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        (scrollContainer as HTMLElement).style.cursor = 'grab';
+    });
+
+    scrollContainer.addEventListener('mousemove', (e: MouseEvent) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - (scrollContainer as HTMLElement).offsetLeft;
+        const walk = (x - startX) * 2; // Scroll speed multiplier
+        scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    // Add touch events for mobile
+    scrollContainer.addEventListener('touchstart', (e: TouchEvent) => {
+        isDown = true;
+        startX = e.touches[0].pageX - (scrollContainer as HTMLElement).offsetLeft;
+        scrollLeft = scrollContainer.scrollLeft;
+    });
+
+    scrollContainer.addEventListener('touchend', () => {
+        isDown = false;
+    });
+
+    scrollContainer.addEventListener('touchmove', (e: TouchEvent) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.touches[0].pageX - (scrollContainer as HTMLElement).offsetLeft;
+        const walk = (x - startX) * 2;
+        scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+</script>
+
+

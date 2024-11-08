@@ -102,15 +102,16 @@ const cards = [
 
 <style>
   .container-box {
-    max-width: 1700px;
+    max-width: 1900px;
     margin: 0 auto;
     padding: 1rem;
+    background-color: #E7E7D6;
   }
 
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
   }
 
   .card-wrapper {
@@ -129,21 +130,21 @@ const cards = [
   }
 
   .card-3 {
-    border-top-right-radius: 5rem;
-    border-bottom-left-radius: 5rem;
+    border-top-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
   }
 
   .card-4 {
-    border-top-left-radius: 5rem;
-    border-bottom-right-radius: 5rem;
-  }
-  .card-5{
-    border-top-left-radius: 5rem;
-    border-bottom-right-radius: 5rem;
-  }
-  .card-6{
     border-top-right-radius: 5rem;
     border-bottom-left-radius: 5rem;
+  }
+  .card-5{
+    border-top-right-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+  }
+  .card-6{
+    border-top-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
   }
   .card-7{
     border-top-right-radius: 5rem;
@@ -162,54 +163,56 @@ const cards = [
     border-bottom-left-radius: 5rem;
   }
   .card-11{
-    border-top-right-radius: 5rem;
-    border-bottom-left-radius: 5rem;
-  }
-  .card-12{
     border-top-left-radius: 5rem;
     border-bottom-right-radius: 5rem;
+  }
+  .card-12{
+    border-top-right-radius: 5rem;
+    border-bottom-left-radius: 5rem;
   }
 
   .card {
     background-color: #1a1a1a;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 80vh;
   }
 
   .card-content {
-    padding: 1.5rem;
+    padding: 1rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-center;
+    padding-top: 3rem;
   }
 
-  .card h2 {
+  .card-content h2 {
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
+    margin-bottom: 1.5rem;
   }
 
-  .card p {
+  .card-content p {
     color: #a0a0a0;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
   }
 
-  .card a{
+  .card-content a{
     text-decoration: none;
     margin-top: 2rem;
   }
 
   .card-image {
     width: 100%;
-    height: 400px;
+    height: 200px;
     overflow: hidden;
   }
 
@@ -225,11 +228,15 @@ const cards = [
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #1E1E1D;
+    background-color: rgba(30, 30, 29, 0.7);
     transition: opacity 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
   }
 
-  .overlay-1{
+  .overlay-1 {
+    background-image: url('/assets/first-card.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -238,13 +245,14 @@ const cards = [
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2rem;
     text-wrap: wrap;  
-    line-height:0.9;
-    color:#E7E7D6
+    line-height: 0.9;
+    color: #E7E7D6;
   }
 
-  .overlay-2{
+  .overlay-2 {
+    background-image: url('/assets/third-card.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -253,28 +261,14 @@ const cards = [
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
-    font-size: 3rem;
-    text-wrap: wrap;
-    line-height:0.9;
-    color:#E7E7D6
-  }
-
-  .overlay-3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    text-wrap: wrap;
-    font-family: 'new';
-    font-stretch: 500%;
-    font-weight: 900;
-    font-size: 3rem;
+    font-size: 2rem;
     text-wrap: wrap;
     line-height:0.9;
     color:#E7E7D6
   }
 
-  .overlay-4{
+  .overlay-3 {
+    background-image: url('/assets/second-card.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -283,13 +277,14 @@ const cards = [
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2rem;
     text-wrap: wrap;
     line-height:0.9;
     color:#E7E7D6
   }
 
-  .overlay-5{
+  .overlay-4 {
+    background-image: url('/assets/first-card.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -298,12 +293,14 @@ const cards = [
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
-    font-size: 3rem;
-    line-height:0.9;
+    font-size: 2rem;
     text-wrap: wrap;
+    line-height:0.9;
     color:#E7E7D6
   }
-  .overlay-6{
+
+  .overlay-5 {
+    background-image: url('/assets/first-card.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -312,12 +309,14 @@ const cards = [
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height:0.9;
     text-wrap: wrap;
     color:#E7E7D6
   }
-  .overlay-7{
+
+  .overlay-6 {
+    background-image: url('/assets/first-card.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -326,12 +325,14 @@ const cards = [
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height:0.9;
     text-wrap: wrap;
     color:#E7E7D6
   }
-  .overlay-8{
+
+  .overlay-7 {
+    background-image: url('/assets/first-card.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -340,12 +341,14 @@ const cards = [
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height:0.9;
     text-wrap: wrap;
     color:#E7E7D6
   }
-  .overlay-9{
+
+  .overlay-8 {
+    background-image: url('/assets/first-card.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -354,12 +357,14 @@ const cards = [
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height:0.9;
     text-wrap: wrap;
     color:#E7E7D6
   }
-  .overlay-10{
+
+  .overlay-9 {
+    background-image: url('/assets/first-card.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -368,12 +373,14 @@ const cards = [
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height:0.9;
     text-wrap: wrap;
     color:#E7E7D6
   }
-  .overlay-11{
+
+  .overlay-10 {
+    background-image: url('/assets/first-card.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -382,12 +389,30 @@ const cards = [
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height:0.9;
     text-wrap: wrap;
     color:#E7E7D6
   }
-  .overlay-12{
+
+  .overlay-11 {
+    background-image: url('/assets/first-card.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'new';
+    font-stretch: 500%;
+    font-weight: 900;
+    font-size: 2rem;
+    line-height:0.9;
+    text-wrap: wrap;
+    color:#E7E7D6
+  }
+
+  .overlay-12 {
+    background-image: url('/assets/first-card.png');
     display: flex;
     justify-content:  center;
     align-items: center;
@@ -396,7 +421,7 @@ const cards = [
     font-family: 'new';
     font-stretch: 500%;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height:0.9;
     text-wrap: wrap;
     color:#E7E7D6
@@ -406,7 +431,25 @@ const cards = [
     opacity: 0;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1800px) {
+    .card-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 1400px) {
+    .card-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
     .card-grid {
       grid-template-columns: 1fr;
     }

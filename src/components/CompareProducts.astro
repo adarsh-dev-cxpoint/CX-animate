@@ -1,113 +1,266 @@
 ---
-// QuarterDivs.astro
+const features1 = [
+    "SCXML/ VXML File upload to and from workspace",
+    "Flow Summary generation",
+    "Audio file transcription and playback",
+    "Notification for Upgrade",
+    "CSV"
+];
+
+const features2 = [
+    "User Management",
+    "Role Management",
+    "Division Management",
+    "Queue Management",
+    "Skill Management",
+    "Language Management",
+    "Call Routing Management",
+    "Emergency Groups Management",
+    "Schedule Management",
+    "Prompts Management",
+];
+
+const features3 = [
+    "AD based authentication",
+    "GDPR compliant",
+    "Supports integration with Leading contact centers",
+    "Role based access",
+    "End to End encryption",
+    "Raise support tickets",
+    "Platform Uptime status and monitoring"
+];
+
+// Add descriptions for each quarter
+const descriptions = {
+    voyage: "Streamline your workflow with comprehensive file management and analysis tools designed for optimal performance.",
+    nexa: "Experience real-time monitoring and secure automation with our advanced integration capabilities.",
+    enterprise: "Scale your operations with enterprise-grade features and collaborative tools built for teams.",
+    contact: "Get in touch with our sales team for custom solutions tailored to your needs."
+};
 ---
 
+
 <div class="quarter-container">
-    <div class="quarter top-left rounded-br-[100px] rounded-tl-[100px]">
+    <div class="quarter">
         <div class="content">
-            <h2>Top Left</h2>
-            <p>Hover to expand</p>
+            <div class="header-wrapper">
+                <svg class="rotating-asterisk" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.311 30.7873V21.195L3.95649 25.9911L0.862207 20.6535L9.21676 15.8574L0.862207 11.0612L3.95649 5.64626L12.311 10.4424V0.850127H18.577V10.4424L26.8541 5.64626L30.0258 11.0612L21.6712 15.8574L30.0258 20.6535L26.8541 25.9911L18.577 21.2724V30.7873H12.311Z" fill="#FF6D00"/>
+                </svg>
+                <h2>VOYAGE</h2>
+            </div>
+            <p class="description">{descriptions.voyage}</p>
+            <ul class="feature-list">
+                {features1.map(feature => (
+                    <li>{feature}</li>
+                ))}
+            </ul>
         </div>
     </div>
-    <div class="quarter top-right rounded-bl-[100px] rounded-tr-[100px]">
+    <div class="quarter">
         <div class="content">
-            <h2>Top Right</h2>
-            <p>Hover to expand</p>
+            <div class="header-wrapper">
+                <svg class="rotating-asterisk" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.311 30.7873V21.195L3.95649 25.9911L0.862207 20.6535L9.21676 15.8574L0.862207 11.0612L3.95649 5.64626L12.311 10.4424V0.850127H18.577V10.4424L26.8541 5.64626L30.0258 11.0612L21.6712 15.8574L30.0258 20.6535L26.8541 25.9911L18.577 21.2724V30.7873H12.311Z" fill="#FF6D00"/>
+                </svg>
+                <h2>NEXA</h2>
+            </div>
+            <p class="description">{descriptions.nexa}</p>
+            <ul class="feature-list">
+                {features2.map(feature => (
+                    <li>{feature}</li>
+                ))}
+            </ul>
         </div>
     </div>
-    <div class="quarter bottom-left rounded-tr-[100px] rounded-bl-[100px]">
+    <div class="quarter">
         <div class="content">
-            <h2>Bottom Left</h2>
-            <p>Hover to expand</p>
+            <h2>Common Features</h2>
+            <p class="description">{descriptions.enterprise}</p>
+            <ul class="feature-list" style="list-style:circle">
+                {features3.map(feature => (
+                    <li>{feature}</li>
+                ))}
+            </ul>
         </div>
     </div>
-    <div class="quarter bottom-right rounded-br-[100px] rounded-tl-[100px]">
+    <div class="quarter">
         <div class="content">
-            <h2>Bottom Right</h2>
-            <p>Hover to expand</p>
+            <h2>Contact Sales</h2>
+            <p class="description">{descriptions.contact}</p>
+            <button class="contact-btn">Contact Us</button>
         </div>
     </div>
 </div>
 
 <style>
     .quarter-container {
-        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 2rem 15%;
         width: 100%;
-        height: 100vh;
+        min-height: 800px;
+        background-color: #E7E7D6;
     }
 
     .quarter {
-        position: absolute;
-        width: 45%;
-        height: 45vh;
-        transform: scale(0.9);
-        opacity: 0.8;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: pointer;
-    }
-
-    .top-left {
-        top: 2%;
-        left: 2%;
-        transform-origin: top left;
-        background-color: #2476FF;
-    }
-
-    .top-right {
-        top: 2%;
-        right: 2%;
-        transform-origin: top right;
-        background-color: #bdff15;
-    }
-
-    .bottom-left {
-        bottom: 2%;
-        left: 2%;
-        transform-origin: bottom left;
-        background-color: #ff159d;
-    }
-
-    .bottom-right {
-        bottom: 2%;
-        right: 2%;
-        transform-origin: bottom right;
-        background-color: #ff1515;
+        min-height: 350px;
+        opacity: 1;
+        padding: 2.5rem;
+        background-color: #1E1E1D;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
     }
 
     .content {
         color: white;
-        text-align: center;
-        opacity: 0.8;
-        transition: opacity 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
     }
 
     .content h2 {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: white;
+        margin: 0;
     }
 
-    .quarter:hover {
-        width: 47%;
-        height: 47vh;
-        transform: scale(1.3);
-        opacity: 1;
-        z-index: 100;
+    .description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: white;
+        opacity: 0.9;
+        margin: 0;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .feature-list li {
+        display: flex;
+        align-items: center;
+        font-size: 0.95rem;
+        color: white;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .feature-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        background: white;
+        border-radius: 50%;
+    }
+
+    .feature-list li::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: calc(50% - 2px);
+        transform: translateY(-50%) rotate(45deg);
+        width: 4px;
+        height:auto;
+        border-right: 1.5px solid #1E1E1D;
+        border-bottom: 1.5px solid #1E1E1D;
+    }
+
+    .check-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    .contact-text {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin: 1rem 0;
+    }
+
+    .contact-btn {
+        background: white;
+        color: #ff1515;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        margin-top: auto;
+        align-self: center;
+    }
+
+    .contact-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 1024px) {
+        .quarter-container {
+            grid-template-columns: 1fr;
+            padding: 2rem 5%;
+            min-height: auto;
+        }
+
+        .quarter {
+            height: 350px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .quarter-container {
+            padding: 1rem;
+            gap: 0.75rem;
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+        }
+
+        .feature-list li {
+            font-size: 1rem;
+        }
+    }
+
+    .header-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .rotating-asterisk {
+        width: 24px;
+        height: 24px;
+        fill: white;
     }
 </style>
 
+
 <script>
-    document.querySelectorAll('.quarter').forEach((quarter) => {
-        (quarter as HTMLElement).addEventListener('click', () => {
-            const isExpanded = quarter.classList.contains('expanded');
-            // First collapse any expanded quarters
-            document.querySelectorAll('.quarter.expanded').forEach(q => 
-                q.classList.remove('expanded')
-            );
-            // Then toggle current quarter if it wasn't already expanded
-            if (!isExpanded) {
-                quarter.classList.add('expanded');
-            }
-        });
+    import gsap from 'gsap';
+    
+    // Set up the rotation animation for all asterisks
+    const asterisks = document.querySelectorAll('.rotating-asterisk');
+    asterisks.forEach(asterisk => {
+      gsap.to(asterisk, {
+        rotation: 360,
+        duration: 8,
+        repeat: -1,
+        ease: "none"
+      });
     });
-</script>
+  </script>

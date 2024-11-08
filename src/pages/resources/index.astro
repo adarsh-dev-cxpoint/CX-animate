@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Navbar from "../../components/Navbar.astro";
+import Navbar2 from "../../components/Navbar2.astro";
 import astrixblack from "/public/assets/asterisk.png"
 import mockup from "/public/assets/mockup1.jpg"
 import placeholder from "/public/assets/user.jpg"
@@ -10,8 +10,8 @@ import Footer from "../../components/Footer.astro";
 
 
 <Layout title="CX-Point">
-    <div class="w-screen h-full bg-[#FBF8F4]">
-        <Navbar/>
+    <div class="w-screen h-full bg-[#E7E7D6]">
+        <Navbar2/>
         <div class="w-full pt-40 new stretch px-16 pb-24 content">
             <div class="w-full h-full flex items-center justify-start gap-4">
                 <img src={astrixblack.src} alt="astrix" class="w-[3rem] h-auto astrix"/>
@@ -44,7 +44,7 @@ import Footer from "../../components/Footer.astro";
         </div>
         <div class="w-full px-24 pb-24 flex flex-wrap gap-4">
             {articles.map((article, index) => (
-                <a href={`/resources/${article.id}`} class="max-w-sm h-fit mx-auto bg-white hover:bg-lime-300 rounded-[50px] overflow-hidden shadow-lg transition-colors duration-300 group ">
+                <a href={`/resources/${article.id}`} class="max-w-sm h-fit mx-auto bg-white hover:shadow-xl rounded-[50px] overflow-hidden shadow-lg transition-all duration-300 group ">
                     <div class=" p-6 relative py-16">
                         <div class="absolute top-4 right-4 bg-black bg-opacity-10 rounded-full p-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

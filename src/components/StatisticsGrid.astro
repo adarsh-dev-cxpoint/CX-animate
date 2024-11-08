@@ -1,0 +1,87 @@
+---
+---
+
+<section class="bg-[#E7E7D6] py-32 lg:px-10">
+    <div class="w-full px-2 lg:px-8">
+        <div class="flex flex-col items-start justify-center mb-10 md:mb-24">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-start gap-2 md:gap-4 h-full">
+                <svg class="rotating-asterisk" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.311 30.7873V21.195L3.95649 25.9911L0.862207 20.6535L9.21676 15.8574L0.862207 11.0612L3.95649 5.64626L12.311 10.4424V0.850127H18.577V10.4424L26.8541 5.64626L30.0258 11.0612L21.6712 15.8574L30.0258 20.6535L26.8541 25.9911L18.577 21.2724V30.7873H12.311Z" fill="black"></path>
+                </svg>
+                <div class="w-full">
+                    <p class="new animated-text text-sm md:text-[4rem]" data-astro-cid-tjdfhdqb="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">Why it matters: Consistent brand identity</p>
+                </div>
+            </div>
+            <p class="max-w-[700px] new animated-text" data-astro-cid-tjdfhdqb="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">significantly impacts business success.</p>
+        </div>
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <!-- Stat 1 -->
+            <div class="flex flex-col gap-2 lg:gap-8 stat-item">
+                <div class="text-[8rem] font-bold leading-none tracking-tight">61%</div>
+                <div class="flex flex-col ps-2 lg:ps-0">
+                    <h3 class="text-xl font-semibold text-black">More likely to buy</h3>
+                    <p class="text-sm text-gray-600 leading-normal lg:leading-relaxed max-w-[90%]">
+                        61% of customers are more likely to buy from brands they recognize and trust. (Source: Nielsen)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stat 2 -->
+            <div class="flex flex-col gap-2 lg:gap-8 stat-item">
+                <div class="text-[8rem] font-bold leading-none tracking-tight">3.5×</div>
+                <div class="flex flex-col ps-2 lg:ps-0">
+                    <h3 class="text-xl font-semibold text-black">More visibility</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-[90%]">
+                        Brands maintaining consistency are 3.5 times more visible to their audience. (Source: Demand Metric)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stat 3 -->
+            <div class="flex flex-col gap-2 lg:gap-8 stat-item">
+                <div class="text-[8rem] font-bold leading-none tracking-tight">23%</div>
+                <div class="flex flex-col ps-2 lg:ps-0">
+                    <h3 class="text-xl font-semibold text-black">Increase in revenue</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-[90%]">
+                        Consistent brand presentation can lead to an average revenue increase of 23%. (Source: Lucidpress study)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stat 4 -->
+            <div class="flex flex-col gap-8 stat-item">
+                <div class="text-[8rem] font-bold leading-none tracking-tight">94%</div>
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-semibold text-black">First Impressions</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-[90%]">
+                        94% of first impressions are design-related, and when users stay longer. (Source: Study)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate numbers on scroll
+    const statItems = document.querySelectorAll('.stat-item');
+
+    statItems.forEach((item) => {
+        gsap.from(item, {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            scrollTrigger: {
+                trigger: item,
+                start: 'top bottom-=100',
+                toggleActions: 'play none none reverse'
+            }
+        });
+    });
+</script> 

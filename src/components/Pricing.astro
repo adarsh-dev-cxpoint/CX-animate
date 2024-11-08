@@ -1,53 +1,303 @@
 ---
 import * as Icons from "@astropub/icons"
+
+const basicFeatures = {
+    "Voyage": {
+        heading: "Advanced Voyage Features",
+        stats_description: "Uptime guarantee with our enterprise-grade security infrastructure",
+        features: [
+            "Multi-factor authentication",
+            "End-to-end encryption",
+            "Regular security audits",
+            "Data backup & recovery"
+        ]
+    },
+    "Nexa": {
+        heading: "Seamless Integration Tools",
+        stats_description: "Faster deployment time compared to traditional integration methods",
+        features: [
+            "API access",
+            "Custom webhooks",
+            "Third-party integrations",
+            "Developer documentation"
+        ]
+    },
+    // "Support": {
+    //     heading: "Premium Support Access",
+    //     description: "24/7 dedicated support for your business needs",
+    //     features: [
+    //         "24/7 priority support",
+    //         "Dedicated account manager",
+    //         "Training sessions",
+    //         "Implementation assistance"
+    //     ]
+    // },
+    // "Custom": {
+    //     heading: "Custom Solutions",
+    //     description: "Tailored solutions for unique business needs",
+    //     features: [
+    //         "Custom integrations",
+    //         "Custom reporting",
+    //         "Custom workflows",
+    //         "Advanced user management"
+    //     ]
+    // }
+}
+
+const proFeatures = {
+    "Enterprise": {
+        heading: "Enterprise Solutions",
+        stats: "200%",
+        stats_description: "Average ROI for enterprise clients within first year",
+        features: [
+            "Custom deployment options",
+            "Advanced analytics",
+            "SLA guarantees",
+            "Dedicated infrastructure"
+        ]
+    },
+    "Compliance": {
+        heading: "Compliance & Security",
+        stats: "100%",
+        stats_description: "Compliance rate with industry standards and regulations",
+        features: [
+            "HIPAA compliance",
+            "SOC 2 certification",
+            "Custom audit logs",
+            "Data retention policies"
+        ]
+    },
+    "Advanced": {
+        heading: "Advanced Features",
+        stats: "75%",
+        stats_description: "Reduction in manual workflow processes",
+        features: [
+            "AI-powered insights",
+            "Custom reporting",
+            "Workflow automation",
+            "Advanced user management"
+        ]
+    },
+    
+}
+
+const serializedBasicFeatures = JSON.stringify(basicFeatures);
+const serializedProFeatures = JSON.stringify(proFeatures);
 ---
 
-
-<div class="w-screen h-full bg-[#FBF8F4] mt-12">
-    <p class="text-start font-new w-full stretch font-bold text-[2rem] px-16">
+<div class="w-screen h-full bg-[#E7E7D6] my-24">
+    <p class="text-center lg:text-start font-new w-full stretch font-bold text-[2rem] md:px-16 px-6 mb-10 leading-[100%]">
         Our Standard Pricing 
     </p>
-    <div class="w-full h-[125vh] flex items-center justify-around px-12 py-12 gap-4 ">
-        <div class="w-[33%] h-full bg-[#D2FF56] rounded-[5rem] p-10">
-            <p class="font-new stretch text-[2rem] font-semibold">The Typical</p>
+    <div class="w-full min-h-[125vh] flex flex-col md:flex-row items-center md:items-start justify-around px-0 md:px-8 py-12 gap-2">
+        <!-- Free Trial Card -->
+        <div class="w-[90%] md:w-[25%] h-full bg-white rounded-[3rem] p-6 md:p-10 border-2 border-gray-200">
+            <p class="font-new stretch text-[2rem] font-semibold">Free Trial</p>
             <div class="flex flex-col items-center justify-between gap-12 py-8">
-                <p class="font-semibold text-[1rem] text-black/60">Transform your brand with a strong visual identity. Create a consistent, emotion-driven brand presence that resonates with your target audience and drives business growth.</p>
+                <div class="flex flex-col items-center justify-center ">
+                    <p class="font-bold text-[2rem] text-black text-center">Free Trial </p>
+                    <p class="font-semibold text-[1rem] text-black/60 text-center">07 day free Trial per User</p>
+                </div>
+                <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Start Free Trial</button>
                 <ul class="flex flex-col items-start justify-center gap-6">
-                    <li class="font-black text-[1rem] text-black/60 leading-none">Brand Analysis:  <span class="font-medium">Understand your brand's strengths and weaknesses.</span></li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none">Brand Identity:  <span class="font-medium">Essential elements like colors, fonts, and logos  </span></li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none">Brand Design:  <span class="font-medium">Get professional design advice.</span></li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none">Brand Implementation:  <span class="font-medium">Make your product stand out on the shelf.</span></li>
+                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                        <Icons.CheckCircled size={20} className="text-black"/>
+                        <span class="font-medium">AD based Authentication</span>
+                    </li>
+                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                        <Icons.CheckCircled size={20} className="text-black"/>
+                        <span class="font-medium">GDPR compliant</span>
+                    </li>
+                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                        <Icons.CheckCircled size={20} className="text-black"/>
+                        <span class="font-medium">Leading contact centers</span>
+                    </li>
+                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                        <Icons.CheckCircled size={20} className="text-black"/>
+                        <span class="font-medium">Role based access</span>
+                    </li>
+                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                        <Icons.CheckCircled size={20} className="text-black"/>
+                        <span class="font-medium">End to end encryption</span>
+                    </li>
+                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                        <Icons.CheckCircled size={20} className="text-black"/>
+                        <span class="font-medium">Raise support ticket</span>
+                    </li>
+                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                        <Icons.CheckCircled size={20} className="text-black"/>
+                        <span class="font-medium">Platform status, monitoring</span>
+                    </li>
                 </ul>
             </div>
-            <div class="w-full h-[1px] bg-black"></div>
-            <p class="font-black text-[1rem] text-black/60 leading-none pt-10">Satisfaction Guarantee: <span class="font-medium">If you’re not thrilled with our initial design concepts, we’ll revise them until you are – at no extra cost.</span></p>
-            <p class="font-black text-[4rem] text-black leading-none pt-10 ">$120</p>
-            <button class="mt-10 py-3 px-6 bg-black text-white rounded-[2rem]">Start your success</button>
+            <!-- <div class="w-full h-[1px] bg-black"></div>
+            <p class="font-black text-[1rem] text-black/60 leading-none pt-10">No Credit Card Required: <span class="font-medium">Start your free trial instantly with just your email</span></p>
+            <p class="font-black text-[4rem] text-black leading-none pt-10">$0</p> -->
+            
         </div>
-        <div class="w-[33%] h-full bg-[#F9FC50] rounded-[5rem] p-10">
-            <p class="font-new stretch text-[2rem] font-semibold">The Typical</p>
+
+        <!-- Existing cards with adjusted width -->
+        <div class="w-[90%] md:w-[25%] h-full bg-[#FF8C00] rounded-[3rem] p-6 md:p-10">
+            <p class="font-new stretch text-[2rem] font-semibold">CXP1</p>
             <div class="flex flex-col items-center justify-between gap-12 py-8">
-                <p class="font-semibold text-[1rem] text-black/60">Transform your brand with a strong visual identity. Create a consistent, emotion-driven brand presence that resonates with your target audience and drives business growth.</p>
-                <ul class="flex flex-col items-start justify-center gap-6">
-                    <li class="font-black text-[1rem] text-black/60 leading-none">Brand Analysis:  <span class="font-medium">Understand your brand's strengths and weaknesses.</span></li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none">Brand Identity:  <span class="font-medium">Essential elements like colors, fonts, and logos  </span></li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none">Brand Design:  <span class="font-medium">Get professional design advice.</span></li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none">Brand Implementation:  <span class="font-medium">Make your product stand out on the shelf.</span></li>
-                </ul>
+                <div class="flex flex-col items-center justify-center ">
+                    <p class="font-bold text-[0.8rem] text-black/50 text-center"><span class="text-[2rem] text-black">$50</span>/month/user</p>
+                    <p class="font-semibold text-[1rem] text-black/60 text-center">Start 10 user license</p>
+                </div>
+                <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Select Plan</button>
+                <!-- Single Dropdown with Feature Display -->
+                <div class="w-full space-y-6">
+                    <select class="feature-selector w-full bg-white/50 p-4 rounded-2xl font-semibold cursor-pointer outline-none">
+                        {Object.keys(basicFeatures).map((category) => (
+                            <option value={category}>{category}</option>
+                        ))}
+                    </select>
+
+                    <!-- Common Display Area -->
+                    <div class="feature-display rounded-xl">
+                        <ul class="space-y-3 feature-list" id="basicFeatureList">
+                            {basicFeatures["Voyage"].features.map(feature => (
+                                <li class="text-sm text-black/70">
+                                    {feature}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="w-full h-[1px] bg-black"></div>
-            <p class="font-black text-[1rem] text-black/60 leading-none pt-10">Satisfaction Guarantee: <span class="font-medium">If you’re not thrilled with our initial design concepts, we’ll revise them until you are – at no extra cost.</span></p>
-            <p class="font-black text-[4rem] text-black leading-none pt-10 ">$120</p>
-            <button class="mt-10 py-3 px-6 bg-black text-white rounded-[2rem]">Start your success</button>
+            <!-- <div class="w-full h-[1px] bg-black"></div>
+            <p class="font-black text-[4rem] text-black leading-none pt-10">$120</p>
+            <button class="mt-10 py-3 px-6 bg-black text-white rounded-[2rem]">Choose Basic</button> -->
         </div>
-        <div class="w-[33%] h-full bg-gray-200 rounded-[5rem] p-10">
+
+        <div class="w-[90%] md:w-[25%] h-full bg-[#FF6D00] rounded-[3rem] p-6 md:p-10 pro-plan-card">
+            <p class="font-new stretch text-[2rem] font-semibold">CXP2</p>
+            <div class="flex flex-col items-center justify-between gap-12 py-8">
+                <div class="flex flex-col items-center justify-center ">
+                    <p class="font-bold text-[0.8rem] text-black/50 text-center"><span class="text-[2rem] text-black">$70</span>/month/user</p>
+                    <p class="font-semibold text-[1rem] text-black/60 text-center">Start 10 user license</p>
+                </div>
+                <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Select Plan</button>
+                
+                <!-- Replace dropdown with two major tools -->
+                <div class="w-full space-y-8">
+                    <!-- First Tool -->
+                    <div class="tool-section">
+                        <h3 class="font-bold text-lg mb-3">Voyage Tool</h3>
+                        <p class="text-sm text-black/60 mb-4">Advanced analytics and insights powered by artificial intelligence</p>
+                        <ul class="space-y-3">
+                            <li class="text-sm text-black/70 flex items-center gap-2">
+                                <Icons.CheckCircled size={20} className="text-black"/>
+                                <span>Real-time data processing</span>
+                            </li>
+                            <li class="text-sm text-black/70 flex items-center gap-2">
+                                <Icons.CheckCircled size={20} className="text-black"/>
+                                <span>Predictive analytics</span>
+                            </li>
+                            <li class="text-sm text-black/70 flex items-center gap-2">
+                                <Icons.CheckCircled size={20} className="text-black"/>
+                                <span>Custom dashboard creation</span>
+                            </li>
+                            <li class="text-sm text-black/70 flex items-center gap-2">
+                                <Icons.CheckCircled size={20} className="text-black"/>
+                                <span>Automated reporting</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Second Tool -->
+                    <div class="tool-section">
+                        <h3 class="font-bold text-lg mb-3">Nexa Tool</h3>
+                        <p class="text-sm text-black/60 mb-4">Seamless connectivity with your existing enterprise systems</p>
+                        <ul class="space-y-3">
+                            <li class="text-sm text-black/70 flex items-center gap-2">
+                                <Icons.CheckCircled size={20} className="text-black"/>
+                                <span>Custom API development</span>
+                            </li>
+                            <li class="text-sm text-black/70 flex items-center gap-2">
+                                <Icons.CheckCircled size={20} className="text-black"/>
+                                <span>Legacy system integration</span>
+                            </li>
+                            <li class="text-sm text-black/70 flex items-center gap-2">
+                                <Icons.CheckCircled size={20} className="text-black"/>
+                                <span>Automated workflows</span>
+                            </li>
+                            <li class="text-sm text-black/70 flex items-center gap-2">
+                                <Icons.CheckCircled size={20} className="text-black"/>
+                                <span>Security compliance tools</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <p class="font-black text-[4rem] text-black leading-none pt-10">$299</p>
+            <button class="mt-10 py-3 px-6 bg-black text-white rounded-[2rem]">Choose Pro</button> -->
+        </div>
+
+        <div class="w-[90%] md:w-[25%] h-full bg-white rounded-[3rem] p-6 md:p-10">
             <p class="font-new stretch text-[2rem] font-semibold leading-none">Need Assistance? let's discuss your options</p>
-            <p class="font-semibold text-[1rem] text-black/60 pt-72">We're here to help you every step of the way. Whether you're looking for guidance, need assistance, or want to explore your options, we're ready to support you every step of the way.f you're unsure which package is right for you or need something different, we're here to help. </p>
+            <p class="font-semibold text-[1rem] text-black/60 pt-24">We're here to help you every step of the way. Whether you're looking for guidance, need assistance, or want to explore your options, we're ready to support you every step of the way.f you're unsure which package is right for you or need something different, we're here to help. </p>
             <p class="font-bold text-[1rem] text-black pt-24 flex items-center justify-start gap-2">FAQ and terms <spn><Icons.ArrowRight size={20}/></spn></p>
             <button class="mt-12 py-3 px-6 bg-black text-white rounded-[2rem]">Contact US</button>
         </div>
     </div>
 </div>
+
+<script define:vars={{ serializedBasicFeatures, serializedProFeatures }}>
+    const basicFeatures = JSON.parse(serializedBasicFeatures);
+    const proFeatures = JSON.parse(serializedProFeatures);
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const selectors = document.querySelectorAll('.feature-selector');
+        
+        selectors.forEach(selector => {
+            selector.addEventListener('change', (e) => {
+                const selectedCategory = e.target.value;
+                const featureList = e.target.closest('.space-y-6').querySelector('.feature-list');
+                const isProPlan = e.target.closest('.pro-plan-card') !== null;
+                
+                const selectedFeatureSet = isProPlan ? 
+                    proFeatures[selectedCategory] : 
+                    basicFeatures[selectedCategory];
+
+                if (selectedFeatureSet) {
+                    // Clear existing features
+                    featureList.innerHTML = '';
+                    
+                    // Add heading and stats
+                    const header = document.createElement('div');
+                    header.className = 'mb-4';
+                    header.innerHTML = `
+                        <h3 class="font-semibold text-lg mb-2">${selectedFeatureSet.heading}</h3>
+                        <p class="text-sm text-black/60 mb-4">${selectedFeatureSet.stats_description}</p>
+                    `;
+                    featureList.appendChild(header);
+                    
+                    // Add features with icons
+                    selectedFeatureSet.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.className = 'text-sm text-black/70 flex items-center gap-2';
+                        li.innerHTML = `
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-black">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>${feature}</span>
+                        `;
+                        featureList.appendChild(li);
+                    });
+
+                    // Add fade animation
+                    featureList.classList.add('fade-in');
+                    setTimeout(() => featureList.classList.remove('fade-in'), 300);
+                }
+            });
+
+            // Set initial state
+            selector.dispatchEvent(new Event('change'));
+        });
+    });
+</script>
 
 <style>
     .font-new{
@@ -56,5 +306,77 @@ import * as Icons from "@astropub/icons"
 
     .stretch{
         font-stretch: 500%;
+    }
+
+    /* Smooth transitions for dropdowns */
+    .dropdown-content {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .dropdown-trigger svg {
+        transition: transform 0.3s ease;
+    }
+
+    .feature-selector {
+        transition: all 0.2s ease;
+    }
+    
+    .feature-selector:hover {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .feature-display {
+        transition: all 0.3s ease;
+    }
+
+    /* Enhanced dropdown styling */
+    .feature-selector {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1rem;
+        padding-right: 2.5rem;
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fade-in {
+        animation: fade-in 0.3s ease-out;
+    }
+
+    .feature-list li {
+        transition: all 0.2s ease;
+    }
+
+    .tool-section {
+        border-radius: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .tool-section:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+        transform: translateY(-2px);
+    }
+
+    /* Add responsive styles */
+    @media (max-width: 768px) {
+        .feature-selector {
+            width: 100%;
+            max-width: none;
+        }
+
+        .tool-section {
+            padding: 1rem;
+        }
     }
 </style>
