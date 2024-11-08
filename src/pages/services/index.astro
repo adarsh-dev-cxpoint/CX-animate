@@ -7,6 +7,8 @@ import Navbar from "../../components/Navbar.astro";
 import HeroSixthPage from "../../components/HeroSixthPage.astro";
 import Footer from "../../components/Footer.astro";
 import Navbar2 from "../../components/Navbar2.astro";
+import Astrix from "../../assets/asterisk.png";
+import StatisticsGrid from "../../components/StatisticsGrid.astro";
 ---
 <Layout title="CX-Point">
 <div class="w-full min-h-screen bg-[#E7E7D6]">
@@ -53,21 +55,77 @@ import Navbar2 from "../../components/Navbar2.astro";
     <div class="w-screen h-full bg-[#FBF8F4] relative">
         <ServiceCards />
     </div>
-    <div class="w-full h-fit flex flex-col items-start justify-start gap-10 px-4 lg:px-20 pt-20">
+    <!-- <div class="w-full h-fit flex flex-col items-start justify-start gap-10 px-4 lg:px-20 pt-20">
         <div class="w-full lg:w-[70%]  font-new text-xl lg:text-[4rem] leading-[100%] font-bold">
             <p>We blend unmatched expertise, tailored solutions, and proven results to make your app/SaaS thrive.</p>
         </div>
-    </div>
-    <div class="w-full h-full relative">
+    </div> -->
+    <!-- <div class="w-full h-full relative">
         <HeroSixthPage/>
+    </div> -->
+    
+    <div id="main">
+        <div class="page-container"> 
+            <div class="bottomtext flex flex-col items-center justify-center">
+                <img src={astrix} alt="astrix" class="astrix w-[50px] mb-8 "/>
+                <p>Ready to stand out and grow ?</p>
+                <a href="/company#contact" class="mt-24 contact-button text-sm text-center py-5 px-8 bg-[#FF8C00] rounded-full w-fit font-medium hover:bg-black hover:text-white transition-all duration-300 ">Start Your Success</a>
+        </div>
+        <div id="custom-cursor-product"></div>
     </div>
-    <CTAPage />
     <Footer/>
 </div>
 </Layout>
 
 
 <style>
+    .bottomtext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'new', sans-serif;
+    font-weight: 400;
+    font-size: 70px;
+    font-stretch: 700%;
+    }
+
+    @media (max-width: 768px) {
+        .bottomtext {
+            font-size: 2rem;
+        }
+    }
+
+    .bottomtext p {
+        line-height: 0.8;
+        text-align: center;
+        transition: all 0.5s ease;
+    }
+
+    .bottomtext span {
+        font-family: 'new', sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        font-stretch: 700%;
+        width: 70%;
+        text-wrap: balance;
+        text-align: center;
+        line-height: 1.2;
+
+    }   
+
+    .bottomtext p:hover {
+        font-weight: 900;
+    }
+    .page-container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+    }
+
     .new{
         font-family: 'new', sans-serif;
         font-weight: 700;
@@ -203,5 +261,41 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
     //     repeat: -1,
     //     ease: "power2.inOut"
     // })
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#main",
+            start: "top 70%",
+            end: "bottom bottom",
+
+        }
+    });
+
+    const t2 = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#main",
+            start: "top 70%",
+            end: "bottom bottom",
+
+        }
+    });
+
+    // First animation: move from bottom to top
+    t2.fromTo(".astrix", {
+        y: 50, // Start from below
+        opacity: 0
+    }, {
+        y: 0, // Move to the original position
+        opacity: 1,
+        duration: 1
+    });
+
+    // Second animation: move from left to right
+    t2.to(".astrix", {
+        x: 550, // Move to the right
+        duration: 1,
+        rotate:360,
+        ease:'ease-in-out',
+
+    })
 
 </script>

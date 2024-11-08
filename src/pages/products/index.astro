@@ -51,7 +51,7 @@ import StatisticsGrid from "../../components/StatisticsGrid.astro";
                     </div>
                     <div class="w-full h-fit lg:h-full flex items-end justify-center lg:justify-end">
 
-                        <p class=" text-[20px] median animated-text flex items-end px-4 py-2 border-2 border-black rounded-full">Learn More</p>
+                        <a href="/services" class=" text-[20px] median animated-text flex items-end px-4 py-2 border-2 border-black rounded-full">Learn More</a>
                         
                     </div>
                 </div>
@@ -60,10 +60,11 @@ import StatisticsGrid from "../../components/StatisticsGrid.astro";
     </div>
     <StatisticsGrid />
     <!-- <StackingCards /> -->
-    <ProductCard />
+    <Stats />
     <ProductSections/>
 
-    <Stats />
+  
+    <ProductCard /> 
     <BrandFeatures/>
     <!-- <CompareProducts/> -->
     <CTAPage />
@@ -163,6 +164,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
     gsap.registerPlugin(ScrollTrigger);
 
     const textElements = document.querySelectorAll('.animated-text');
+    gsap.from(".navbar",{
+		y:"-100%",
+		duration:0.5,
+		opacity:0,
+	})
     gsap.from('.astrix', {
         rotation: 360,
         duration: 4,
