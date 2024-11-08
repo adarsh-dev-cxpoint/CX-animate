@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar2 from '../../components/Navbar2.astro';
+import Footer from '../../components/Footer.astro';
+
+const accessibilityData = [
+    {
+        title: "Our Commitment to Accessibility",
+        content: "We are dedicated to improving the accessibility of our website for individuals with disabilities. We continuously evaluate and enhance our website to ensure it is usable for all visitors, regardless of their abilities."
+    },
+    {
+        title: "Keyboard Navigation",
+        content: "Our website is fully navigable via keyboard, allowing users who cannot use a mouse to interact with all website elements. We ensure that all interactive elements are reachable and operable using keyboard controls."
+    },
+    {
+        title: "Visual Accessibility",
+        content: "All images, graphs, and charts on the website are accompanied by descriptive alt text to assist screen reader users. We maintain sufficient color contrast and provide clear visual hierarchy to enhance readability."
+    },
+    {
+        title: "Multimedia Accessibility",
+        content: "Videos on our site include captions and transcripts for users with hearing impairments. We ensure that multimedia content is accessible to all users through alternative formats and clear controls."
+    },
+    {
+        title: "Text Customization",
+        content: "Users can increase or decrease the text size for improved readability. We use clear, legible fonts and maintain consistent layout and navigation throughout the site."
+    },
+    {
+        title: "Ongoing Improvements",
+        content: "We regularly test our website using various assistive technologies and conduct accessibility audits to identify and address potential barriers. We strive to meet or exceed WCAG 2.1 guidelines."
+    }
+];
+---
+
+<Layout title="Accessibility Statement | CX-Point">
+    <main class="min-h-screen bg-[#E7E7D6]">
+        <Navbar2/>
+        
+        <div class="container mx-auto px-4 md:px-8 py-16 md:py-24">
+            <div class="max-w-4xl mx-auto">
+                <!-- Header Section -->
+                <div class="mb-12 md:mb-16 pt-20">
+                    <h1 class="text-4xl md:text-7xl font-bold mb-6 new text-center">Accessibility Statement</h1>
+                    <p class="text-gray-600 mb-4 lg:mt-20">Last Updated: March 15, 2024</p>
+                    <p class="text-lg leading-relaxed">
+                        At CXPoint, we are committed to providing an inclusive and accessible experience for all users, 
+                        including those with disabilities. We strive to meet the Web Content Accessibility Guidelines 
+                        (WCAG) 2.1 and ensure our website is usable by everyone.
+                    </p>
+                </div>
+
+                <!-- Accessibility Sections -->
+                <div class="space-y-8 md:space-y-12">
+                    {accessibilityData.map((section) => (
+                        <div class="accessibility-section">
+                            <h2 class="text-2xl md:text-3xl font-semibold mb-4 new">{section.title}</h2>
+                            <p class="text-lg leading-relaxed text-gray-800">{section.content}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <!-- Contact Section -->
+                <div class="mt-12">
+                    <p class="text-lg text-gray-700">
+                        We welcome your feedback on the accessibility of our website. If you encounter any barriers 
+                        or have suggestions for improvement, please contact our accessibility team at 
+                        <a href="mailto:accessibility@cxpoint.com" class="text-blue-600 hover:underline">
+                        accessibility@cxpoint.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <Footer />
+    </main>
+</Layout>
+
+<style>
+    .new {
+        font-family: "new";
+        font-stretch: 520%;
+        line-height: 1.2;
+    }
+
+    .accessibility-section {
+        padding: 2rem 0;
+    }
+</style> 

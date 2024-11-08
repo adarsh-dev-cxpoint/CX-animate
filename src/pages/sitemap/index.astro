@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar2 from '../../components/Navbar2.astro';
+import Footer from '../../components/Footer.astro';
+
+const sitemapData = [
+    {
+        section: "Main Pages",
+        links: [
+            { title: "Home", url: "/" },
+            { title: "About Us", url: "/company" },
+            { title: "Services", url: "/services" },
+            { title: "Products", url: "/products" },
+            { title: "Contact", url: "/contact" }
+        ]
+    },
+    {
+        section: "Services",
+        links: [
+            { title: "Experience Design", url: "/services#experience" },
+            { title: "Digital Transformation", url: "/services#digital" },
+            { title: "Consulting", url: "/services#consulting" },
+            { title: "Innovation Strategy", url: "/services#innovation" }
+        ]
+    },
+    {
+        section: "Resources",
+        links: [
+            { title: "Blog", url: "/resources" },
+            { title: "Case Studies", url: "/resources#cases" },
+            { title: "Whitepapers", url: "/resources#papers" },
+            { title: "Documentation", url: "/resources#docs" }
+        ]
+    },
+    {
+        section: "Legal",
+        links: [
+            { title: "Privacy Policy", url: "/policy" },
+            { title: "Terms of Service", url: "/termsofservice" },
+            { title: "Cookie Policy", url: "/cookies" },
+            { title: "Cookie Preferences", url: "/cookiepreferences" },
+            { title: "Security Policy", url: "/security" },
+            { title: "Accessibility Statement", url: "/accessibility" }
+        ]
+    },
+    {
+        section: "Support",
+        links: [
+            { title: "Help Center", url: "/help" },
+            { title: "FAQs", url: "/faqs" },
+            { title: "Contact Support", url: "/support" }
+        ]
+    }
+];
+---
+
+<Layout title="Sitemap | CX-Point">
+    <main class="min-h-screen bg-[#E7E7D6]">
+        <Navbar2/>
+        
+        <div class="container mx-auto px-4 md:px-8 py-16 md:py-24">
+            <div class="max-w-6xl mx-auto">
+                <!-- Header Section -->
+                <div class="mb-12 md:mb-16 pt-20">
+                    <h1 class="text-4xl md:text-7xl font-bold mb-6 new text-center">Sitemap</h1>
+                    <p class="text-gray-600 mb-4 lg:mt-20">Last Updated: March 15, 2024</p>
+                    <p class="text-lg leading-relaxed text-center max-w-3xl mx-auto">
+                        Welcome to our sitemap. Here you'll find a comprehensive overview of all pages 
+                        and sections available on our website, organized by category for easy navigation.
+                    </p>
+                </div>
+
+                <!-- Sitemap Sections -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                    {sitemapData.map((section) => (
+                        <div class="sitemap-section rounded-lg p-6 shadow-sm">
+                            <h2 class="text-2xl md:text-3xl font-semibold mb-6 new">{section.section}</h2>
+                            <ul class="space-y-3">
+                                {section.links.map((link) => (
+                                    <li>
+                                        <a 
+                                            href={link.url} 
+                                            class="text-lg text-gray-700 hover:text-black hover:underline transition-colors duration-300"
+                                        >
+                                            {link.title}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+
+                <!-- Additional Information -->
+                <div class="mt-12 text-center">
+                    <p class="text-lg text-gray-700">
+                        Can't find what you're looking for? Contact us at 
+                        <a href="mailto:info@cxpoint.com" class="text-blue-600 hover:underline">
+                        info@cxpoint.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <Footer />
+    </main>
+</Layout>
+
+<style>
+    .new {
+        font-family: "new";
+        font-stretch: 520%;
+        line-height: 1.2;
+    }
+
+    .sitemap-section {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .sitemap-section:hover {
+        transform: translateY(-2px);
+    }
+</style> 

@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar2 from '../../components/Navbar2.astro';
+import Footer from '../../components/Footer.astro';
+
+const securityData = [
+    {
+        title: "Data Encryption",
+        content: "We use state-of-the-art encryption technology (SSL/TLS) to protect your data during transmission. All sensitive information, such as credit card numbers and personal details, are encrypted to ensure they are secure."
+    },
+    {
+        title: "Access Controls",
+        content: "We implement strict access controls to ensure that only authorized personnel have access to your personal data. All employees and contractors undergo background checks and are required to adhere to strict confidentiality agreements."
+    },
+    {
+        title: "Security Audits",
+        content: "We conduct regular security audits and vulnerability assessments to identify potential weaknesses in our system. Any identified risks are promptly addressed."
+    },
+    {
+        title: "Incident Response",
+        content: "In the unlikely event of a data breach, we will: Immediately assess the extent of the breach. Notify affected individuals and relevant authorities within the legally required time frame. Take steps to mitigate any damage and prevent future incidents."
+    },
+    {
+        title: "Cookies and Tracking",
+        content: "To improve our services and ensure your security, we may use cookies and similar tracking technologies. These cookies help us monitor website activity and detect fraudulent behavior."
+    }
+];
+---
+
+<Layout title="Security Policy | CX-Point">
+    <main class="min-h-screen bg-[#E7E7D6]">
+        <Navbar2/>
+        
+        <div class="container mx-auto px-4 md:px-8 py-16 md:py-24">
+            <div class="max-w-4xl mx-auto">
+                <!-- Header Section -->
+                <div class="mb-12 md:mb-16 pt-20">
+                    <h1 class="text-4xl md:text-7xl font-bold mb-6 new text-center">Security Policy</h1>
+                    <p class="text-gray-600 mb-4 lg:mt-20">Effective Date: March 15, 2024</p>
+                    <p class="text-lg leading-relaxed">
+                        CXPoint is committed to ensuring the security of your personal and financial information. 
+                        This Security Policy outlines the measures we take to protect your data and how we manage 
+                        potential security threats. We prioritize the protection of your information through 
+                        comprehensive security measures and continuous monitoring.
+                    </p>
+                </div>
+
+                <!-- Security Sections -->
+                <div class="space-y-8 md:space-y-12">
+                    {securityData.map((section) => (
+                        <div class="security-section">
+                            <h2 class="text-2xl md:text-3xl font-semibold mb-4 new">{section.title}</h2>
+                            <p class="text-lg leading-relaxed text-gray-800">{section.content}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <!-- Contact Section -->
+                <div class="mt-12">
+                    <p class="text-lg text-gray-700">
+                        For more information about our security practices or to report security concerns, 
+                        please contact our security team at 
+                        <a href="mailto:security@cxpoint.com" class="text-blue-600 hover:underline">
+                        security@cxpoint.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <Footer />
+    </main>
+</Layout>
+
+<style>
+    .new {
+        font-family: "new";
+        font-stretch: 520%;
+        line-height: 1.2;
+    }
+
+    .security-section {
+        padding: 2rem 0;
+    }
+</style> 

@@ -12,26 +12,26 @@ import Footer from "../../components/Footer.astro";
 <Layout title="CX-Point">
     <div class="w-screen h-full bg-[#E7E7D6]">
         <Navbar2/>
-        <div class="w-full pt-40 new stretch px-16 pb-24 content">
-            <div class="w-full h-full flex items-center justify-start gap-4">
-                <img src={astrixblack.src} alt="astrix" class="w-[3rem] h-auto astrix"/>
-                <p class="text-[4rem] font-semibold leading-[100%]">Transformative Success:</p>
+        <div class="w-full pt-40 new stretch px-4 lg:px-16 pb-24 content">
+            <div class="w-full h-full flex lg:flex-row flex-col items-start lg:items-center justify-start gap-2 lg:gap-4">
+                <img src={astrixblack.src} alt="astrix" class="w-[1.5rem] lg:w-[3rem] h-auto astrix"/>
+                <p class="text-2xl lg:text-[4rem] font-semibold leading-[100%]">Transformative Success:</p>
             </div>
-            <p class="w-[56%] text-[4rem] font-semibold leading-[100%]">Inspiring Stories from Our Valued Customers</p>
+            <p class="w-full lg:w-[56%] text-2xl lg:text-[4rem] font-semibold leading-[100%]">Inspiring Stories from Our Valued Customers</p>
         </div>
-        <div class="w-full px-16 pb-24">
-            <div class="w-full h-fit rounded-[100px] overflow-hidden relative">
+        <div class="w-full lg:px-16 pb-24">
+            <div class="w-full lg:h-fit h-[60vh] rounded-md lg:rounded-[100px] overflow-hidden relative">
                 <a href="#">
-                    <img src={mockup.src} alt="customer" class="w-full h-[90vh] object-cover object-top hover:scale-105 transition-all duration-700"/>
+                    <img src={mockup.src} alt="customer" class="w-full lg:h-[90vh] h-[60vh] object-cover object-top hover:scale-105 transition-all duration-700"/>
                 </a>
-                <div class="absolute bottom-[8%] left-0 transfrom translate-y-1/2 w-[40%] h-[60%] z-40  bg-black text-white text-center rounded-tr-[100px] py-10 px-12 flex flex-col items-start justify-start gap-4" >
-                    <div class="text-[2rem] font-semibold leading-[100%] text-start">
+                <div class="absolute bottom-[8%] left-0 transfrom translate-y-1/2 lg:w-[40%] w-[80%] h-[30%] lg:h-[60%] z-40  bg-black text-white text-center rounded-tr-2xl lg:rounded-tr-[100px] py-4 lg:py-10 px-2 lg:px-12 flex flex-col items-start justify-start gap-4" >
+                    <div class="text-sm lg:text-[2rem] font-semibold leading-[100%] text-start">
                         The seven second rule: How users subconsciously judge your business
                     </div>
                     <div class="flex items-center justify-start gap-4 leading-[100%]">
-                        <img src={placeholder.src} alt="author" class="w-[4rem] h-auto rounded-full"/>
+                        <img src={placeholder.src} alt="author" class="lg:w-[4rem] w-[2rem] h-auto rounded-full"/>
                         <div class="flex flex-col items-start justify-center">
-                            <p class="font-bold">Tom Garcy</p>
+                            <p class="font-bold text-sm lg:text-base">Tom Garcy</p>
                             <p class="text-sm font-bold text-[#ADADAD]">Founder</p>
                         </div>
                     </div>
@@ -39,10 +39,10 @@ import Footer from "../../components/Footer.astro";
             </div>
         </div>
         <div>
-        <div class="w-full px-16 pb-24">
-            <p class="new text-[2rem] font-semibold stretch leading-[100%]">Latest Articles</p>
+        <div class="w-full px-4 lg:px-16 pb-24">
+            <p class="new text-2xl lg:text-[2rem] font-semibold stretch leading-[100%]">Latest Articles</p>
         </div>
-        <div class="w-full px-24 pb-24 flex flex-wrap gap-4">
+        <div class="w-full px-4 lg:px-24 pb-24 flex flex-wrap gap-4">
             {articles.map((article, index) => (
                 <a href={`/resources/${article.id}`} class="max-w-sm h-fit mx-auto bg-white hover:shadow-xl rounded-[50px] overflow-hidden shadow-lg transition-all duration-300 group ">
                     <div class=" p-6 relative py-16">
