@@ -33,7 +33,7 @@ const sections = [
 <Layout title="CX-Point">
     <div class="w-full h-full bg-[#E7E7D6]">
         <Navbar2/>
-        <div class="w-full min-h-screen px-2 lg:px-20 py-20">
+        <div class="w-full min-h-screen px-2 lg:px-40 py-20">
             <div class="w-full pt-24">
                 <div class="w-full h-full overflow-hidden">
                     <p class="text-[25px] lg:text-[80px] akira animated-text ">With over 17 years of design</p>
@@ -48,8 +48,8 @@ const sections = [
                     <p class="text-[25px] lg:text-[80px] akira animated-text">your business forward.</p>
                 </div>
             </div>
-            <div class="w-full flex px-2 lg:px-18 pt-14 lg:pt-2">
-                <div class="w-full h-full lg:p-12">
+            <div class="w-full flex px-0 lg:px-18 pt-14 lg:pt-2">
+                <div class="w-full h-full pt-12">
                     <p class="text-[20px] font-bold">
                         Who we are
                     </p>
@@ -60,8 +60,8 @@ const sections = [
                     </div>
                 </div>
             </div>
-            <div class="w-full flex flex-col lg:flex-row gap-10 lg:gap-0 px-2 lg:px-18 pt-6">
-                <div class="w-full lg:w-[50%] h-full flex items-center lg:p-12 opaq">
+            <div class="w-full flex flex-col lg:flex-row gap-10 lg:gap-0 px-0 lg:px-18 pt-6">
+                <div class="w-full lg:w-[50%] h-full flex items-center lg:pt-12 opaq">
                     <div>
                         <p class="text-[20px] font-bold">
                             Our Mission
@@ -82,8 +82,8 @@ const sections = [
                     </div>
                 </div>
             </div>
-            <div class="w-full flex px-2 lg:px-18 pt-10" id="locations">
-                <div class="w-full h-full lg:p-12">
+            <div class="w-full flex px-0 lg:px-18 pt-10" id="locations">
+                <div class="w-full h-full lg:pt-12">
                     <p class="text-[20px] font-bold">
                         World Wide Locations
                     </p>
@@ -106,14 +106,14 @@ const sections = [
         <div class="mt-0 lg:mt-20">
             <Marquee />
         </div>
-        <div class="w-full h-screen flex flex-col items-center justify-around px-4 lg:px-20 space-y-4 lg:my-28 my-14 gap-10">
+        <div class="w-full h-screen flex flex-col items-center justify-around px-4 lg:px-40 space-y-4 lg:my-28 my-14 gap-10">
             {sections.map((section) => (
                 <div class="w-full flex lg:flex-row flex-col justify-center lg:justify-between items-start lg:items-center lg:space-y-14 space-y-8">
                     <div class="flex items-start justify-center gap-2">
                         <p class="text-lg lg:text-2xl font-semibold">{section.number}</p>
-                        <p class="text-4xl lg:text-5xl font-bold">{section.title}</p>
+                        <p class="text-4xl lg:text-4xl font-bold">{section.title}</p>
                     </div>
-                    <p class="text-xl font-bold w-full lg:w-3/4 text-start lg:text-end h-full">
+                    <p class="text-xl lg:text-base font-bold w-full lg:w-3/4 text-start lg:text-end h-full">
                         {section.content}
                     </p>
                 </div>
@@ -122,16 +122,16 @@ const sections = [
         </div>
 
 
-        <div class="w-full h-screen mt-72 lg:pt-8 lg:px-14 flex flex-col items-start justify-around lg:justify-between">
+        <div class="w-full h-fit mt-32 lg:mt-20 lg:pt-8 lg:px-40 flex flex-col items-start justify-around lg:justify-between">
             <div class="lg:w-[60%] akira text-4xl ">
                 <div class="flex lg:flex-row flex-col gap-2 px-2 lg:px-0">
                     <img src={astrix.src} alt="astrix" class="w-[30px] h-[30px] astrix" />
-                    <p class="text-lg lg:text-2xl lg:flex hidden">And let’s be clear: we hate wasting time or money.</p>
+                    <p class="text-lg lg:text-2xl lg:flex hidden">And let’s be clear, we hate wasting time or money.</p>
                 </div>
                 <p class="text-xl lg:text-2xl lg:px-0 px-2">We don’t inflate our budgets just because we think you won’t accept our hourly rate. In fact, we don’t care about hourly rates. Thanks to our experience, we work at lightning speed. We focus on getting things done efficiently, without cutting corners.</p>
             </div>
 
-            <div id="testimonial" class="testimonial-content-sticky flex flex-wrap items-center justify-center lg:mt-20" style="overflow-x: hidden;">
+            <div id="testimonial" class="testimonial-content-sticky w-full flex flex-wrap items-center justify-center lg:mt-20" style="overflow-x: hidden;">
                 <!-- Desktop version (hidden on mobile) -->
                 <div class="testimonial-content-block-v2 hidden lg:flex gap-10">
                     <div class="testimonial-single-card-block">
@@ -191,7 +191,7 @@ const sections = [
                 </div>
 
                 <!-- Mobile version (hidden on lg screens) -->
-                <div class="grid grid-cols-3 gap-4 px-4 lg:hidden">
+                <div class="w-full grid grid-cols-3 gap-4 px-4 lg:hidden">
                     <div class="testimonial-single-card-block-mobile">
                         <div class="testimonial-image-block-mobile">
                             <img src="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0b2e9f8328911bfe1_loren.png" 
@@ -392,7 +392,7 @@ const sections = [
 
 @media (max-width: 768px) {
     .bottomtext {
-        font-size: 16px;
+        font-size: 32px;
     }
 }
 

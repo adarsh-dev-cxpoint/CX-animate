@@ -431,35 +431,18 @@ import { carouselData } from "../../data/carouselData.js";
     const nextButton = document.querySelector('.carousel-button.next');
 
     const dots = document.querySelectorAll('.carousel-dot');
-
-
-
     let currentSlide = 0;
-
     const slideCount = slides.length;
-
-
-
     function updateCarousel() {
 
         track.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-        
-
         // Update dots with orange color for active
-
         dots.forEach((dot, index) => {
-
             if (index === currentSlide) {
-
                 dot.classList.add('active');
-
                 dot.style.backgroundColor = '#FF6D00';
-
             } else {
-
                 dot.classList.remove('active');
-
                 dot.style.backgroundColor = '#AEAC92';
 
             }

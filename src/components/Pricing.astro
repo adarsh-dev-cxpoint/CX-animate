@@ -89,157 +89,167 @@ const serializedProFeatures = JSON.stringify(proFeatures);
     <p class="text-center lg:text-start font-new w-full stretch font-bold text-[2rem] md:px-16 px-6 mb-10 leading-[100%]">
         Our Standard Pricing 
     </p>
-    <div class="w-full min-h-[125vh] flex flex-col md:flex-row items-center md:items-start justify-around px-0 md:px-8 py-12 gap-2">
-        <!-- Free Trial Card -->
-        <div class="w-[90%] md:w-[25%] h-full bg-white rounded-[3rem] p-6 md:p-10 border-2 border-gray-200">
-            <p class="font-new stretch text-[2rem] font-semibold">Free Trial</p>
-            <div class="flex flex-col items-center justify-between gap-12 py-8">
-                <div class="flex flex-col items-center justify-center ">
-                    <p class="font-bold text-[2rem] text-black text-center">Free Trial </p>
-                    <p class="font-semibold text-[1rem] text-black/60 text-center">07 day free Trial per User</p>
-                </div>
-                <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Start Free Trial</button>
-                <ul class="flex flex-col items-start justify-center gap-6">
-                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
-                        <Icons.CheckCircled size={20} className="text-black"/>
-                        <span class="font-medium">AD based Authentication</span>
-                    </li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
-                        <Icons.CheckCircled size={20} className="text-black"/>
-                        <span class="font-medium">GDPR compliant</span>
-                    </li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
-                        <Icons.CheckCircled size={20} className="text-black"/>
-                        <span class="font-medium">Leading contact centers</span>
-                    </li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
-                        <Icons.CheckCircled size={20} className="text-black"/>
-                        <span class="font-medium">Role based access</span>
-                    </li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
-                        <Icons.CheckCircled size={20} className="text-black"/>
-                        <span class="font-medium">End to end encryption</span>
-                    </li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
-                        <Icons.CheckCircled size={20} className="text-black"/>
-                        <span class="font-medium">Raise support ticket</span>
-                    </li>
-                    <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
-                        <Icons.CheckCircled size={20} className="text-black"/>
-                        <span class="font-medium">Platform status, monitoring</span>
-                    </li>
-                </ul>
-            </div>
-            <!-- <div class="w-full h-[1px] bg-black"></div>
-            <p class="font-black text-[1rem] text-black/60 leading-none pt-10">No Credit Card Required: <span class="font-medium">Start your free trial instantly with just your email</span></p>
-            <p class="font-black text-[4rem] text-black leading-none pt-10">$0</p> -->
+    <div class="w-full flex flex-wrap justify-center gap-6 px-4 md:px-2 py-12">
+        <div class="w-full flex flex-col md:flex-row items-stretch justify-center gap-2 ">
             
-        </div>
-
-        <!-- Existing cards with adjusted width -->
-        <div class="w-[90%] md:w-[25%] h-full bg-[#ff6d00] rounded-[3rem] p-6 md:p-10">
-            <p class="font-new stretch text-[2rem] font-semibold">CXP1</p>
-            <div class="flex flex-col items-center justify-between gap-12 py-8">
-                <div class="flex flex-col items-center justify-center ">
-                    <p class="font-bold text-[0.8rem] text-black/50 text-center"><span class="text-[2rem] text-black">$50</span>/month/user</p>
-                    <p class="font-semibold text-[1rem] text-black/60 text-center">Start 10 user license</p>
+            <div class="w-[100%] md:w-[22%] h-fit lg:h-[1080px] bg-white rounded-[3rem] p-6 md:p-10 border-2 border-gray-200 flex flex-col">
+                <p class="font-new stretch text-[2rem] font-semibold">Free Trial</p>
+                <div class="h-full flex flex-col items-center gap-12 py-8">
+                    <div class="flex flex-col items-center justify-center ">
+                        <p class="font-bold text-[2rem] text-black text-center">Free Trial </p>
+                        <p class="font-semibold text-[1rem] text-black/60 text-center">07 day free Trial per User</p>
+                    </div>
+                    <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Start Free Trial</button>
+                    <ul class="flex flex-col items-start justify-center gap-6">
+                        <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                            <Icons.CheckCircled size={20} className="text-black"/>
+                            <span class="font-medium">AD based Authentication</span>
+                        </li>
+                        <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                            <Icons.CheckCircled size={20} className="text-black"/>
+                            <span class="font-medium">GDPR compliant</span>
+                        </li>
+                        <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                            <Icons.CheckCircled size={20} className="text-black"/>
+                            <span class="font-medium">Leading contact centers</span>
+                        </li>
+                        <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                            <Icons.CheckCircled size={20} className="text-black"/>
+                            <span class="font-medium">Role based access</span>
+                        </li>
+                        <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                            <Icons.CheckCircled size={20} className="text-black"/>
+                            <span class="font-medium">End to end encryption</span>
+                        </li>
+                        <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                            <Icons.CheckCircled size={20} className="text-black"/>
+                            <span class="font-medium">Raise support ticket</span>
+                        </li>
+                        <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
+                            <Icons.CheckCircled size={20} className="text-black"/>
+                            <span class="font-medium">Platform status, monitoring</span>
+                        </li>
+                    </ul>
                 </div>
-                <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Select Plan</button>
-                <!-- Single Dropdown with Feature Display -->
-                <div class="w-full space-y-6">
-                    <select class="feature-selector w-full bg-white/50 p-4 rounded-2xl font-semibold cursor-pointer outline-none">
-                        {Object.keys(basicFeatures).map((category) => (
-                            <option value={category}>{category}</option>
-                        ))}
-                    </select>
+            </div>
 
-                    <!-- Common Display Area -->
-                    <div class="feature-display rounded-xl">
-                        <ul class="space-y-3 feature-list" id="basicFeatureList">
-                            {basicFeatures["Voyage"].features.map(feature => (
-                                <li class="text-sm text-black/70">
-                                    {feature}
-                                </li>
+            <div class="w-[100%] md:w-[22%] h-fit lg:h-[1080px] bg-[#ff6d00] rounded-[3rem] p-6 md:p-10 flex flex-col">
+                <p class="font-new stretch text-[2rem] font-semibold">CXP1</p>
+                <div class="h-full flex flex-col items-center gap-12 py-8">
+                    <div class="flex flex-col items-center justify-center ">
+                        <p class="font-bold text-[0.8rem] text-black/50 text-center"><span class="text-[2rem] text-black">$50</span>/month/user</p>
+                        <p class="font-semibold text-[1rem] text-black/60 text-center">Start 10 user license</p>
+                    </div>
+                    <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Select Plan</button>
+                    <div class="w-full space-y-6">
+                        <select class="feature-selector w-full bg-white/50 p-4 rounded-2xl font-semibold cursor-pointer outline-none">
+                            {Object.keys(basicFeatures).map((category) => (
+                                <option value={category}>{category}</option>
                             ))}
-                        </ul>
+                        </select>
+
+                        <div class="feature-display rounded-xl">
+                            <ul class="space-y-3 feature-list" id="basicFeatureList">
+                                {basicFeatures["Voyage"].features.map(feature => (
+                                    <li class="text-sm text-black/70">
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="w-full h-[1px] bg-black"></div>
-            <p class="font-black text-[4rem] text-black leading-none pt-10">$120</p>
-            <button class="mt-10 py-3 px-6 bg-black text-white rounded-[2rem]">Choose Basic</button> -->
-        </div>
 
-        <div class="w-[90%] md:w-[25%] h-full bg-[#FF6D00] rounded-[3rem] p-6 md:p-10 pro-plan-card">
-            <p class="font-new stretch text-[2rem] font-semibold">CXP2</p>
-            <div class="flex flex-col items-center justify-between gap-12 py-8">
-                <div class="flex flex-col items-center justify-center ">
-                    <p class="font-bold text-[0.8rem] text-black/50 text-center"><span class="text-[2rem] text-black">$70</span>/month/user</p>
-                    <p class="font-semibold text-[1rem] text-black/60 text-center">Start 10 user license</p>
-                </div>
-                <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Select Plan</button>
-                
-                <!-- Replace dropdown with two major tools -->
-                <div class="w-full space-y-8">
-                    <!-- First Tool -->
-                    <div class="tool-section">
-                        <h3 class="font-bold text-lg mb-3">Voyage Tool</h3>
-                        <p class="text-sm text-black/60 mb-4">Advanced analytics and insights powered by artificial intelligence</p>
-                        <ul class="space-y-3">
-                            <li class="text-sm text-black/70 flex items-center gap-2">
-                                <Icons.CheckCircled size={20} className="text-black"/>
-                                <span>Real-time data processing</span>
-                            </li>
-                            <li class="text-sm text-black/70 flex items-center gap-2">
-                                <Icons.CheckCircled size={20} className="text-black"/>
-                                <span>Predictive analytics</span>
-                            </li>
-                            <li class="text-sm text-black/70 flex items-center gap-2">
-                                <Icons.CheckCircled size={20} className="text-black"/>
-                                <span>Custom dashboard creation</span>
-                            </li>
-                            <li class="text-sm text-black/70 flex items-center gap-2">
-                                <Icons.CheckCircled size={20} className="text-black"/>
-                                <span>Automated reporting</span>
-                            </li>
-                        </ul>
+            <div class="w-[100%] md:w-[22%] h-fit lg:h-[1080px] bg-[#FF6D00] rounded-[3rem] p-6 md:p-10 flex flex-col">
+                <p class="font-new stretch text-[2rem] font-semibold">CXP2</p>
+                <div class="h-full flex flex-col items-center gap-12 py-8">
+                    <div class="flex flex-col items-center justify-center ">
+                        <p class="font-bold text-[0.8rem] text-black/50 text-center"><span class="text-[2rem] text-black">$70</span>/month/user</p>
+                        <p class="font-semibold text-[1rem] text-black/60 text-center">Start 10 user license</p>
                     </div>
+                    <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Select Plan</button>
+                    <div class="w-full space-y-8">
+                        <div class="space-y-6">
+                            <select class="feature-selector-pro w-full bg-white/50 p-4 rounded-2xl font-semibold cursor-pointer outline-none">
+                                {Object.keys(proFeatures).map((category) => (
+                                    <option value={category}>{category}</option>
+                                ))}
+                            </select>
 
-                    <!-- Second Tool -->
-                    <div class="tool-section">
-                        <h3 class="font-bold text-lg mb-3">Nexa Tool</h3>
-                        <p class="text-sm text-black/60 mb-4">Seamless connectivity with your existing enterprise systems</p>
-                        <ul class="space-y-3">
-                            <li class="text-sm text-black/70 flex items-center gap-2">
-                                <Icons.CheckCircled size={20} className="text-black"/>
-                                <span>Custom API development</span>
-                            </li>
-                            <li class="text-sm text-black/70 flex items-center gap-2">
-                                <Icons.CheckCircled size={20} className="text-black"/>
-                                <span>Legacy system integration</span>
-                            </li>
-                            <li class="text-sm text-black/70 flex items-center gap-2">
-                                <Icons.CheckCircled size={20} className="text-black"/>
-                                <span>Automated workflows</span>
-                            </li>
-                            <li class="text-sm text-black/70 flex items-center gap-2">
-                                <Icons.CheckCircled size={20} className="text-black"/>
-                                <span>Security compliance tools</span>
-                            </li>
-                        </ul>
+                            <div class="feature-display rounded-xl">
+                                <ul class="space-y-3 feature-list-pro" id="proFeatureList1">
+                                    {proFeatures["Enterprise"].features.map(feature => (
+                                        <li class="text-sm text-black/70 flex items-center gap-2">
+                                            <Icons.CheckCircled size={20} className="text-black"/>
+                                            <span>{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <select class="feature-selector-pro w-full bg-white/50 p-4 rounded-2xl font-semibold cursor-pointer outline-none">
+                                {Object.keys(proFeatures).map((category) => (
+                                    <option value={category}>{category}</option>
+                                ))}
+                            </select>
+
+                            <div class="feature-display rounded-xl">
+                                <ul class="space-y-3 feature-list-pro" id="proFeatureList2">
+                                    {proFeatures["Compliance"].features.map(feature => (
+                                        <li class="text-sm text-black/70 flex items-center gap-2">
+                                            <Icons.CheckCircled size={20} className="text-black"/>
+                                            <span>{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- <p class="font-black text-[4rem] text-black leading-none pt-10">$299</p>
-            <button class="mt-10 py-3 px-6 bg-black text-white rounded-[2rem]">Choose Pro</button> -->
+
+            <div class="w-[100%] md:w-[22%] h-fit lg:h-[1080px] bg-[#FF6D00] rounded-[3rem] p-6 md:p-10 flex flex-col">
+                <p class="font-new stretch text-[2rem] font-semibold">CXP3</p>
+                <div class="h-full flex flex-col items-center gap-12 py-8">
+                    <div class="flex flex-col items-center justify-center">
+                        <p class="font-bold text-[0.8rem] text-black/50 text-center"><span class="text-[2rem] text-black">$90</span>/month/user</p>
+                        <p class="font-semibold text-[1rem] text-black/60 text-center">Start 10 user license</p>
+                    </div>
+                    <button class="py-3 px-6 bg-black text-white rounded-[2rem]">Select Plan</button>
+                    <div class="w-full space-y-8">
+                        {Object.entries(proFeatures).slice(0, 3).map(([category, featureSet]) => (
+                            <div class="space-y-4">
+                                <h3 class="font-semibold text-lg">{featureSet.heading}</h3>
+                                <p class="text-sm text-black/60 mb-4">{featureSet.stats_description}</p>
+                                <ul class="space-y-3">
+                                    {featureSet.features.map(feature => (
+                                        <li class="text-sm text-black/70 flex items-center gap-2">
+                                            <Icons.CheckCircled size={20} className="text-black"/>
+                                            <span>{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="w-[90%] md:w-[25%] h-full bg-white rounded-[3rem] p-6 md:p-10">
-            <p class="font-new stretch text-[2rem] font-semibold leading-none">Need Assistance? let's discuss your options</p>
-            <p class="font-semibold text-[1rem] text-black/60 pt-24">We're here to help you every step of the way. Whether you're looking for guidance, need assistance, or want to explore your options, we're ready to support you every step of the way.f you're unsure which package is right for you or need something different, we're here to help. </p>
-            <p class="font-bold text-[1rem] text-black pt-24 flex items-center justify-start gap-2">FAQ and terms <spn><Icons.ArrowRight size={20}/></spn></p>
-            <button class="mt-12 py-3 px-6 bg-black text-white rounded-[2rem]">Contact US</button>
+        <div class="w-[100%] md:w-[90%] bg-white rounded-[3rem] p-8 md:p-16 flex flex-col items-start justify-between gap-8">
+            <div class="md:w-2/3]">
+                <p class="font-new stretch text-[2rem] font-semibold leading-none mb-8">Need Assistance? let's discuss your options</p>
+                <p class="font-semibold text-[1rem] text-black/60">We're here to help you every step of the way. Whether you're looking for guidance, need assistance, or want to explore your options, we're ready to support you every step of the way. If you're unsure which package is right for you or need something different, we're here to help.</p>
+            </div>
+            <div class="md:w-1/3 flex flex-col items-start justify-center gap-8">
+                <p class="font-bold text-[1rem] text-black flex items-center justify-end gap-2">
+                    FAQ and terms <span><Icons.ArrowRight size={20}/></span>
+                </p>
+                <button class="py-3 px-6 bg-black text-white rounded-[2rem]">Contact US</button>
+            </div>
         </div>
     </div>
 </div>
@@ -249,17 +259,17 @@ const serializedProFeatures = JSON.stringify(proFeatures);
     const proFeatures = JSON.parse(serializedProFeatures);
     
     document.addEventListener('DOMContentLoaded', () => {
-        const selectors = document.querySelectorAll('.feature-selector');
+        // Basic features selector logic (unchanged)
+        const basicSelectors = document.querySelectorAll('.feature-selector');
         
-        selectors.forEach(selector => {
+        // Pro features selector logic
+        const proSelectors = document.querySelectorAll('.feature-selector-pro');
+        
+        proSelectors.forEach((selector, index) => {
             selector.addEventListener('change', (e) => {
                 const selectedCategory = e.target.value;
-                const featureList = e.target.closest('.space-y-6').querySelector('.feature-list');
-                const isProPlan = e.target.closest('.pro-plan-card') !== null;
-                
-                const selectedFeatureSet = isProPlan ? 
-                    proFeatures[selectedCategory] : 
-                    basicFeatures[selectedCategory];
+                const featureList = e.target.closest('.space-y-6').querySelector('.feature-list-pro');
+                const selectedFeatureSet = proFeatures[selectedCategory];
 
                 if (selectedFeatureSet) {
                     // Clear existing features
@@ -293,7 +303,14 @@ const serializedProFeatures = JSON.stringify(proFeatures);
                 }
             });
 
-            // Set initial state
+            // Set different initial values for each dropdown
+            const featureKeys = Object.keys(proFeatures);
+            selector.value = featureKeys[index % featureKeys.length];
+            selector.dispatchEvent(new Event('change'));
+        });
+
+        // Initialize basic selectors (unchanged)
+        basicSelectors.forEach(selector => {
             selector.dispatchEvent(new Event('change'));
         });
     });
@@ -330,13 +347,17 @@ const serializedProFeatures = JSON.stringify(proFeatures);
     }
 
     /* Enhanced dropdown styling */
-    .feature-selector {
+    .feature-selector, .feature-selector-pro {
         appearance: none;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
-        background-position: right 1rem center;
+        background-position: right 1.5rem center;
         background-size: 1rem;
-        padding-right: 2.5rem;
+        padding: 1rem 3.5rem 1rem 1.5rem;
+    }
+
+    .feature-selector:hover, .feature-selector-pro:hover {
+        background-color: rgba(255, 255, 255, 0.6);
     }
 
     @keyframes fade-in {
@@ -363,10 +384,6 @@ const serializedProFeatures = JSON.stringify(proFeatures);
         transition: all 0.3s ease;
     }
 
-    .tool-section:hover {
-        background-color: rgba(255, 255, 255, 0.4);
-        transform: translateY(-2px);
-    }
 
     /* Add responsive styles */
     @media (max-width: 768px) {

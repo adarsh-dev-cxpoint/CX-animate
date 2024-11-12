@@ -64,10 +64,10 @@ import StatisticsGrid from "../../components/StatisticsGrid.astro";
         <HeroSixthPage/>
     </div> -->
     
-    <div id="main">
+    <div id="cta">
         <div class="page-container"> 
             <div class="bottomtext flex flex-col items-center justify-center">
-                <img src={astrix} alt="astrix" class="astrix w-[50px] mb-8 "/>
+                <img src={astrix} alt="astrix" class="astrix w-[20px] lg:w-[50px] mb-8 "/>
                 <p>Ready to stand out and grow ?</p>
                 <a href="/company#contact" class="mt-24 contact-button text-sm text-center py-5 px-8 bg-[#ff6d00] rounded-full w-fit font-medium hover:bg-black hover:text-white transition-all duration-300 ">Start Your Success</a>
         </div>
@@ -261,20 +261,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
     //     repeat: -1,
     //     ease: "power2.inOut"
     // })
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#main",
-            start: "top 70%",
-            end: "bottom bottom",
 
-        }
-    });
 
     const t2 = gsap.timeline({
         scrollTrigger: {
-            trigger: "#main",
+            trigger: "#cta",
             start: "top 70%",
             end: "bottom bottom",
+            markers: true
 
         }
     });
@@ -289,13 +283,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
         duration: 1
     });
 
-    // Second animation: move from left to right
-    t2.to(".astrix", {
-        x: 550, // Move to the right
-        duration: 1,
-        rotate:360,
-        ease:'ease-in-out',
+    const updateAstrixAnimation = () => {
+        t2.to(".astrix", {
+            x: window.innerWidth < 768 ? 130 : 550,
+            duration: 1,
+            rotate: 360,
+            ease: 'ease-in-out',
+        });
+    };
 
-    })
+    // Initial setup
+    updateAstrixAnimation();
+
+    // Update on window resize
+    window.addEventListener('resize', updateAstrixAnimation);
 
 </script>
