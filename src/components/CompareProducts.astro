@@ -42,6 +42,8 @@ const descriptions = {
 
 <div class="quarter-container">
     <div class="quarter">
+        <div class="top-image"></div>
+        <div class="bottom-image"></div>
         <div class="content">
             <div class="header-wrapper">
                 <svg class="rotating-asterisk" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,6 +60,8 @@ const descriptions = {
         </div>
     </div>
     <div class="quarter">
+        <div class="top-image"></div>
+        <div class="bottom-image"></div>
         <div class="content">
             <div class="header-wrapper">
                 <svg class="rotating-asterisk" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,6 +78,8 @@ const descriptions = {
         </div>
     </div>
     <div class="quarter">
+        <div class="top-image"></div>
+        <div class="bottom-image"></div>
         <div class="content">
             <h2>Common Features</h2>
             <p class="description">{descriptions.enterprise}</p>
@@ -85,6 +91,8 @@ const descriptions = {
         </div>
     </div>
     <div class="quarter">
+        <div class="top-image"></div>
+        <div class="bottom-image"></div>
         <div class="content">
             <h2>Contact Sales</h2>
             <p class="description">{descriptions.contact}</p>
@@ -115,9 +123,100 @@ const descriptions = {
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .quarter::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 150px;
+        background: linear-gradient(to bottom, 
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(30, 30, 29, 1) 100%
+        );
+        z-index: 1;
+    }
+
+    .quarter .top-image {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.4;
+    }
+
+    .quarter:nth-child(1) .top-image {
+        background-image: url('/assets/Mockup-1.jpg');
+    }
+
+    .quarter:nth-child(2) .top-image {
+        background-image: url('/assets/Mockup-4.jpg');
+    }
+
+    .quarter:nth-child(3) .top-image {
+        background-image: url('/assets/Mockup-5.jpg');
+    }
+
+    .quarter:nth-child(4) .top-image {
+        background-image: url('/assets/Mockup-9.jpg');
+    }
+
+    .quarter::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: linear-gradient(to top, 
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(30, 30, 29, 1) 100%
+        );
+        z-index: 1;
+    }
+
+    .quarter .bottom-image {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.3;
+        z-index: 0;
+    }
+
+    .quarter:nth-child(1) .bottom-image {
+        background-image: url('/assets/Mockup-4.jpg');
+    }
+
+    .quarter:nth-child(2) .bottom-image {
+        background-image: url('/assets/Mockup-5.jpg');
+    }
+
+    .quarter:nth-child(3) .bottom-image {
+        background-image: url('/assets/Mockup-9.jpg');
+    }
+
+    .quarter:nth-child(4) .bottom-image {
+        background-image: url('/assets/Mockup-1.jpg');
     }
 
     .content {
+        position: relative;
+        z-index: 2;
         color: white;
         height: 100%;
         display: flex;
