@@ -86,16 +86,6 @@ import { carouselData } from "../../data/carouselData.js";
 
                                     </div>
 
-                                    <div class="flex items-center gap-4 text-sm text-[#ADADAD] mt-2">
-
-                                        <span>{slide.readTime} read</span>
-
-                                        <span>•</span>
-
-                                        <span>{slide.date}</span>
-
-                                    </div>
-
                                 </div>
 
                             </div>
@@ -433,10 +423,10 @@ import { carouselData } from "../../data/carouselData.js";
     const dots = document.querySelectorAll('.carousel-dot');
     let currentSlide = 0;
     const slideCount = slides.length;
+
     function updateCarousel() {
 
         track.style.transform = `translateX(-${currentSlide * 100}%)`;
-        // Update dots with orange color for active
         dots.forEach((dot, index) => {
             if (index === currentSlide) {
                 dot.classList.add('active');
@@ -444,9 +434,7 @@ import { carouselData } from "../../data/carouselData.js";
             } else {
                 dot.classList.remove('active');
                 dot.style.backgroundColor = '#AEAC92';
-
             }
-
         });
 
     }
@@ -493,15 +481,49 @@ import { carouselData } from "../../data/carouselData.js";
 
 
 
-    // Optional: Auto-play
+    // Auto-play every 2 seconds
 
-    const autoPlayInterval = setInterval(nextSlide, 5000);
+    let autoPlayInterval = setInterval(nextSlide, 2000);
 
 
 
-    // Stop auto-play on hover
+    // Pause auto-play when user interacts with controls
+
+    const pauseAutoPlay = () => {
+
+        clearInterval(autoPlayInterval);
+
+        // Restart auto-play after 5 seconds of no interaction
+
+        setTimeout(() => {
+
+            autoPlayInterval = setInterval(nextSlide, 3000);
+
+        }, 5000);
+
+    };
+
+
+
+    // Add pause listeners to all interactive elements
+
+    prevButton?.addEventListener('click', pauseAutoPlay);
+
+    nextButton?.addEventListener('click', pauseAutoPlay);
+
+    dots.forEach(dot => dot.addEventListener('click', pauseAutoPlay));
+
+
+
+    // Optional: Pause on hover
 
     track?.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+
+    track?.addEventListener('mouseleave', () => {
+
+        autoPlayInterval = setInterval(nextSlide, 2000);
+
+    });
 
 
 
