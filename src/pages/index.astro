@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import gsap from "gsap"
 import heroVideo from "../../public/assets/heroVideo2.mp4"
-import heroVideo3 from "/assets/HeroVideo3.mp4"
+import heroVideo3 from "/assets/dark-overlay.mp4"
 import HeroSixthPage from '../components/HeroSixthPage.astro';
 import HeroLastPage from '../components/HeroLastPage.astro';
 import astrixblack from "/public/assets/asterisk.png"
@@ -22,7 +22,7 @@ import StackingCardsHero from '../components/StackingCardsHero.astro';
         <section class="loader absolute z-40 h-[100vh] w-[100vw]">
             <div class="second w-full h-full flex items-center justify-center ">
                 <div class=" flex flex-col gap-4 items-center pointer-events-none">
-                    <div class="picture"><img class="w-full h-full object-cover" src="/assets/loader-picture.png"/></div>
+                    <div class="picture"><img class="w-full h-full object-cover" src="/assets/hero_img3.png"/></div>
                 </div>
             </div>
 		</section>
@@ -36,7 +36,7 @@ import StackingCardsHero from '../components/StackingCardsHero.astro';
 					muted 
 					class="w-full h-full object-cover vid relative"
 				/>
-				<div class="absolute top-[48%] md:top-[36%] left-[50%] md:left-[36%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-100 ">
+				<div class="absolute top-[48%] md:top-[48%] left-[50%] md:left-[36%] xl:left-[36%] 3xl:left-[33%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-100 ">
 					<div class="flex flex-col items-center justify-center">
 						<div class="flex flex-col md:flex-row items-center justify-start gap-2 md:gap-4 h-full" >
 							<svg width="10%" height="10%" viewBox="0 0 56 62" fill="none" xmlns="http://www.w3.org/2000/svg" class="astrix opacity-0 md:w-[6%] md:h-[6%]">
@@ -52,7 +52,7 @@ import StackingCardsHero from '../components/StackingCardsHero.astro';
 							</p>
 						</div>
 						<div class="w-full h-full overflow-hidden mt-20 md:mt-2 py-4 hidden md:flex ">
-							<p class="text-white new font-normal text-[1.2rem] animated-text ">We design <span class=" px-3 py-2 mx-2 bg-white text-black rounded-full mediaan">Experiences</span> that transform visions into reality</p>
+							<p class="text-white new font-normal text-[1.2rem] animated-text ">We automate <span class=" px-3 py-2 mx-2 bg-white text-black rounded-full mediaan">Contact Center Experiences</span> that transform visions into reality</p>
 						</div>
 						<div class="w-full h-full overflow-hidden mt-40 md:mt-2 py-4 flex flex-col items-center justify-center md:hidden">
 							<p class="text-white new font-normal text-[1.4rem] animated-text ">We design Experiences that</p> 
@@ -72,9 +72,9 @@ import StackingCardsHero from '../components/StackingCardsHero.astro';
 					<svg class="astrix" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M12.311 30.7873V21.195L3.95649 25.9911L0.862207 20.6535L9.21676 15.8574L0.862207 11.0612L3.95649 5.64626L12.311 10.4424V0.850127H18.577V10.4424L26.8541 5.64626L30.0258 11.0612L21.6712 15.8574L30.0258 20.6535L26.8541 25.9911L18.577 21.2724V30.7873H12.311Z" fill="black"></path>
 					</svg>
-					<p class="text-black font-semibold new md:text-[2.2rem]">We don’t just design, we engineer your</p>
+					<p class="text-black font-semibold new md:text-[1.7rem]">We don’t just design, we engineer your</p>
 				</div>
-				<p class="text-black md:text-[2.2rem] font-semibold new">success by leveraging data-driven insights and creative innovation. We take ownership of your business, deeply understanding its unique challenges and goals, like these:</p>
+				<p class="text-black md:text-[1.7rem] font-semibold new">success by harnessing AI-powered insights ,our innovative solutions and decades of experience. We take full ownership of your Cloud based contact center, gaining a deep understanding of your business, agents and developers unique challenges and we deliver tailored, AI driven cost effective results without compromising your vision.</p>
 			</div>
 		</div>
 		<Horizontal />
@@ -156,6 +156,29 @@ import StackingCardsHero from '../components/StackingCardsHero.astro';
 
 <script>
 
+function delayVideoStart(videoElement, delayInSeconds) {
+    // Pause the video initially
+    videoElement.pause();
+    
+    // Remove autoplay attribute to prevent immediate playback
+    videoElement.removeAttribute('autoplay');
+
+    // Use setTimeout to start the video after the specified delay
+    setTimeout(() => {
+        videoElement.play().catch(error => {
+            console.error('Error playing video:', error);
+        });
+    }, delayInSeconds * 1000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.querySelector('.vid');
+    
+    if (video) {
+        // Add a 2-second delay before video starts (you can adjust this value)
+        delayVideoStart(video, 2);
+    }
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -206,4 +229,5 @@ gsap.registerPlugin(ScrollTrigger);
     { opacity: 1, y: 0, duration: 1, ease: "power2.out" ,delay:-0.9 } ,// Ending properties: fully visible and at original position
 	);
 
+})
 </script>
