@@ -1,0 +1,2 @@
+public/assets/10_typo-c_Home.mp4 filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
