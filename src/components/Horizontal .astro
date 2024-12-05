@@ -5,7 +5,7 @@ import thirdCard from '../../public/assets/third-card.png';
 
 const services = [
   {
-    title: "Evaluate and improve your product concept",
+    title: "Fastrack your Contact Center platform discovery using cxpoint Saas Services",
     description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
     image: firstCard
   },
@@ -28,7 +28,7 @@ const services = [
         {services.map(service => (
             <div class="card">
               <div class="card-content px-8 py-4 overflow-hidden">
-                <h2>{service.title}</h2>
+                <h4>{service.title}</h4>
                 <p class="text-muted">{service.description}</p>
               </div>
               <img src={service.image.src} alt={service.title} />
@@ -77,9 +77,10 @@ const services = [
     }
   }
 
-  .card h2 {
+  .card h4 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    line-height: 110%;
   }
 
   .card p {
