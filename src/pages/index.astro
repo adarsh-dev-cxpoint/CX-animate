@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import gsap from "gsap"
 import heroVideo from "../../public/assets/heroVideo2.mp4"
-import heroVideo3 from "/public/assets/dark-overlay.mp4"
+import heroVideo3 from "/assets/dark-overlay.mp4"
 import HeroSixthPage from '../components/HeroSixthPage.astro';
 import HeroLastPage from '../components/HeroLastPage.astro';
 import astrixblack from "/public/assets/asterisk.png"
@@ -30,13 +30,13 @@ import StackingCardsHero from '../components/StackingCardsHero.astro';
 			<Navbar/>
 			<div class="w-[100vw] h-[100vh] overflow-hidden flex items-center justify-center">
 				<video 
-					
+					src={heroVideo3}
 					autoplay 
 					loop 
 					muted 
 					class="w-full h-full object-cover vid relative"	
 				>
-				<source src={heroVideo3}/>
+				
 				</video>
 				<div class="absolute top-[48%] md:top-[48%] left-[50%] md:left-[36%] xl:left-[36%] 3xl:left-[33%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-100 ">
 					<div class="flex flex-col items-center justify-center">
