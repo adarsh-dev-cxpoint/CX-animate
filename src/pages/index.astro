@@ -30,11 +30,12 @@ import StackingCardsHero from '../components/StackingCardsHero.astro';
 			<Navbar/>
 			<div class="w-[100vw] h-[100vh] overflow-hidden flex items-center justify-center">
 				<video 
-					src={heroVideo3} 
+					
 					autoplay 
 					loop 
 					muted 
 					class="w-full h-full object-cover vid relative"
+					<source src={heroVideo3}  />
 				/>
 				<div class="absolute top-[48%] md:top-[48%] left-[50%] md:left-[36%] xl:left-[36%] 3xl:left-[33%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-100 ">
 					<div class="flex flex-col items-center justify-center">
