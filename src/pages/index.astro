@@ -34,9 +34,12 @@ import StackingCardsHero from '../components/StackingCardsHero.astro';
 					autoplay 
 					loop 
 					muted 
+					playsinline 
+					preload="auto" 
 					class="w-full h-full object-cover vid relative"	
 				>
-				
+					<source src={heroVideo3} type="video/mp4" />
+					Your browser does not support the video tag.
 				</video>
 				<div class="absolute top-[48%] md:top-[48%] left-[50%] md:left-[36%] xl:left-[36%] 3xl:left-[33%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-100 ">
 					<div class="flex flex-col items-center justify-center">
