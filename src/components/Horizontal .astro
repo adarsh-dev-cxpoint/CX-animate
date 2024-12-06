@@ -1,8 +1,8 @@
 ---
-import firstCard from '../../public/assets/first-card.png';
-import secondCard from '../../public/assets/second-card.png';
-import thirdCard from '../../public/assets/third-card.png';
-import fourthCard from '../../public/assets/third-card.png';
+import firstCard from '../../public/assets/card-1.jpg';
+import secondCard from '../../public/assets/card-2.jpeg';
+import thirdCard from '../../public/assets/card-3.jpeg';
+import fourthCard from '../../public/assets/card-4.jpg';
 
 const services = [
   {
@@ -37,7 +37,9 @@ const services = [
                 <h4>{service.title}</h4>
                 <p class="text-muted mt-2">{service.description}</p>
               </div>
-              <img src={service.image.src} alt={service.title} />
+              <div class="image-container">
+                <img src={service.image.src} alt={service.title} />
+              </div>
             </div>
         ))}
     </span>
@@ -67,7 +69,7 @@ const services = [
     color: #ffffff;
     border-radius: 10px;
     padding-top: 20px;
-    height: 600px;
+    height: 550px;
     width: 450px;
     display: flex;
     flex-direction: column;
@@ -75,6 +77,19 @@ const services = [
     border-top-right-radius: 80px;
     border-bottom-left-radius: 80px;
     border-top-left-radius: 80px;
+  }
+
+  .image-container {
+    height: 300px; /* Fixed height for all images */
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom-left-radius: 80px;    
   }
 
   @media (max-width: 768px) {
@@ -92,13 +107,6 @@ const services = [
   .card p {
     font-size: 0.9rem;
     margin-bottom: 1rem;
-  }
-
-  .card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 5px;
   }
 </style>
 
