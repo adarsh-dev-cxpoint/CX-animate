@@ -426,14 +426,14 @@ import { carouselData } from "../../data/carouselData.js";
 
     function updateCarousel() {
 
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        (track as HTMLElement).style.transform = `translateX(-${currentSlide * 100}%)`;
         dots.forEach((dot, index) => {
             if (index === currentSlide) {
                 dot.classList.add('active');
-                dot.style.backgroundColor = '#FF6D00';
+                (dot as HTMLElement).style.backgroundColor = '#FF6D00';
             } else {
                 dot.classList.remove('active');
-                dot.style.backgroundColor = '#AEAC92';
+                (dot as HTMLElement).style.backgroundColor = '#AEAC92';
             }
         });
 
