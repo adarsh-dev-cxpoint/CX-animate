@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import gsap from "gsap"
 import heroVideo from "../../public/assets/heroVideo2.mp4"
-import heroVideo3 from "/assets/darkOverlay.mp4"
+import heroVideo3 from "/assets/darkOverlayLarge.mp4"
 import HeroSixthPage from '../components/HeroSixthPage.astro';
 import HeroLastPage from '../components/HeroLastPage.astro';
 import astrixblack from "/public/assets/asterisk.png"
@@ -30,7 +30,7 @@ import StackingCardsHero from '../components/StackingCardsHero.astro';
 			<Navbar/>
 			<div class="w-[100vw] h-[100vh] overflow-hidden flex items-center justify-center">
 				<video 
-					src={heroVideo3}
+					src="/assets/darkOverlayLarge2.mov"
 					autoplay 
 					loop 
 					muted 
@@ -163,28 +163,6 @@ import StackingCardsHero from '../components/StackingCardsHero.astro';
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
-function delayVideoStart(videoElement, delayInSeconds) {
-    // Pause the video initially
-    videoElement.pause();
-    
-    // Remove autoplay attribute to prevent immediate playback
-    videoElement.removeAttribute('autoplay');
-
-    // Use setTimeout to start the video after the specified delay
-    setTimeout(() => {
-        videoElement.play().catch(error => {
-            console.error('Error playing video:', error);
-        });
-    }, delayInSeconds * 1000);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const video = document.querySelector('.vid');
-    
-    if (video) {
-        // Add a 2-second delay before video starts (you can adjust this value)
-        delayVideoStart(video, 2);
-    }
 
 
 
@@ -236,5 +214,5 @@ document.addEventListener('DOMContentLoaded', () => {
     { opacity: 1, y: 0, duration: 1, ease: "power2.out" ,delay:-0.9 } ,// Ending properties: fully visible and at original position
 	);
 
-})
+
 </script>
