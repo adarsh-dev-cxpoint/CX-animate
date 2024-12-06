@@ -1,0 +1,201 @@
+---
+import { emailConfig } from '../config/email';
+import emailjs from '@emailjs/browser';
+
+const interestOptions = ['AX', 'BX', 'CX', 'DX'];
+const licenseOptions = ['Free Trial', 'CX1', 'CX2', 'CX3'];
+---
+
+<div class="min-h-screen bg-[#E7E7D6] py-12 px-4 sm:px-6 lg:px-8" id="form">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+        Let's Start a Conversation
+      </h2>
+      <p class="mt-4 text-lg text-gray-600">
+        Fill out the form below and we'll get back to you within 24 hours
+      </p>
+    </div>
+
+    <div class="bg-white shadow-xl rounded-2xl p-8">
+      <form 
+        id="contact-form"
+        class="space-y-6"
+      >
+        <!-- Name Field -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700">
+            Full Name
+          </label>
+          <input
+            type="text"
+            name="user_name"
+            required
+            minlength="2"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="John Doe"
+          />
+        </div>
+
+        <!-- Email Field -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700">
+            Email Address
+          </label>
+          <input
+            type="email"
+            name="user_email"
+            required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="john@example.com"
+          />
+        </div>
+
+        <!-- Phone Field -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700">
+            Phone Number
+          </label>
+          <input
+            type="tel"
+            name="user_phone"
+            required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="+1 (555) 000-0000"
+          />
+        </div>
+
+        <!-- Interested In Field -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2">
+            I'm Interested In
+          </label>
+          <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {interestOptions.map((option) => (
+              <div class="flex items-center">
+                <input
+                  type="radio"
+                  id={`interest-${option}`}
+                  name="interested_in"
+                  value={option}
+                  required
+                  class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300"
+                />
+                <label
+                  for={`interest-${option}`}
+                  class="ml-2 block text-sm font-bold text-gray-700"
+                >
+                  {option}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- License Type Field -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2">
+            License Type
+          </label>
+          <div class="grid grid-cols-4 gap-4">
+            {licenseOptions.map((option) => (
+              <div class="flex items-center">
+                <input
+                  type="radio"
+                  id={`license-${option}`}
+                  name="license_type"
+                  value={option}
+                  required
+                  class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300"
+                />
+                <label
+                  for={`license-${option}`}
+                  class="ml-2 block text-sm font-medium text-gray-700"
+                >
+                  {option}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Message Field -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700">
+            Project Details
+          </label>
+          <textarea
+            name="message"
+            required
+            minlength="10"
+            rows="4"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="Tell us about your project..."
+          />
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            class="w-[20%] flex justify-center py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-[#FF6D00] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  import emailjs from '@emailjs/browser';
+  emailjs.init(import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY);
+  
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const statusDiv = document.createElement('div');
+  
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      try {
+        const formData = new FormData(form);
+        
+        // Get form values
+        const data = {
+          user_name: formData.get('user_name'),
+          user_email: formData.get('user_email'),
+          user_phone: formData.get('user_phone'),
+          interested_in: formData.get('interested_in'),
+          license_type: formData.get('license_type'),
+          message: formData.get('message')
+        };
+
+        // Send email using emailjs
+        await emailjs.send(
+          "service_6z5tguo",
+          "template_wachfxt",
+          data
+        );
+
+        // Show success message
+        statusDiv.className = 'p-4 rounded-md bg-green-50 text-green-800 mt-4';
+        statusDiv.textContent = "Thank you! Your message has been sent successfully.";
+        form.appendChild(statusDiv);
+        
+        // Reset form
+        form.reset();
+
+      } catch (error) {
+        console.error('Error sending email:', error);
+        
+        // Show error message
+        statusDiv.className = 'p-4 rounded-md bg-red-50 text-red-800 mt-4';
+        statusDiv.textContent = error instanceof Error 
+          ? error.message 
+          : "Failed to send message. Please try again later.";
+        form.appendChild(statusDiv);
+      }
+    });
+  }
+</script> 

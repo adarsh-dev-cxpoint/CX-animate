@@ -2,22 +2,28 @@
 import firstCard from '../../public/assets/first-card.png';
 import secondCard from '../../public/assets/second-card.png';
 import thirdCard from '../../public/assets/third-card.png';
+import fourthCard from '../../public/assets/third-card.png';
 
 const services = [
   {
-    title: "Fastrack your Contact Center platform discovery using cxpoint Saas Services",
-    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    title: "Expedite",
+    description: "Fast track your Contact centre platform discovery using cxpoint voyage SaaS services.",
     image: firstCard
   },
   {
-    title: "(Re)build an app or SaaS that customers love",
-    description: "Prototype your success with an amazing user experience and customer retention. We develop working products that not only function flawlessly but also captivate and retain customers, ensuring your app or SaaS is a hit.",
+    title: "Empower",
+    description: "Enable your contact centre Managers and supervisors for success by offering them intuitive simplified NEXA interface and automating performing day to day complex operations.",
     image: secondCard
   },
   {
-    title: "Brand your whole vision",
-    description: "Build a cohesive and recognizable brand that stands out and resonates with your audience. We create a strong visual identity that ensures your brand is easily identifiable and memorable, fostering customer loyalty and trust.",
+    title: "Streamline",
+    description: "Save hugely on migration cost by easily Migrating your legacy platform configuration to Cloud contact centre platform​.",
     image: thirdCard
+  },
+  {
+    title: "Effortless",
+    description: "Manage Cloud telephony features and objects with a breeze as managing , maintaining and syncing across environment was never this easy with AI.",
+    image: fourthCard
   }
 ];
 
@@ -29,7 +35,7 @@ const services = [
             <div class="card">
               <div class="card-content px-8 py-4 overflow-hidden">
                 <h4>{service.title}</h4>
-                <p class="text-muted">{service.description}</p>
+                <p class="text-muted mt-2">{service.description}</p>
               </div>
               <img src={service.image.src} alt={service.title} />
             </div>
@@ -61,7 +67,7 @@ const services = [
     color: #ffffff;
     border-radius: 10px;
     padding-top: 20px;
-    height: 650px;
+    height: 600px;
     width: 450px;
     display: flex;
     flex-direction: column;
@@ -101,7 +107,7 @@ const services = [
     scrollTrigger: {
         trigger: ".scroller",
         start: 'top 0%',
-        end: "top -200%",
+        end: "top -270%",
         pin: true,
         scrub: 1,
 
@@ -109,7 +115,7 @@ const services = [
 });
 
     t1.to(".scroller span", {
-        x: window.innerWidth > 768 ? '-50%' : '-86.66%',
+        x: window.innerWidth > 768 ? '-63%' : '-86.66%',
     });
 
 
