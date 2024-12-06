@@ -163,9 +163,9 @@ const licenseOptions = ['Free Trial', 'CX1', 'CX2', 'CX3'];
         
         // Get form values
         const data = {
-          user_name: formData.get('user_name'),
-          user_email: formData.get('user_email'),
-          user_phone: formData.get('user_phone'),
+          from_name: formData.get('user_name'),
+          from_email: formData.get('user_email'),
+          from_phone: formData.get('user_phone'),
           interested_in: formData.get('interested_in'),
           license_type: formData.get('license_type'),
           message: formData.get('message')
@@ -177,6 +177,8 @@ const licenseOptions = ['Free Trial', 'CX1', 'CX2', 'CX3'];
           "template_wachfxt",
           data
         );
+
+        console.log(data);
 
         // Show success message
         statusDiv.className = 'p-4 rounded-md bg-green-50 text-green-800 mt-4';
