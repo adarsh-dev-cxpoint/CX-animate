@@ -13,33 +13,35 @@
         <div class="horizontal-animation flex items-center justify-center w-full z-40" id="horizontalAnimation">
             <div class="horizontal-animation-item padding-top">
                 <h3 class="font-akira text-[#ff6d00]">01</h3>
+                <img src="/assets/Evaluate.png" alt="Evaluate" class="w-full h-48 my-2 rounded-2xl overflow-hidden object-cover " />
                 <div class="flex flex-col items-start pb-4 gap-2">
                     <p>Request and Evaluate</p>
                     <span class="text-gray-300">explore our range of contact center automation product features, reviews, and features to assess its value and suitability for your business needs</span>
                 </div>
             </div>
             <div class="horizontal-animation-item padding-bottom">
-                <h3 class="font-akira text-[#ff6d00]">02 </h3>
+                <h3 class="font-akira text-[#ff6d00]">02</h3>
+                    <img src="/assets/Demo.png" alt="Demo" class="w-full h-48 my-2 rounded-2xl overflow-hidden object-cover " />
                 <div class="flex flex-col items-start pb-4 gap-2">
                     <p>Request Demo</p>
                     <span class="text-gray-300">to experience the product firsthand and evaluate its usability and performance. Our team of experts can help and guide you to find right product which meets your business demands​</span>
                 </div>
             </div>
             <div class="horizontal-animation-item padding-top">
-                <h3 class="font-akira text-[#ff6d00]">03 </h3>
+                <h3 class="font-akira text-[#ff6d00]">03</h3>
+                <img src="/assets/Trial.png" alt="Trial" class="w-full h-48 my-2 rounded-2xl overflow-hidden object-cover " />
                 <div class="flex flex-col items-start pb-4 gap-2">
                     <p>Activate Free Trial</p>
                     <span class="text-gray-300">Get FREE access to selected product trial pack which could help you to analyze it benefits as evaluated before and gain deeper inside on product features and details to confirm its alignment with your business goals.​​</span>
                 </div>
-                
             </div>
             <div class="horizontal-animation-item padding-bottom">
-                <h3 class="font-akira text-[#ff6d00]">04 </h3>
+                <h3 class="font-akira text-[#ff6d00]">04</h3>
+                <img src="/assets/Subscribe.png" alt="Subscribe" class="w-full h-48 my-2 rounded-2xl overflow-hidden object-cover " />
                 <div class="flex flex-col items-start pb-4 gap-2">
                     <p>Subscribe</p>
                     <span class="text-gray-300">Unlock the full potential of your experience—upgrade from trial to subscription and enjoy uninterrupted access to all our premium features!​​</span>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -97,6 +99,39 @@
         position: absolute; /* Position absolute to center it */
         top: 50%; /* Center vertically */
         transform: translateY(-50%); /* Adjust for height */
+    }
+
+    @media screen and (max-width: 768px) {
+        .horizontal-animation {
+            flex-direction: column;
+            justify-content: center;
+            gap: 0;
+            height: fit-content;
+        }
+
+        .horizontal-animation-item {
+            height: auto;
+            max-height: 100px;
+            padding: 12px;
+            margin: 0 !important; /* Override any margin */
+            display: flex !important;
+            flex-direction: row;
+            align-items: center !important;
+        }
+
+        .horizontal-animation-item img {
+            display: none;
+        }
+
+        .horizontal-animation-item span {
+            display: none;
+        }
+
+        /* Remove specific padding classes on mobile */
+        .horizontal-animation-item.padding-top,
+        .horizontal-animation-item.padding-bottom {
+            margin: 0;
+        }
     }
   
     .horizontal-animation-item {
@@ -162,4 +197,5 @@
             }
         );
     });
+</script>
 </script>
