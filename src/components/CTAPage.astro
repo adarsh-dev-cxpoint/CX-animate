@@ -10,7 +10,7 @@
             <p>Ready to see what your</p> 
             <p> future looks like with our CXPoint</p>
             <p>products for your Contact Center?</p>
-            <a href="/company#contact" class="mt-24 contact-button text-sm text-center py-4 px-5 bg-[#ff6d00] rounded-full w-fit hover:bg-black hover:text-white transition-all duration-300 ">Request Demo</a>
+            <a href="#form" class="mt-24 contact-button text-sm text-center py-4 px-5 bg-[#ff6d00] rounded-full w-fit hover:bg-black hover:text-white transition-all duration-300" id="demo-btn">Request Demo</a>
         </div>
         <div class="footertext">
             <p>this is your team of Contact Center experts,</p>
@@ -122,8 +122,9 @@
 
     import { gsap } from 'gsap';
     import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     const cursor = document.getElementById('custom-cursor-product');
     let isVisible = false;
@@ -162,14 +163,27 @@
         updateCursorPosition(e);
         });
 
+    // Add smooth scroll for demo button
+    const demoBtn = document.getElementById('demo-btn');
+    demoBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        gsap.to(window, {
+            duration: 1,
+            scrollTo: {
+                y: "#form",
+                offsetY: 50
+            },
+            ease: "power2.inOut"
+        });
+    });
 
 gsap.to(".page6", {
     scrollTrigger: {
         trigger: ".page6",
         start: "top 10%",
         end: "bottom -200",
-        scrub: 1,
- 
+        scrub: 1
     },
+    opacity: 1
 });
 </script>

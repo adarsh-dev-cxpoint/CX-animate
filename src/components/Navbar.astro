@@ -7,13 +7,13 @@
         </div>
         <div class="hidden md:flex items-center justify-between"> <!-- Show on medium screens and up -->
             <ul class="flex space-x-4 px-6 py-4 bg-[#373737] rounded-full ">
-                <li class="nav-links"><a href="/products" class="text-white hover:text-[#ff6d00] transition-all duration-300">Products</a></li>
-                <li class="nav-links"><a href="/company" class="text-white hover:text-[#ff6d00] transition-all duration-300">Company </a></li>
-                <li class="nav-links"><a href="/services" class="text-white hover:text-[#ff6d00] transition-all duration-300">Services</a></li>
-                <li class="nav-links"><a href="/resources" class="text-white hover:text-[#ff6d00] transition-all duration-300">Resources</a></li>
+                <li class="nav-links"><a href="#" class="text-white hover:text-[#ff6d00] transition-all duration-300">Products</a></li>
+                <li class="nav-links"><a href="#" class="text-white hover:text-[#ff6d00] transition-all duration-300">Company </a></li>
+                <li class="nav-links"><a href="#" class="text-white hover:text-[#ff6d00] transition-all duration-300">Services</a></li>
+                <li class="nav-links"><a href="#" class="text-white hover:text-[#ff6d00] transition-all duration-300">Resources</a></li>
             </ul>
-            <a href="/company#contact">
-                <button class="text-white text-[0.9rem] px-6 py-4 rounded-full bg-[#ff6d00] font-semibold ml-4">Get in touch</button> <!-- Get in touch button -->
+            <a href="#form">
+                <button class="text-white text-[0.9rem] px-6 py-4 rounded-full bg-[#ff6d00] font-semibold ml-4" id="contact-btn">Get in touch</button> <!-- Get in touch button -->
             </a>
         </div>
         <button class="text-black text-[0.9rem] px-6 py-4 rounded-full bg-[#ff6d00] font-semibold md:hidden" id="hamburger">☰</button> <!-- Hamburger button -->
@@ -43,10 +43,27 @@
 </style>
 <script>
     import gsap from 'gsap';
+    import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+    gsap.registerPlugin(ScrollToPlugin);
 
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuItems = document.querySelectorAll('#mobile-menu .nav-links');
+    const contactBtn = document.getElementById('contact-btn');
+
+    // Add smooth scroll for contact button
+    contactBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        gsap.to(window, {
+            duration: 1,
+            scrollTo: {
+                y: "#form",
+                offsetY: 50 // Optional offset from the top
+            },
+            ease: "power2.inOut"
+        });
+    });
 
     hamburger.addEventListener('click', () => {
         const isMenuOpen = !mobileMenu.classList.contains('hidden');

@@ -1,292 +1,214 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import type { SubmitHandler } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../config/email';
 
-interface FormData {
+interface FormInputs {
   name: string;
   email: string;
   phone: string;
-  interestedIn: string[];
+  interestedIn: string;
   licenseType: string;
   projectDetails: string;
 }
 
 export default function ContactFormReact() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    interestedIn: [],
-    licenseType: '',
-    projectDetails: ''
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    reset,
+    formState: { errors, isSubmitting }
+  } = useForm<FormInputs>({
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      interestedIn: '',
+      licenseType: '',
+      projectDetails: ''
+    }
   });
 
   const interestOptions = ['AX', 'BX', 'CX', 'DX'];
   const licenseOptions = ['Free Trial', 'CX1', 'CX2'];
+  
+  const currentInterest = watch('interestedIn');
+  const currentLicense = watch('licenseType');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  const onSubmit: SubmitHandler<FormInputs> = async (data) => {
+    if (!data.interestedIn || !data.licenseType) {
+      alert('Please select both an interest and a license type');
+      return;
+    }
 
-  const handleInterestToggle = (interest: string) => {
-    setFormData(prev => ({
-      ...prev,
-      interestedIn: prev.interestedIn.includes(interest)
-        ? prev.interestedIn.filter(item => item !== interest)
-        : [...prev.interestedIn, interest]
-    }));
-  };
-
-  const handleLicenseSelect = (license: string) => {
-    setFormData(prev => ({ ...prev, licenseType: license }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('sending');
     try {
       const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        interested_in: formData.interestedIn.join(', '),
-        license_type: formData.licenseType,
-        project_details: formData.projectDetails
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone,
+        interested_in: data.interestedIn,
+        license_type: data.licenseType,
+        project_details: data.projectDetails
       };
+
       const result = await emailjs.send(
         emailConfig.serviceId,
         emailConfig.templateId,
         templateParams,
         emailConfig.publicKey
       );
+
       if (result.status === 200) {
-        setStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          interestedIn: [],
-          licenseType: '',
-          projectDetails: ''
-        });
-      } else {
-        setStatus('error');
+        reset(); // Reset form after successful submission
+        alert('Message sent successfully!');
       }
     } catch (error) {
       console.error('Failed to send email:', error);
-      setStatus('error');
+      alert('Failed to send message. Please try again.');
     }
   };
 
   return (
-    <>
-      <section className="contact-section" id="contact">
-        <div className="container">
-          <h2 className="akira">Ready to stand out and grow?</h2>
-          <p className="text-gray-500 akira font-semibold">
-            Share your goals and ideas with us, and we'll get back to you within 24-48 hours. We're excited to dive into your project and discuss how we can help bring your vision to life. Let's get started on your path to success!
-          </p>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="form-group">
-              <label htmlFor="name">Your name</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter your full name"
-                required
-              />
+    <section className="py-16 bg-[#E7E7D6]" id="contact">
+      <div className="max-w-3xl mx-auto px-6 border-2 border-black/10 p-8 rounded-[3rem]">
+        <h2 className="akira">Ready to stand out and grow?</h2>
+        <p className="text-gray-500 akira font-semibold">
+          Share your goals and ideas with us, and we'll get back to you within 24-48 hours.
+        </p>
+        
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 mt-8 ">
+          <div className="space-y-2">
+            <label htmlFor="name" className="block font-medium text-gray-900">Your name</label>
+            <input
+              {...register("name", { required: "Name is required" })}
+              type="text"
+              placeholder="Enter your full name"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10 transition-all"
+            />
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="email" className="block font-medium text-gray-900">Email Address</label>
+            <input
+              {...register("email", { 
+                required: "Email is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email address"
+                }
+              })}
+              type="email"
+              placeholder="Enter your email address"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10 transition-all"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="phone" className="block font-medium text-gray-900">Phone Number</label>
+            <input
+              {...register("phone", { required: "Phone number is required" })}
+              type="tel"
+              placeholder="Enter your phone number"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10 transition-all"
+            />
+            {errors.phone && (
+              <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <label className="block font-medium text-gray-900">What are you interested in?</label>
+            <div className="flex flex-wrap gap-3">
+              {interestOptions.map((option) => (
+                <label
+                  key={option}
+                  className={`px-5 py-2.5 rounded-full border-2 transition-all flex items-center gap-2 cursor-pointer
+                    ${currentInterest === option 
+                      ? 'bg-orange-500 border-orange-500 text-white' 
+                      : 'border-gray-200 hover:border-black hover:bg-black/5'}`}
+                >
+                  <input
+                    type="radio"
+                    {...register("interestedIn", { required: "Please select an interest" })}
+                    value={option}
+                    className="sr-only"
+                  />
+                  {currentInterest === option && (
+                    <span className="text-sm">✓</span>
+                  )}
+                  {option}
+                </label>
+              ))}
             </div>
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter your email address"
-                required
-              />
+            {errors.interestedIn && (
+              <p className="text-red-500 text-sm mt-1">{errors.interestedIn.message}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <label className="block font-medium text-gray-900">Select your License type</label>
+            <div className="flex flex-wrap gap-3">
+              {licenseOptions.map((option) => (
+                <label
+                  key={option}
+                  className={`px-5 py-2.5 rounded-full border-2 transition-all flex items-center gap-2 cursor-pointer
+                    ${currentLicense === option 
+                      ? 'bg-orange-500 border-orange-500 text-white' 
+                      : 'border-gray-200 hover:border-black hover:bg-black/5'}`}
+                >
+                  <input
+                    type="radio"
+                    {...register("licenseType", { required: "Please select a license type" })}
+                    value={option}
+                    className="sr-only"
+                  />
+                  {currentLicense === option && (
+                    <span className="text-sm">✓</span>
+                  )}
+                  {option}
+                </label>
+              ))}
             </div>
-            <div className="form-group">
-              <label htmlFor="phone">Phone Number</label>
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Enter your phone number"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>What are you interested in?</label>
-              <div className="button-group">
-                {interestOptions.map((option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    onClick={() => handleInterestToggle(option)}
-                    className={formData.interestedIn.includes(option) ? 'active' : ''}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="form-group">
-              <label>Select your License type</label>
-              <div className="button-group">
-                {licenseOptions.map((option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    onClick={() => handleLicenseSelect(option)}
-                    className={formData.licenseType === option ? 'active' : ''}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="form-group">
-              <label htmlFor="projectDetails">Project Details</label>
-              <textarea
-                name="projectDetails"
-                id="projectDetails"
-                value={formData.projectDetails}
-                onChange={handleChange}
-                placeholder="Briefly describe your project or needs"
-                required
-                rows={4}
-              ></textarea>
-            </div>
+            {errors.licenseType && (
+              <p className="text-red-500 text-sm mt-1">{errors.licenseType.message}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="projectDetails" className="block font-medium text-gray-900">Project Details</label>
+            <textarea
+              {...register("projectDetails", { required: "Project details are required" })}
+              placeholder="Briefly describe your project or needs"
+              rows={4}
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10 transition-all"
+            />
+            {errors.projectDetails && (
+              <p className="text-red-500 text-sm mt-1">{errors.projectDetails.message}</p>
+            )}
+          </div>
+
+          <div className="flex justify-center sm:justify-start">
             <button
               type="submit"
-              disabled={status === 'sending'}
-              className={`submit-button ${status === 'sending' ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={isSubmitting}
+              className={`bg-orange-500 text-white font-semibold px-8 py-4 rounded-lg uppercase tracking-wider
+                transition-all transform hover:bg-orange-400 hover:-translate-y-0.5 hover:shadow-lg
+                disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none`}
             >
-              {status === 'sending' ? 'Sending...' : 'Submit Request'}
+              {isSubmitting ? 'Sending...' : 'Submit Request'}
             </button>
-            {status === 'success' && (
-              <p className="text-green-600 font-medium text-center p-3">Message sent successfully!</p>
-            )}
-            {status === 'error' && (
-              <p className="text-red-600 font-medium text-center p-3">Failed to send message. Please try again.</p>
-            )}
-          </form>
-        </div>
-        <style>
-          {`
-            .contact-section {
-              padding: 4rem 0;
-              background: #fafafa;
-            }
-            .container {
-              max-width: 768px;
-              margin: 0 auto;
-              padding: 0 1.5rem;
-            }
-            .form-group {
-              margin-bottom: 1.5rem;
-            }
-            .form-group label {
-              display: block;
-              margin-bottom: 0.5rem;
-              font-weight: 500;
-              color: #1a1a1a;
-            }
-            .form-group input,
-            .form-group textarea {
-              width: 100%;
-              padding: 0.75rem 1rem;
-              border: 1px solid #e5e7eb;
-              border-radius: 8px;
-              background: white;
-              font-size: 1rem;
-              transition: all 0.2s ease;
-            }
-            .form-group input:focus,
-            .form-group textarea:focus {
-              outline: none;
-              border-color: #ff6d00;
-              box-shadow: 0 0 0 3px rgba(255, 109, 0, 0.1);
-            }
-            .button-group {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 0.75rem;
-            }
-            .button-group button {
-              padding: 0.6rem 1.2rem;
-              border: 2px solid #e5e7eb;
-              border-radius: 25px;
-              background: white;
-              font-size: 0.9rem;
-              font-weight: 500;
-              color: #4b5563;
-              transition: all 0.2s ease;
-            }
-            .button-group button:hover {
-              border-color: #ff6d00;
-              color: #ff6d00;
-            }
-            .button-group button.active {
-              background-color: #ff6d00;
-              border-color: #ff6d00;
-              color: white;
-            }
-            .submit-button {
-              background-color: #ff6d00;
-              color: white;
-              font-weight: 600;
-              padding: 1rem 2rem;
-              border-radius: 8px;
-              cursor: pointer;
-              font-size: 1rem;
-              width: 100%;
-              border: 2px solid #ff6d00;
-              transition: all 0.2s ease;
-              text-transform: uppercase;
-              letter-spacing: 0.5px;
-            }
-            .submit-button:hover:not(:disabled) {
-              background-color: #ff8533;
-              border-color: #ff8533;
-              transform: translateY(-1px);
-              box-shadow: 0 4px 6px rgba(255, 109, 0, 0.1);
-            }
-            .submit-button:disabled {
-              opacity: 0.7;
-              cursor: not-allowed;
-            }
-            @media (min-width: 640px) {
-              .submit-button {
-                width: auto;
-                min-width: 200px;
-              }
-            }
-            .text-green-600 {
-              background-color: #dcfce7;
-              color: #16a34a;
-              border-radius: 6px;
-              padding: 1rem;
-            }
-            .text-red-600 {
-              background-color: #fee2e2;
-              color: #dc2626;
-              border-radius: 6px;
-              padding: 1rem;
-            }
-          `}
-        </style>
-      </section>
-    </>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 }
