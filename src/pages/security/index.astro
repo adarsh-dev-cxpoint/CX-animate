@@ -3,28 +3,456 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar2 from '../../components/Navbar2.astro';
 import Footer from '../../components/Footer.astro';
 
-const securityData = [
-    {
-        title: "Data Encryption",
-        content: "We use state-of-the-art encryption technology (SSL/TLS) to protect your data during transmission. All sensitive information, such as credit card numbers and personal details, are encrypted to ensure they are secure."
-    },
-    {
-        title: "Access Controls",
-        content: "We implement strict access controls to ensure that only authorized personnel have access to your personal data. All employees and contractors undergo background checks and are required to adhere to strict confidentiality agreements."
-    },
-    {
-        title: "Security Audits",
-        content: "We conduct regular security audits and vulnerability assessments to identify potential weaknesses in our system. Any identified risks are promptly addressed."
-    },
-    {
-        title: "Incident Response",
-        content: "In the unlikely event of a data breach, we will: Immediately assess the extent of the breach. Notify affected individuals and relevant authorities within the legally required time frame. Take steps to mitigate any damage and prevent future incidents."
-    },
-    {
-        title: "Cookies and Tracking",
-        content: "To improve our services and ensure your security, we may use cookies and similar tracking technologies. These cookies help us monitor website activity and detect fraudulent behavior."
-    }
-];
+const definitions = {
+    title: "1. Definitions",
+    points: [
+        {
+            id: "1.1",
+            title: "Cloud Services",
+            content: "CXPoint-operated cloud offerings that are based on CXPoint proprietary software deployed in a CXPoint-managed Cloud Services Environment, and the support for such offerings."
+        },
+        {
+            id: "1.2",
+            title: "Cloud Services Environment",
+            content: "The CXPoint-controlled infrastructure, including equipment, servers and software, within Data Centers used to provide Cloud Services."
+        },
+        {
+            id: "1.3",
+            title: "Customer Data",
+            content: "Customer's data that is inputted, or generated from Customer-inputted data, and stored in the Cloud Services. Customer Data does not include any anonymized data incorporated into Service Improvements pursuant to the Master Agreement."
+        },
+        {
+            id: "1.4",
+            title: "Data Center",
+            content: "A data center where CXPoint houses the Cloud Services Environment."
+        },
+        {
+            id: "1.5",
+            title: "Industry Standard",
+            content: "Generally accepted cloud information security practices as reflected in CXPoint' policies and procedures."
+        },
+        {
+            id: "1.6",
+            title: "Malicious Code",
+            content: "Viruses, worms, time bombs, corrupted files, Trojan horses and other harmful or malicious code, files, scripts, agents, programs, or any other similar code that may interrupt, limit, damage the operation of CXPoint' or another's computer or property."
+        },
+        {
+            id: "1.7",
+            title: "Organisation/Org",
+            content: "A dedicated Cloud Services instance. Each Client Org is assigned to a single AWS Cloud Services region and has a unique Org Name and Org ID."
+        },
+        {
+            id: "1.8",
+            title: "Security Incident",
+            content: "A confirmed event resulting in the unauthorized use, deletion, modification, disclosure, or access to Customer Data."
+        },
+        {
+            id: "1.9",
+            title: "User",
+            content: "An individual who: (i) is authorized by Customer and has been supplied a user identification and password(s) by Customer to access the Cloud Services on Customer's behalf, or (ii) a person licensed to use the Cloud Services for one or more roles (e.g. agent, supervisor, administrator)."
+        }
+    ]
+};
+
+const general = {
+    title: "2. General",
+    points: [
+        {
+            id: "2.1",
+            title: "Shared Responsibility",
+            content: "Security of Customer Data is a shared responsibility between CXPoint and Customer, as set out in these Cloud Security Terms and at https://www.cxpoint.co.uk"
+        },
+        {
+            id: "2.2",
+            title: "Security of the AWS Cloud Services",
+            content: "Amazon Web Services is responsible for protecting the infrastructure that runs AWS services, including the Cloud Services, in the AWS Cloud. Oversight of AWS' security posture is managed in accordance with the agreement between AWS and CXPoint. AWS-specific certifications are available at https://aws.amazon.com/compliance/programs. Security and compliance certifications and/or attestation reports for Data Centres must be obtained directly from AWS. AWS may require Customers to execute additional non-disclosure agreements. Third-party auditors also regularly test and verify the effectiveness of AWS security as part of AWS' internal compliance programs. Details on AWS data center specific security controls can be found here: https://aws.amazon.com/compliance/data-center/controls/."
+        },
+        {
+            id: "2.3",
+            title: "Security of the Cloud Services Platform",
+            content: "CXPoint is responsible for the security of the CXPoint Cloud Services that run on the AWS cloud infrastructure. This includes the cloud-hosted application and related Cloud Services applications, including but not limited to CXPoint Cloud Auth clients, CXPoint Nexa, CXPoint voyage, CXPoint APIX and CXPoint Genops and so on"
+        },
+        {
+            id: "2.4",
+            title: "Security of Customer's Cloud Services Org",
+            content: "The Customer is responsible for the security of its Cloud Services Org. This security is dependent on Org-specific configurations, and user access restrictions, both of which fall under the Customer's control."
+        }
+    ]
+};
+
+const securityProgram = {
+    title: "3. CXPoint Security Program",
+    points: [
+        {
+            id: "3.1",
+            title: "Security Standards",
+            content: "CXPoint has implemented and will maintain an information security program designed to protect Customer Data processed in the Cloud Services that follows generally accepted system security principles embodied in the ISO 27001 standard, as appropriate to the nature and scope of the Cloud Services provided. For CXPoint Cloud Commercial AWS regions, the Cloud Services may maintain any, as a minimum, industry standard certifications such as SOC2 Type 2, ISO 27001, C5 and PCI DSS or all. The then-current list of certifications and attestations applicable to the Cloud Services can be found at https://www.cxpoint.co.uk"
+        },
+        {
+            id: "3.2",
+            title: "Security Awareness and Training",
+            content: "CXPoint has developed and will maintain an information security and awareness program that is delivered to all CXPoint employees and appropriate contractors at the time of hire or contract commencement, and annually thereafter. The awareness program is delivered electronically and includes a testing aspect with minimum requirements to pass. Specifically, this includes annual compliance training on information security, privacy, HIPAA security & privacy, and PCI. Access to CXPoint' code repository requires additional annual training in secure development."
+        },
+        {
+            id: "3.3",
+            title: "Policies and Procedures",
+            content: "CXPoint will maintain appropriate policies and procedures to support the information security program. Policies and procedures will be reviewed at least annually and updated as necessary with the aim of increasing the level of security protection for the Cloud Services. Customers in future may have options to subscribe to updates to the Cloud Services Security Policy at this page - https://www.cxpoint.co.uk"
+        },
+        {
+            id: "3.4",
+            title: "Change Management",
+            content: "The Cloud Services utilize a change management process based on ISO 27001 standards to ensure that all changes to the Cloud Services Environment are appropriately reviewed, tested, and approved. CXPoint targets to achieve ISO organisational certification in the year 2024-25"
+        },
+        {
+            id: "3.5",
+            title: "Data Storage and Backup",
+            content: "CXPoint will create backups of Customer Data. Customer Data will be stored in the same AWS Region as the Customer's Cloud Services Org and maintained using Server-Side Encryption (SSE). Backup data will not be stored on portable media. Customer Data backups are protected from unauthorized access and are encrypted."
+        },
+        {
+            id: "3.6",
+            title: "Anti-virus and Anti-malware",
+            content: "Industry Standard anti-malware protection solutions are used to protect the infrastructure that supports the Cloud Services against threats such as Malicious Code. CXPoint deploys management and monitoring solutions on all production systems, as well as robust monitoring of system access and command use."
+        },
+        {
+            id: "3.7",
+            title: "Vulnerability and Patch Management",
+            content: "CXPoint will maintain a vulnerability management program as per CXPoint risk management process, that ensures compliance with Industry Standards. CXPoint will assess all critical vulnerabilities to the Cloud Services Environment using industry standard CVSS and CVE scores or other similar approach for access/vector complexity, authentication, impact, integrity, and availability. If CXPoint deems the resulting risk to be critical to Customer Data, CXPoint will endeavour to patch or mitigate affected systems within thirty (30) working days. Certain stateful systems cannot be patched as quickly due to interdependencies and customer impact, but will be remediated as expeditiously as practicable. In normal operation OS patch management operations will be performed in 30 (thirty) days or less."
+        },
+        {
+            id: "3.8",
+            title: "Data Deletion and Destruction, Exit Plan",
+            content: "CXPoint will follow, and will ensure that its sub-processors will follow, Industry Standard processes to delete obsolete data and sanitize or destroy retired equipment that formerly held Customer Data. Customer Org related activity records and app activity and detailed record retention policies are customer configurable. All other retention policies are managed by CXPoint at platform level. Termination of the Cloud Services (embedded or non-embedded ) for Customer will be subject to the Exit Plan in Exhibit A."
+        }
+    ]
+};
+
+const penetrationTesting = {
+    title: "10. Penetration Testing",
+    points: [
+        {
+            id: "10.1",
+            title: "Independent Testing",
+            content: "On at least an annual basis, CXPoint will conduct a vulnerability assessment and penetration testing engagement with an independent qualified vendor. Issues identified during the engagement will be appropriately addressed within a reasonable time-frame commensurate with the identified risk level of the issue. Test results will be made available to Customer upon written request and will be subject to non-disclosure and confidentiality agreements."
+        },
+        {
+            id: "10.2",
+            title: "Customer Testing",
+            content: "Customers have the option to run a penetration test in conjunction with CXPoint Security teams within agreed parameters. This service is chargeable at CXPoint' then-current rates. Customer will be required to enter into a Services Order for two Test Orgs and a Statement of Work for related cxpoint professional services support. This service is available once per year. Customer will not perform any type of penetration testing, vulnerability assessment, or denial of service attack on cxpoint cloud Services in production, test, or development environments as set out above."
+        }
+    ]
+};
+
+const productArchitecture = {
+    title: "11. Product Architecture Security",
+    points: [
+        {
+            id: "11.1",
+            title: "Logical Separation Controls",
+            content: "At CXPoint we take security very seriously. Hence all our CXP Cloud Services are single tenant Software as a Service (SaaS) platform. As such, it means customers using cxpoint cloud platform do not share resources such as server instances, services, data storage locations and databases. All these resources are being natively in dedicated cloud instance configured just for the customer in the region of use. CXPoint will employ effective physical and logical separation controls based on Industry Standards to ensure that Customer Data is not only logically separated from other customer data but also physically within the AWS Cloud Services Environment. More detail can be found here: https://www.cxpoint.co.uk"
+        },
+        {
+            id: "11.2",
+            title: "Firewall Services",
+            content: "CXPoint uses Security Groups and appropriate firewall services to protect the Cloud Services Environment. CXPoint maintains granular ingress and egress rules, and changes must be approved through CXPoint' change management system which are managed centrally for each region separately (UK, Europe, APAC, North and South America regions)."
+        },
+        {
+            id: "11.3",
+            title: "Intrusion Detection System",
+            content: "CXPoint has implemented intrusion detection across the Cloud Services using AWS CloudWatch and AWS inspector that meets PCI DSS requirements."
+        },
+        {
+            id: "11.4",
+            title: "No Wireless Networks",
+            content: "CXPoint will not use wireless networks within the AWS Cloud production Services. Wireless Networks are only used within the CXPoint corporate office locations worldwide."
+        },
+        {
+            id: "11.5",
+            title: "Data Connections between Customer and the Cloud Services Environment",
+            content: "All connections to browsers, mobile apps, and other components are secured via Hypertext Transfer Protocol Secure (HTTPS) and Transport Layer Security (TLS v1.2 or higher) over public Internet."
+        },
+        {
+            id: "11.6",
+            title: "Data Connections between the Cloud Services Environment and Third Parties",
+            content: "Transmission or exchange of Customer Data with Customer and any CXPoint vendors will be conducted using secure methods (e.g. TLS 1.2 or higher) and secure FTP site with strictly controlled access."
+        },
+        {
+            id: "11.7",
+            title: "Encryption Protection",
+            content: "",
+            subPoints: [
+                {
+                    id: "11.7.1",
+                    title: "Encryption Methods",
+                    content: "The Cloud Services use Industry Standard encryption methods to uphold confidentiality, integrity and availability of data being stored, processed and transmitted. The Cloud Services provide:",
+                    bullets: [
+                        "at rest and in transit encryption of all processed Customer Data;",
+                        "at rest encryption, which is AES 256-based meeting FIPS 197 standard, using encryption keys to which neither of AWS and its subcontractors have access. In certain cases CXPoint' subcontractors would be given or have access for the platform maintenance; and access in such cases would be controlled via encrypted keys, Multifactor authentication and secure cisco firewall rules/access from cxpoint owned and managed devices in controlled facilities.",
+                        "in transit encryption, which is TLS 1.2 or higher using encryption keys to which neither AWS and its subcontractors nor CXPoint' subcontractors have access."
+                    ]
+                },
+                {
+                    id: "11.7.2",
+                    title: "Record/data Encryption",
+                    content: "The Cloud Services encrypt, as standard, user records for user activity on the platform, customer specific keys generated by CXPoint with rotation that can be managed by CXPoint. CXPoint implements cxpoint-owned encryption keys for recording of application logs, user activity etc allowing cxpoint to store and manage its keys from and within the Cloud Services. To the extent required by applicable law or Customer's policies, the Customer is responsible for the level of information getting logged by the application and ensuring that PCI Data is either not recorded or archived periodically using secure tools and compliance features made available by CXPoint."
+                }
+            ]
+        },
+        {
+            id: "11.8",
+            title: "Logging and Monitoring",
+            content: "CXPoint will log security events for the Cloud Services. CXPoint will continuously monitor and investigate events that may indicate a Security Incident for the Cloud Services. Platform-related event records will be retained for at least one year. Audit log data related to Customer's Org is available to customers via the Cloud Services UI of the cxpoint client application or the Cloud Services REST based API's. Cxpoint currently does not offer real-time stream of events using AWS event bridge currently. CXPoint Platform security logs are not available to customers."
+        }
+    ]
+};
+
+const accessControl = {
+    title: "12. Access Control",
+    points: [
+        {
+            id: "12.1",
+            title: "Access Control",
+            content: "CXPoint will implement appropriate tools for access controls to ensure that only authorized Users with right security clearance have access to Customer Data within the Cloud Services Environment."
+        },
+        {
+            id: "12.2",
+            title: "Customer's User Access",
+            subPoints: [
+                {
+                    id: "12.2.1",
+                    title: "Usernames and Passwords",
+                    content: "Customer is solely responsible for managing User access controls within Customer's Org. The application password requirements are configurable by Customer. Native Multi-Factor Authentication (MFA) is available as part of the Cloud Services and is configurable by Customer. Password Parameters that can be set include minimum length, minimum letters, minimum numerals, minimum special characters, password expiration, and minimum age. Customer defines usernames and roles in a granular access permissions model. Customer is entirely responsible for any failure by itself, its agents, business users, developers , contractors or employees (including without limitation all its Users) to maintain the security of all usernames, passwords and other account information under its control. Except in the event of a security lapse caused by CXPoint' gross negligence or wilful action or inaction, Customer is entirely responsible for all use of the Cloud Services through Customer's Org, whether or not authorized by Customer, and all charges resulting from such use."
+                },
+                {
+                    id: "12.2.2",
+                    title: "Single Sign On",
+                    content: "Customers can elect to integrate with a customer supplied Single Sign On (SSO) provider for authentication and can use Cross-domain Identity Management (SCIM) for user management. Cxpoint currently only supports MFA during Microsoft."
+                }
+            ]
+        },
+        {
+            id: "12.3",
+            title: "CXPoint' User Access",
+            content: "CXPoint will follow strict protocol, and authorisation flows to create individual user accounts for each of CXPoint' employees that have a business need to access Customer Data or Customer's systems within the Cloud Services Environment. The following protocol will be followed regarding CXPoint' user account management:",
+            subPoints: [
+                {
+                    id: "12.3.1",
+                    title: "Accounts",
+                    content: "CXPoint user accounts are requested and created using cxpoint domain by the relevant employees and authorized contractors by CXPoint Admin management teams located in each customer region;"
+                },
+                {
+                    id: "12.3.2",
+                    title: "VPN",
+                    content: "CXPoint employees, who are approved to access the Cloud Services Environment use a client-to-site Virtual Private Network (VPN) for entry into the Cloud Services AWS Virtual Private Cloud (VPC) and they require multi-factor authentication;"
+                },
+                {
+                    id: "12.3.3",
+                    title: "Password",
+                    content: "CXPoint user passwords expire every ninety (90) days;"
+                },
+                {
+                    id: "12.3.4",
+                    title: "Time-outs",
+                    content: "Session time-outs are systematically enforced;"
+                },
+                {
+                    id: "12.3.5",
+                    title: "Termination",
+                    content: "CXPoint user accounts are promptly disabled (within one working day) upon employee termination or role transfer that eliminates a valid business need for access; "
+                },
+                {
+                    id: "12.3.6",
+                    title: "Endpoints",
+                    content: "CXPoint users can only access the Cloud Services Environment from CXPoint-managed endpoints. CXPoint-managed endpoints have hard drive encryption enabled;"
+                },
+                {
+                    id: "12.3.7",
+                    title: "Review",
+                    content: "CXPoint employee accounts to the Cloud Services Environment are reviewed at least every 60 days."
+                }
+            ]
+        }
+    ]
+};
+
+const businessContinuity = {
+    title: "13. Business Continuity and Disaster Recovery",
+    points: [
+        {
+            id: "13.1",
+            title: "Business Continuity",
+            subPoints: [
+                {
+                    id: "13.1.1",
+                    title: "Availability Zones",
+                    content: "The Cloud Services are deployed and configured in a load balanced active/active/active design and are deployed across at least three AWS Availability Zones (\"AZs\") within a single region to provide high availability and performance of the Cloud Services. The Cloud Services are physically separated from CXPoint' corporate network environment so that a disruption event involving the corporate environment does not impact the availability of the Cloud Services."
+                },
+                {
+                    id: "13.1.2",
+                    title: "Replication",
+                    content: "Using synchronous replication, Cloud Services data is automatically updated in multiple AZs. The Cloud Services use load balancers to route internal and external traffic to available application components. Load balancers are clusters of servers that load balance HTTP requests across multiple AZs. When the load balancer detects that a Cloud Services component is either at capacity or has failed, it routes traffic to other instances automatically to compensate. Both the Cloud Services public APIs and application components are fronted by load balancers."
+                },
+                {
+                    id: "13.1.3",
+                    title: "Regions",
+                    content: "List of Cloud Services regions can be found on https://www.cxpoint.co.uk and Highly available architecture can be presented upon request for an ongoing or registered client opportunity registered with cxpoint directly, via Genesys or via SI partner. For list of partners reach out to us at sales@cxpoint.co.uk"
+                }
+            ]
+        },
+        {
+            id: "13.2",
+            title: "Disaster Recovery",
+            content: "For the Cloud Services, disaster recovery (DR) tests are performed at least annually. Backup data is not stored off-site or on portable media. CXPoint creates backups of Customer Data according to documented backup procedures. Customer Data is stored and maintained solely in Amazon AWS S3 with SSE in the same AWS region where Customer Data resides."
+        },
+        {
+            id: "13.3",
+            title: "Business Continuity and Disaster Recovery Plans",
+            subPoints: [
+                {
+                    id: "13.3.1",
+                    title: "Corporate Business Continuity Plan",
+                    content: "CXPoint will maintain a corporate business continuity plan designed to ensure that ongoing monitoring and support services will continue in the event of a disruption event involving the corporate environment."
+                },
+                {
+                    id: "13.3.2",
+                    title: "Cloud Services Business Continuity Plan",
+                    content: "CXPoint will maintain a Cloud Services business continuity plan designed to assure high availability with a target Recovery Time Objective (RTO) of zero and Recovery Point Objective (RPO) of zero."
+                },
+                {
+                    id: "13.3.3",
+                    title: "Testing",
+                    content: "The Cloud Services Business Continuity and Disaster Recovery Plans, annual testing of restores and BC/DR will be audited annually as part of compliance audits as applicable and applied to CXPoint."
+                }
+            ]
+        },
+        {
+            id: "13.4",
+            title: "Customer's Responsibility",
+            content: "Customer is responsible for building and maintaining business continuity and disaster recovery plans for its operations, connectivity to the Cloud Services and other third-party services."
+        }
+    ]
+};
+
+const securityIncidentResponse = {
+    title: "14. Security Incident Response",
+    points: [
+        {
+            id: "14.1",
+            title: "Security Incident Response Program",
+            content: "CXPoint will maintain a Security Incident response program based on Industry Standards designed to identify and respond to Security Incidents involving Customer Data. The program will be reviewed, tested and, if necessary, updated on at least an annual basis."
+        },
+        {
+            id: "14.2",
+            title: "Notification",
+            content: "In the event of a Security Incident or other security event requiring notification under applicable law, CXPoint will notify Customer within twenty-four (24) hours and will reasonably cooperate so that Customer can make any required notifications relating to such event, unless CXPoint specifically requested by law enforcement or a court order not to do so."
+        },
+        {
+            id: "14.3",
+            title: "Notification Details",
+            content: "CXPoint will provide the following details regarding any Security Incidents to Customer: (i) date on which the Security Incident was identified and confirmed; (ii) the nature and impact of the Security Incident; (iii) actions CXPoint has already taken; (iv) corrective measures planned to be taken; and (v) evaluation of alternative measures and next steps."
+        },
+        {
+            id: "14.4",
+            title: "Ongoing Communication",
+            content: "CXPoint will continue providing status updates to Customer regarding the resolution of the Security Incident and continually work in good faith to correct the Security Incident and prevent future such Security Incidents. CXPoint will cooperate, as reasonably requested by Customer, to further investigate and resolve the Security Incident."
+        }
+    ]
+};
+
+const useOfCloudServices = {
+    title: "15. Use of the Cloud Services",
+    points: [
+        {
+            id: "15.1",
+            title: "VoIP Services Lines",
+            content: "Customer shall maintain security over all VoIP Services of their respective contact centres platform. CXPoint application does not replace any core telephony features as offered within customer contact centre platform used by the customer."
+        },
+        {
+            id: "15.2",
+            title: "Records and logs",
+            content: "Customer acknowledges that use of user activity logs and levels are within Customer's sole discretion and control. Without limiting the foregoing: (i) Customer accepts sole responsibility for determining the method and manner of performing user activity records such that it is compliant with all applicable laws and for configuring and using the Cxpoint Cloud Services accordingly; and (ii) Customer shall ensure that activity stores on client instances shall be stored and activated only for purposes required by and/or in compliance with, all applicable laws. Customer will ensure that any information uploaded, updated or logged into the Cxpoint application will not knowingly include any bank account number, credit card number, authentication code, social security number or personal data in the form of CSV, excel, media prompts, application flows or application logs but not limited to, except as permitted by all applicable laws."
+        }
+    ]
+};
+
+const auditCompliance = {
+    title: "16. Audit of CXPoint Security Compliance",
+    points: [
+        {
+            id: "16.1",
+            title: "Customer Audit",
+            content: "Provided that Customer has demonstrated that it has a reasonable belief that CXPoint is not in compliance with the security standards in Section 3.1 above and subject to CXPoint' reasonable confidentiality and information security policies, Customer or a qualified third party chosen by Customer shall have the right, upon at least thirty (30) days' written notice, to perform a remote audit of CXPoint' compliance with the terms of these Cloud Security Terms, limited to review of CXPoint policies, interviews of key personnel, and the completion of a security assessment questionnaire provided by Customer."
+        },
+        {
+            id: "16.2",
+            title: "Audit Requirements",
+            content: "Customer may undertake an audit without reasonable belief described in 16.1, provided that:",
+            bullets: [
+                "The audit is performed during normal business hours,",
+                "CXPoint will invoice Customer a fee for CXPoint' costs incurred (including internal time spent) in connection with any Customer audit, whether the audit was performed remotely or on-site,",
+                "The scope and price of the audit will be agreed upon by the parties in a Statement of Work,",
+                "Customer agrees that such audit will not include the right to on-site inspections or audits of any of CXPoint' subcontractors, including CXPoint' third-party hosting facilities and equipment,",
+                "The audit will not violate CXPoint' obligations of confidentiality to other customers or partners, or reveal CXPoint' intellectual property, and",
+                "Any assessment performed pursuant to this section shall not interfere with the normal conduct of CXPoint's business."
+            ]
+        },
+        {
+            id: "16.3",
+            title: "Cooperation",
+            content: "CXPoint shall cooperate with Customer on any reasonable requests made by Customer during such assessments."
+        }
+    ]
+};
+
+const exitPlan = {
+    title: "Exhibit A - EXIT PLAN or Off-Boarding Plan",
+    description: "The following details the process of offboarding a customer from the Cloud Services:",
+    points: [
+        {
+            id: "1",
+            title: "Initiation",
+            content: "The Exit Plan process will be initiated upon expiration or receipt of formal notice of termination of contract by either party, as detailed in the Master Agreement."
+        },
+        {
+            id: "2",
+            title: "Exit Plan and Data Transfer Approach for the Cloud Services",
+            content: "Customer will be able to offline request or use the Cloud Services APIs to retrieve the following customer data as stated in the customer Master Agreement:",
+            subPoints: [
+                {
+                    id: "a",
+                    title: "Customer Data (Reporting Metrics) Handover",
+                    content: "Customer data can be exported during or at contract termination by using CXPoint' APIs provided upon request. In the event that Customer requires additional time to export Customer Data beyond the date of contract termination or expiry, Customer shall request a product service extension period in accordance with the Master Agreement."
+                },
+                {
+                    id: "b",
+                    title: "Customer Data Handover",
+                    content: "Customer data can be exported during the contract term or at the contract termination by using CXPoint' Customer Record Export APIs with access provided upon request of customer offboarding."
+                }
+            ]
+        },
+        {
+            id: "3",
+            title: "Extensions",
+            content: "In the event that Customer requires additional time to export customer data beyond the date of contract termination or expiry, Customer shall request an extension of the Subscription Term before the termination or expiry date, as set out in the Master Agreement."
+        },
+        {
+            id: "4",
+            title: "Professional Services",
+            content: "Customers can use the CXPoint and it's cloud Services API to build their own applications or engage with CXPoint professional services for further assistance."
+        },
+        {
+            id: "5",
+            title: "Troubleshooting",
+            content: "Troubleshooting and other platform logs are not provided or returned. CXPoint is required to keep such logs for a minimum of one (1) year as part of its compliance program."
+        },
+        {
+            id: "6",
+            title: "Third Party Applications",
+            content: "Any Third-party applications (for example, other AppFoundry Apps or tools, accelerators used or integrated by service integrators) are outside the scope of the Cloud Services exit/offboarding plan."
+        }
+    ]
+};
+
+
 ---
 
 <Layout title="Security Policy | CX-Point">
@@ -42,14 +470,247 @@ const securityData = [
                     </p>
                 </div>
 
-                <!-- Security Sections -->
-                <div class="space-y-8 md:space-y-12">
-                    {securityData.map((section) => (
-                        <div class="security-section">
-                            <h2 class="text-2xl md:text-3xl font-semibold mb-4 new">{section.title}</h2>
-                            <p class="text-lg leading-relaxed text-gray-800">{section.content}</p>
-                        </div>
-                    ))}
+                <!-- Definitions Section -->
+                <div class="space-y-12">
+                    <div class="space-y-8">
+                        <h2 class="text-2xl font-bold mb-6">{definitions.title}</h2>
+                        {definitions.points.map((point) => (
+                            <div class="definition-section">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    {point.id} {point.title}
+                                </h3>
+                                <p class="text-lg leading-relaxed text-gray-800">
+                                    {point.content}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <!-- General Section -->
+                    <div class="space-y-8">
+                        <h2 class="text-2xl font-bold mb-6">{general.title}</h2>
+                        {general.points.map((point) => (
+                            <div class="definition-section">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    {point.id} {point.title}
+                                </h3>
+                                <p class="text-lg leading-relaxed text-gray-800">
+                                    {point.content}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <!-- Security Program Section -->
+                    <div class="space-y-8">
+                        <h2 class="text-2xl font-bold mb-6">{securityProgram.title}</h2>
+                        {securityProgram.points.map((point) => (
+                            <div class="definition-section">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    {point.id} {point.title}
+                                </h3>
+                                <p class="text-lg leading-relaxed text-gray-800">
+                                    {point.content}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <!-- Penetration Testing Section -->
+                    <div class="space-y-8">
+                        <h2 class="text-2xl font-bold mb-6">{penetrationTesting.title}</h2>
+                        {penetrationTesting.points.map((point) => (
+                            <div class="definition-section">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    {point.id} {point.title}
+                                </h3>
+                                <p class="text-lg leading-relaxed text-gray-800">
+                                    {point.content}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <!-- Product Architecture Section -->
+                    <div class="space-y-8">
+                        <h2 class="text-2xl font-bold mb-6">{productArchitecture.title}</h2>
+                        {productArchitecture.points.map((point) => (
+                            <div class="definition-section">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    {point.id} {point.title}
+                                </h3>
+                                {point.subPoints ? (
+                                    <div class="space-y-4">
+                                        {point.subPoints.map((subPoint) => (
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium mb-2">
+                                                    {subPoint.id} {subPoint.title}
+                                                </h4>
+                                                <p class="text-lg leading-relaxed text-gray-800 mb-2">
+                                                    {subPoint.content}
+                                                </p>
+                                                {subPoint.bullets && (
+                                                    <ul class="list-disc ml-6 space-y-2">
+                                                        {subPoint.bullets.map((bullet) => (
+                                                            <li class="text-lg leading-relaxed text-gray-800">{bullet}</li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <p class="text-lg leading-relaxed text-gray-800">
+                                        {point.content}
+                                    </p>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+
+                    <!-- Access Control Section -->
+                    <div class="space-y-8">
+                        <h2 class="text-2xl font-bold mb-6">{accessControl.title}</h2>
+                        {accessControl.points.map((point) => (
+                            <div class="definition-section">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    {point.id} {point.title}
+                                </h3>
+                                {point.content && (
+                                    <p class="text-lg leading-relaxed text-gray-800 mb-4">
+                                        {point.content}
+                                    </p>
+                                )}
+                                {point.subPoints && (
+                                    <div class="space-y-4 ml-4">
+                                        {point.subPoints.map((subPoint) => (
+                                            <div>
+                                                <h4 class="text-lg font-medium mb-2">
+                                                    {subPoint.id} {subPoint.title}
+                                                </h4>
+                                                <p class="text-lg leading-relaxed text-gray-800">
+                                                    {subPoint.content}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+
+                    <!-- Business Continuity Section -->
+                    <div class="space-y-8">
+                        <h2 class="text-2xl font-bold mb-6">{businessContinuity.title}</h2>
+                        {businessContinuity.points.map((point) => (
+                            <div class="definition-section">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    {point.id} {point.title}
+                                </h3>
+                                {point.content && (
+                                    <p class="text-lg leading-relaxed text-gray-800 mb-4">
+                                        {point.content}
+                                    </p>
+                                )}
+                                {point.subPoints && (
+                                    <div class="space-y-4 ml-4">
+                                        {point.subPoints.map((subPoint) => (
+                                            <div>
+                                                <h4 class="text-lg font-medium mb-2">
+                                                    {subPoint.id} {subPoint.title}
+                                                </h4>
+                                                <p class="text-lg leading-relaxed text-gray-800">
+                                                    {subPoint.content}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+
+                    <!-- Security Incident Response Section -->
+                    <div class="space-y-8">
+                        <h2 class="text-2xl font-bold mb-6">{securityIncidentResponse.title}</h2>
+                        {securityIncidentResponse.points.map((point) => (
+                            <div class="definition-section">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    {point.id} {point.title}
+                                </h3>
+                                <p class="text-lg leading-relaxed text-gray-800">
+                                    {point.content}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <!-- Use of Cloud Services Section -->
+                    <div class="space-y-8">
+                        <h2 class="text-2xl font-bold mb-6">{useOfCloudServices.title}</h2>
+                        {useOfCloudServices.points.map((point) => (
+                            <div class="definition-section">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    {point.id} {point.title}
+                                </h3>
+                                <p class="text-lg leading-relaxed text-gray-800">
+                                    {point.content}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <!-- Audit Compliance Section -->
+                    <div class="space-y-8">
+                        <h2 class="text-2xl font-bold mb-6">{auditCompliance.title}</h2>
+                        {auditCompliance.points.map((point) => (
+                            <div class="definition-section">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    {point.id} {point.title}
+                                </h3>
+                                <p class="text-lg leading-relaxed text-gray-800 mb-4">
+                                    {point.content}
+                                </p>
+                                {point.bullets && (
+                                    <ul class="list-disc ml-6 space-y-2">
+                                        {point.bullets.map((bullet) => (
+                                            <li class="text-lg leading-relaxed text-gray-800">{bullet}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+
+                    <!-- Exit Plan Section -->
+                    <div class="space-y-8 mt-16 border-t-2 pt-8">
+                        <h2 class="text-2xl font-bold mb-6">{exitPlan.title}</h2>
+                        <p class="text-lg leading-relaxed text-gray-800 mb-8">{exitPlan.description}</p>
+                        {exitPlan.points.map((point) => (
+                            <div class="definition-section">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    {point.id}. {point.title}
+                                </h3>
+                                <p class="text-lg leading-relaxed text-gray-800 mb-4">
+                                    {point.content}
+                                </p>
+                                {point.subPoints && (
+                                    <div class="space-y-4 ml-4">
+                                        {point.subPoints.map((subPoint) => (
+                                            <div>
+                                                <h4 class="text-lg font-medium mb-2">
+                                                    {subPoint.id}. {subPoint.title}
+                                                </h4>
+                                                <p class="text-lg leading-relaxed text-gray-800">
+                                                    {subPoint.content}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <!-- Contact Section -->
@@ -57,8 +718,10 @@ const securityData = [
                     <p class="text-lg text-gray-700">
                         For more information about our security practices or to report security concerns, 
                         please contact our security team at 
+                        please contact our security team at 
                         <a href="mailto:security@cxpoint.com" class="text-blue-600 hover:underline">
-                        security@cxpoint.com</a>
+                            security@cxpoint.com
+                        </a>
                     </p>
                 </div>
             </div>
@@ -75,7 +738,9 @@ const securityData = [
         line-height: 1.2;
     }
 
-    .security-section {
-        padding: 2rem 0;
+    .definition-section {
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 </style> 
