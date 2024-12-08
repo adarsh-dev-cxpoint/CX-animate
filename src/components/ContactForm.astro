@@ -3,7 +3,7 @@ import { emailConfig } from '../config/email';
 import emailjs from '@emailjs/browser';
 
 const interestOptions = ['AX', 'BX', 'CX', 'DX'];
-const licenseOptions = ['Free Trial', 'CX1', 'CX2', 'CX3'];
+const licenseOptions = ['Free Trial', 'CXP1', 'CXP2', 'CXP3'];
 ---
 
 <div class="min-h-screen bg-[#E7E7D6] py-12 px-4 sm:px-6 lg:px-8" id="form">
@@ -110,7 +110,7 @@ const licenseOptions = ['Free Trial', 'CX1', 'CX2', 'CX3'];
                 />
                 <label
                   for={`license-${option}`}
-                  class="ml-2 block text-sm font-medium text-gray-700"
+                  class="ml-2 block text-sm font-bold text-gray-700"
                 >
                   {option}
                 </label>
