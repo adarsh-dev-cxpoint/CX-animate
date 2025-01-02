@@ -4,7 +4,8 @@ import astrix from "../../../public/assets/asterisk.png";
 import Marquee from "../../components/marquee.astro";
 import Footer from "../../components/Footer.astro";
 import Navbar2 from "../../components/Navbar2.astro";
-import ContactFormReact from "../../components/ContactFormReact.tsx";
+
+import ContactForm from '../../components/ContactForm.astro';
 
 const sections = [
     {
@@ -32,7 +33,7 @@ const sections = [
 
 
 <Layout title="CX-Point">
-    <!-- <div class="w-full h-full bg-[#E7E7D6]">
+    <div class="w-full h-full bg-[#E7E7D6]">
         <Navbar2/>
         <div class="w-full min-h-screen px-2 lg:px-40 py-20">
             <div class="w-full pt-24">
@@ -133,8 +134,8 @@ const sections = [
             </div>
 
             <div id="testimonial" class="testimonial-content-sticky w-full flex flex-wrap items-center justify-center lg:mt-20" style="overflow-x: hidden;"> -->
-                <!-- Desktop version (hidden on mobile) -->
-                <!-- <div class="testimonial-content-block-v2 hidden lg:flex gap-10">
+                Desktop version (hidden on mobile)
+                <div class="testimonial-content-block-v2 hidden lg:flex gap-10">
                     <div class="testimonial-single-card-block">
                         <div class="testimonial-image-block">
                             <img src="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0b2e9f8328911bfe1_loren.png" loading="lazy" sizes="(max-width: 479px) 200px, (max-width: 991px) 250px, (max-width: 1439px) 15vw, 14vw" srcset="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0b2e9f8328911bfe1_loren-p-500.png 500w, https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0b2e9f8328911bfe1_loren.png 800w" alt="" class="testimonial-image">
@@ -189,10 +190,10 @@ const sections = [
                             <div class="testimonial-designation-text font-bold text-[#8D8D9B]">Founder</div>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <!-- Mobile version (hidden on lg screens) -->
-                <!-- <div class="w-full grid grid-cols-3 gap-4 px-4 lg:hidden">
+                <div class="w-full grid grid-cols-3 gap-4 px-4 lg:hidden">
                     <div class="testimonial-single-card-block-mobile">
                         <div class="testimonial-image-block-mobile">
                             <img src="https://cdn.prod.website-files.com/668442316cf533d9ea640fb0/66ed52d0b2e9f8328911bfe1_loren.png" 
@@ -278,12 +279,12 @@ const sections = [
             </div>
             <div id="custom-cursor-product"></div>
 
-        </div> -->
+        </div>
 
         <!-- Contact Form -->
-        <!-- <ContactFormReact /> -->
-    <!-- </div> -->
-    <div class="w-full min-h-screen flex items-center justify-center bg-[#E7E7D6]">
+        <ContactForm />
+    </div>
+    <!-- <div class="w-full min-h-screen flex items-center justify-center bg-[#E7E7D6]">
         <div class="text-center">
             <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold akira mb-4">
                 Realising Soon
@@ -292,7 +293,7 @@ const sections = [
                 We're working on something exciting. Stay tuned!
             </p>
         </div>
-    </div>
+    </div> -->
     <Footer/>
 </Layout>
 
