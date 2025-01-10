@@ -1,44 +1,44 @@
 ---
-import firstCard from '../../public/assets/first-card.png';
-import secondCard from '../../public/assets/second-card.png';
-import thirdCard from '../../public/assets/third-card.png';
+import firstCard from '../../public/assets/Products_VoyageScreen.png';
+import secondCard from '../../public/assets/Products_NexaScreen.png';
+import thirdCard from '../../public/assets/Products_APIXScreen.png';
 
 import astrix from '../../public/assets/asterisk.png';
 
 const services = [
   {
-    title: "Evaluate and improve your product concept",
-    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
+    title: "VOYAGE – An intelligent AI Powered Contact center platform discovery platform​",
+    description: "Save 50-60% on contact center platform discovery effort by gaining detailed insights on legacy CC data and data mining and streamlined discovery process of complex technical landscape. Benefit from applied analytical view and KPIs to measure key object statistics and values, visualize contact center journeys and platform flows and gain deeper insights about business logic while migrating to cloud​",
     image: firstCard
   },
   {
-    title: "(Re)build an app or SaaS that customers love",
+    title: "NEXA – Smart Cloud Contact center software management platform​",
     description: "Prototype your success with an amazing user experience and customer retention. We develop working products that not only function flawlessly but also captivate and retain customers, ensuring your app or SaaS is a hit.",
     image: secondCard
   },
   {
-    title: "Brand your whole vision",
-    description: "Build a cohesive and recognizable brand that stands out and resonates with your audience. We create a strong visual identity that ensures your brand is easily identifiable and memorable, fostering customer loyalty and trust.",
+    title: "APIX – Control your API Overages and usage like never before",
+    description: "Our AI-based Contact Center API Usage Tracking and Management Platform leverages advanced AI to monitor, analyze, and optimize the performance of Cloud contact center APIs usage within your contact center. It provides real-time insights into Cloud contact center API usage, which helps you manage end to end API performance for your cloud contact center, reduce downtime, and enhance the overall customer experience with data-driven decisions.​",
     image: thirdCard
   }
 ];
 ---
 
 <div class="service-cards">
-  <div class="flex flex-col items-start justify-center gap-0 max-w-[700px] ps-2 lg:px-10 mb-20 2xl:mt-20">
+  <div class="flex flex-col items-start justify-center gap-0 max-w-[800px] ps-2 lg:px-10 mb-20 2xl:mt-20">
     <div class="flex md:flex-row flex-col items-start md:items-center justify-center gap-4 lg:gap-2 new">
       <svg class="rotating-asterisk" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M12.311 30.7873V21.195L3.95649 25.9911L0.862207 20.6535L9.21676 15.8574L0.862207 11.0612L3.95649 5.64626L12.311 10.4424V0.850127H18.577V10.4424L26.8541 5.64626L30.0258 11.0612L21.6712 15.8574L30.0258 20.6535L26.8541 25.9911L18.577 21.2724V30.7873H12.311Z" fill="black"></path>
       </svg>
-      <p class="animated-text ">Create something amazing in your cloud contact centers with our products</p>
+      <p class="font animated-text xl:text-[1.6rem]">Create something amazing in your cloud contact centers with </p>
     </div>
-    <p class=" new animated-text ">We handle everything from branding to product development, transforming your vision into a thriving business. Using data-driven insights and creative innovation, we build cohesive, scalable solutions.</p>
+    <p class="font animated-text xl:text-[1.6rem]">our products. We handle everything from platform discovery to design development and object management to migration, transforming your vision into a thriving business, faster. Using AI data-driven insights and creative innovation, we have built cohesive, scalable solutions to make you succeed in your journey to cloud using CXPoint powered automation.</p>
   </div>
   <div class="flex md:flex-row flex-col items-start justify-around">
   {services.map(service => (
     <div class="card">
       <div class="card-content px-8 py-4 overflow-hidden">
-        <h2 class="leading-[1]">{service.title}</h2>
+        <h2 class="leading-[1] ">{service.title}</h2>
         <p class="text-muted">{service.description}</p>
       </div>
       <img src={service.image.src} alt={service.title} />
@@ -48,10 +48,15 @@ const services = [
   </div>
 </div>
 
-<div id="custom-cursor" class="custom-cursor flex items-center justify-center bg-white/55 font-bold">See More</div>
+<!-- <div id="custom-cursor" class="custom-cursor flex items-center justify-center bg-white/55 font-bold">See More</div> -->
 
 <style>
-
+  .font{
+    font-family: 'new', sans-serif;
+    font-weight: 600;
+    font-stretch: 450%;
+    line-height: 1.1;
+  }
   .new{
     font-family: 'new', sans-serif;
     font-size: 1.7rem; 
@@ -85,7 +90,7 @@ const services = [
     color: #ffffff;
     border-radius: 10px;
     padding-top: 20px;
-    height: 600px;
+    height: 650px;
     width: 450px;
     display: flex;
     flex-direction: column;
@@ -93,6 +98,7 @@ const services = [
     border-top-right-radius: 80px;
     border-bottom-left-radius: 80px;
     border-top-left-radius: 80px;
+    overflow: hidden;
   }
 
   @media (max-width: 768px) {
@@ -104,7 +110,7 @@ const services = [
   }
 
   .card h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
   }
 
@@ -121,9 +127,9 @@ const services = [
 
   .card img {
     width: 100%;
-    height: auto;
+    height: 50vh;
     object-fit: cover;
-    border-radius: 5px;
+ 
   }
 
   .custom-cursor {
