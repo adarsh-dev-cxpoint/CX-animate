@@ -31,22 +31,41 @@ import StatisticsGrid from "../../components/StatisticsGrid.astro";
             </div>
         </div>
     </div> -->
-    <div class="w-screen h-[70vh] lg:h-[90vh] flex flex-col pt-40 px-4 lg:px-20 pb-20">
-        <div class="w-[90%] lg:w-[70%] h-fit text-black py-2 text-[4rem] new leading-[100%]">
-            <div class="w-full h-fit overflow-hidden ">
-                <p class="animated-text text-xl lg:text-6xl">We are here to</p>
+    <div class="w-screen h-[70vh] lg:h-[90vh] flex flex-col lg:flex-row pt-40 px-4 lg:px-20 pb-16 gap-8">
+        <!-- Left content column -->
+        <div class="w-full lg:w-1/2 flex flex-col">
+            <div class="w-[90%] lg:w-full h-fit text-black py-2 text-[4rem] new leading-[100%]">
+                <div class="w-full h-fit overflow-hidden ">
+                    <p class="animated-text text-xl lg:text-6xl">We are here to</p>
+                </div>
+                <div class="w-full h-fit overflow-hidden ">
+                    <p class="animated-text text-xl lg:text-6xl">Solve real problems </p>
+                </div>
+                <div class="w-full h-fit overflow-hidden ">
+                    <p class="animated-text text-xl lg:text-6xl">drive your business forward</p>
+                </div>
             </div>
-            <div class="w-full h-fit overflow-hidden ">
-                <p class="animated-text text-xl lg:text-6xl">Solve real problems </p>
-            </div>
-            <div class="w-full h-fit overflow-hidden ">
-                <p class="animated-text text-xl lg:text-6xl">drive your business forward</p>
+            <div class="w-full flex flex-col items-start justify-end"> 
+                <div class="w-32 lg:w-48 h-2 lg:h-4 bg-[#ff6d00] mt-6 lg:mt-14 mb-6 dash"></div>
+                <div class="w-full h-full font-semibold leading-none subtext">
+                    Customer experience is part of everyone's life and are crucial for success across all industries. Global companies prioritize seamless experiences, empathetic care, and personalized support to drive loyalty, retention, and growth. By putting customers at the heart of their operations, businesses can build trust, reputation, and long-term success. We at CXPoint with customer first approach help them achieve this
+                </div>
             </div>
         </div>
-        <div class="w-full lg:w-[30%] flex flex-col items-start justify-end"> 
-            <div class="w-32 lg:w-48 h-2 lg:h-4 bg-[#ff6d00] mt-6 lg:mt-14 mb-6 dash"></div>
-            <div class="w-full h-full font-semibold leading-none subtext">
-                Customer experience is part of everyone’s life and are crucial for success across all industries. Global companies prioritize seamless experiences, empathetic care, and personalized support to drive loyalty, retention, and growth. By putting customers at the heart of their operations, businesses can build trust, reputation, and long-term success. We at CXPoint with customer first approach help them achieve this
+
+        <!-- Right video column -->
+        <div class="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-center items-start">
+            <div id="video-container" class="relative w-[80%] aspect-video rounded-tl-[2.5rem] rounded-br-[2.5rem] overflow-hidden">
+                <video 
+                    class="w-full h-full object-cover cursor-default"
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline
+                >
+                    <source src="/assets/08_typo-a_Services.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </div>
@@ -209,6 +228,12 @@ import StatisticsGrid from "../../components/StatisticsGrid.astro";
       max-width: 300px;
     }
   }
+
+  #video-container {
+    cursor: pointer;
+    transform-origin: left center;
+    will-change: transform, width;
+  }
 </style>
 
 <script>
@@ -249,6 +274,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
         opacity: 0,
         duration: 0.8,
         x: -100,
+        ease: "power2.out"
+    },"anim")
+
+    t1.from("#video-container",{
+        duration: 0.8,
+        x: 100,
+        opacity: 0,
         ease: "power2.out"
     },"anim")
 
