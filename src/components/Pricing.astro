@@ -125,7 +125,7 @@ const serializedProFeatures = JSON.stringify(proFeatures);
     <div class="w-full flex flex-wrap justify-center gap-6 px-4 md:px-2 py-12">
         <div class="w-full flex flex-col md:flex-row items-stretch justify-center gap-2 ">
             
-            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1300px] bg-white rounded-[3rem] p-6 md:p-10 border-2 border-gray-200 flex flex-col">
+            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1600px] bg-white rounded-[3rem] p-6 md:p-10 border-2 border-gray-200 flex flex-col">
                 <p class="font-new stretch text-[2rem] font-semibold">Free Trial</p>
                 <div class="h-full flex flex-col items-center gap-12 py-8">
                     <div class="flex flex-col items-center justify-center ">
@@ -133,7 +133,7 @@ const serializedProFeatures = JSON.stringify(proFeatures);
                         <p class="font-semibold text-[1rem] text-black/60 text-center">07 day free Trial per User</p>
                     </div>
                     <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Start Free Trial</button>
-                    <ul class="flex flex-col items-start justify-center gap-6">
+                    <!-- <ul class="flex flex-col items-start justify-center gap-6">
                         <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
                             <div class="w-2 h-2 rounded-full bg-black"></div>
                             <span class="font-medium">AD based Authentication</span>
@@ -162,11 +162,37 @@ const serializedProFeatures = JSON.stringify(proFeatures);
                             <div class="w-2 h-2 rounded-full bg-black"></div>
                             <span class="font-medium">Platform status, monitoring</span>
                         </li>
-                    </ul>
+                    </ul> -->
+                    <div class="w-full space-y-6">
+                        <select class="feature-selector w-full bg-gray-200/80 p-4 rounded-2xl font-semibold cursor-pointer outline-none">
+                            {Object.keys(basicFeatures).map((category) => (
+                                <option value={category}>{category}</option>
+                            ))}
+                        </select>
+
+                        <div class="feature-display rounded-xl">
+                            <ul class="space-y-3 feature-list" id="basicFeatureList">
+                                {basicFeatures["Voyage"].features.map(feature => (
+                                    <li class="text-sm text-black flex items-center gap-2">
+                                        <div class="w-2 h-2 rounded-full bg-black"></div>
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Add new trial details section -->
+                    <div class="w-full mt-auto pt-8 border-t border-gray-200">
+                        <p class="text-sm text-black font-semibold mb-3">Free Trial includes 07 days free access</p>
+                        <p class="text-sm text-black font-semibold mb-3">2 users' activation</p>
+                        <p class="text-sm text-black font-semibold mb-3">API rate limits and restrictions may apply during Free Trial *</p>
+                        <p class="text-sm text-black font-semibold">One time product activation fee will only be applicable upon activation of monthly subscription</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1300px] bg-[#ff6d00] rounded-[3rem] p-6 md:p-10 flex flex-col">
+            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1600px] bg-[#ff6d00] rounded-[3rem] p-6 md:p-10 flex flex-col">
                 <p class="font-new stretch text-[2rem] font-semibold">CXP1</p>
                 <div class="h-full flex flex-col items-center gap-12 py-8">
                     <div class="flex flex-col items-center justify-center ">
@@ -195,11 +221,11 @@ const serializedProFeatures = JSON.stringify(proFeatures);
                 </div>
             </div>
 
-            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1300px] bg-[#FF6D00] rounded-[3rem] p-6 md:p-10 flex flex-col">
+            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1600px] bg-[#FF6D00] rounded-[3rem] p-6 md:p-10 flex flex-col">
                 <p class="font-new stretch text-[2rem] font-semibold">CXP2</p>
                 <div class="h-full flex flex-col items-center gap-12 py-8">
                     <div class="flex flex-col items-center justify-center ">
-                        <p class="font-bold text-[0.8rem] text-black/50 text-center"><span class="text-[2rem] text-black">$70</span>/month/user</p>
+                        <p class="font-bold text-[0.8rem] text-black/50 text-center"><span class="text-[2rem] text-black">£ 1.8 GBP</span>per user / per day</p>
                         <p class="font-semibold text-[1rem] text-black/60 text-center">Start 10 user license</p>
                     </div>
                     <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Select Plan</button>
@@ -299,10 +325,10 @@ const serializedProFeatures = JSON.stringify(proFeatures);
         basicSelectors.forEach(selector => {
             selector.addEventListener('change', (e) => {
                 const selectedCategory = e.target.value;
-                const featureList = e.target.closest('.space-y-6').querySelector('.feature-list');
+                const featureList = e.target.closest('div').querySelector('.feature-list');
                 const selectedFeatureSet = basicFeatures[selectedCategory];
 
-                if (selectedFeatureSet) {
+                if (selectedFeatureSet && featureList) {
                     // Clear existing features
                     featureList.innerHTML = '';
                     
@@ -318,17 +344,13 @@ const serializedProFeatures = JSON.stringify(proFeatures);
                     // Add features
                     selectedFeatureSet.features.forEach(feature => {
                         const li = document.createElement('li');
-                        li.className = 'text-sm text-black/70 flex items-center gap-2';
+                        li.className = 'text-sm text-black flex items-center gap-2';
                         li.innerHTML = `
                             <div class="w-2 h-2 rounded-full bg-black"></div>
                             <span>${feature}</span>
                         `;
                         featureList.appendChild(li);
                     });
-
-                    // Add fade animation
-                    featureList.classList.add('fade-in');
-                    setTimeout(() => featureList.classList.remove('fade-in'), 300);
                 }
             });
 
