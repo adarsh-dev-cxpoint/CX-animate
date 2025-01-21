@@ -88,13 +88,12 @@ const sections = [
             <div class="w-full flex px-0 lg:px-18 pt-10">
                 <video 
                     src={CompanyVideo} 
-                    class="w-full h-full company-video rounded-3xl" 
+                    class="w-full h-[60vh] object-cover rounded-3xl" 
                     autoplay 
                     loop 
                     muted
                     playsinline 
                 >
-                    {/* Add fallback content */}
                     <source src={CompanyVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
