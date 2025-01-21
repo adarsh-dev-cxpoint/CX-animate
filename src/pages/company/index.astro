@@ -8,6 +8,7 @@ import ContactForm from '../../components/ContactForm.astro';
 import KuldeepImage from "../../../public/assets/Kuldeep.jpg";
 import PradeepImage from "../../../public/assets/Pradeep.jpeg";
 import VishwaImage from "../../../public/assets/Vishwa.jpg";
+import CompanyVideo from "/assets/03_morningbuilding_1_company.mp4"
 
 const sections = [
     {
@@ -85,7 +86,7 @@ const sections = [
                 </div>
             </div>
             <div class="w-full flex px-0 lg:px-18 pt-10">
-                <video src="/assets/03_morningbuilding_1_company.mp4" class="w-full h-full company-video rounded-3xl" autoplay loop muted></video>
+                <video src={CompanyVideo} class="w-full h-full company-video rounded-3xl" autoplay loop muted></video>
             </div>
             <div class="w-full flex px-0 lg:px-18 pt-10" id="locations">
                 <div class="w-full h-full lg:pt-12">
@@ -96,13 +97,25 @@ const sections = [
                         We don't just create designs - we solve your problems. It all starts with listening. We dive deep into understanding your business, your challenges, and your goals. Then we use data, creativity and practical solutions to craft a plan that works. No unnecessary extras, no bloated budgets - just what makes sense for you.  
                     </p>
                     <div class="w-full flex items-center justify-center py-24">
-                        <div class="w-full h-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-4">
-                            <div class="w-full h-full bg-[#1E1E1D] rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl py-5 px-4 text-center text-xl lg:text-2xl text-white">US</div>
-                            <div class="w-full h-full bg-[#1E1E1D] rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl py-5 px-4 text-center text-xl lg:text-2xl text-white">UK</div>
-                            <div class="w-full h-full bg-[#1E1E1D] rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl py-5 px-4 text-center text-xl lg:text-2xl text-white">Europe</div>
-                            <div class="w-full h-full bg-[#1E1E1D] rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl py-5 px-4 text-center text-xl lg:text-2xl text-white">AsiaPac</div>
-                            <div class="w-full h-full bg-[#1E1E1D] rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl py-5 px-4 text-center text-xl lg:text-2xl text-white">ANZ</div>
-                            <div class="w-full h-full bg-[#1E1E1D] rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl py-5 px-4 text-center text-xl lg:text-2xl text-white">Middleeast</div>
+                        <div class="w-full h-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 2xl:w-[85%] mx-auto">
+                            <div class="location-card relative overflow-hidden rounded-3xl aspect-square">
+                                <img src="/assets/india_map.jpg" alt="US Office" class="w-full h-full object-cover">
+                                <div class="overlay absolute inset-0 bg-black/50 flex items-center justify-center transition-all duration-300">
+                                    <span class="text-xl lg:text-[6rem] text-white font-medium akira">INDIA</span>
+                                </div>
+                            </div>
+                            <div class="location-card relative overflow-hidden rounded-3xl aspect-square">
+                                <img src="/assets/canada_map.webp" alt="UK Office" class="w-full h-full object-fit">
+                                <div class="overlay absolute inset-0 bg-black/50 flex items-center justify-center transition-all duration-300">
+                                    <span class="text-xl lg:text-[6rem] text-white font-medium akira">CANADA</span>
+                                </div>
+                            </div>
+                            <div class="location-card relative overflow-hidden rounded-3xl aspect-square">
+                                <img src="/assets/uk_map.jpg" alt="Europe Office" class="w-full h-full object-cover">
+                                <div class="overlay absolute inset-0 bg-black/50 flex items-center justify-center transition-all duration-300">
+                                    <span class="text-xl lg:text-[6rem] text-white font-medium akira">UK</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
