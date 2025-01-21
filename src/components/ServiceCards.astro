@@ -1,5 +1,5 @@
 ---
-import { Download } from "@astropub/icons";
+import { File } from "@astropub/icons";
 const cards = [
   {
     title: "Evaluate and improve your product concept",
@@ -12,49 +12,49 @@ const cards = [
     description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
     image: "/assets/third-card.png",
     overlay_text: "Automotive",
-    pdfLink:"/assets/Automotive.docx"
+    pdfLink:"/assets/automotive.pdf"
   },
   {
     title: "Evaluate and improve your product concept",
     description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
     image: "/assets/second-card.png",
     overlay_text: "Banking",
-    pdfLink:"/assets/Banking.docx"
+    pdfLink:"/assets/banking.pdf"
   },
   {
     title: "Evaluate and improve your product concept",
     description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
     image: "/assets/first-card.png",
     overlay_text: "Communication and Media",
-    pdfLink:"/assets/Media_and_Communication.docx"
+    pdfLink:"/assets/media_and_communication.pdf"
   },
   {
     title: "Evaluate and improve your product concept",
     description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
     image: "/assets/first-card.png",
     overlay_text: "Consumer Goods and Services",
-    pdfLink:"/assets/Customer_Goods and_Services.docx"
+    pdfLink:"/assets/Customer_Goods and_Services.pdf"
   },
   {
     title: "Evaluate and improve your product concept",
     description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
     image: "/assets/first-card.png",
     overlay_text: "Energy",
-    pdfLink:"/assets/Energy.docx"
+    pdfLink:"/assets/Energy.pdf"
   },
   {
     title: "Evaluate and improve your product concept",
     description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
     image: "/assets/first-card.png",
     overlay_text: "Health",
-    pdfLink:"/assets/Health_and_Pharma.docx"
+    pdfLink:"/assets/Health_and_Pharma.pdf"
   },
   {
     title: "Evaluate and improve your product concept",
     description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
     image: "/assets/first-card.png",
     overlay_text: "Insurance",
-    pdfLink:"/assets/Insurance.docx"
+    pdfLink:"/assets/Insurance.pdf"
   },
   {
     title: "Evaluate and improve your product concept",
@@ -73,14 +73,14 @@ const cards = [
     description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
     image: "/assets/first-card.png",
     overlay_text: "Travel",
-    pdfLink:"/assets/Travel.docx"
+    pdfLink:"/assets/Travel.pdf"
   },
   {
     title: "Evaluate and improve your product concept",
     description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
     image: "/assets/first-card.png",
     overlay_text: "Utilities",
-    pdfLink:"/assets/Oil-Gas-Utilities.docx"
+    pdfLink:"/assets/Oil-Gas-Utilities.pdf"
   },
   // Add more card data here...
 ];
@@ -101,8 +101,8 @@ const cards = [
                 <div class="">
                   <p>{card.description}</p>
                   {card.pdfLink && (
-                    <a href={card.pdfLink} download class="text-white my-4 font-semibold">
-                      Download PDF<Download class="inline-flex ms-2" size={15}/>
+                    <a href={card.pdfLink} target="_blank" class="text-white my-4 font-semibold">
+                      Open PDF<File class="inline-flex ms-2" size={15}/>
                     </a>
                   )}
                 </div>

@@ -43,7 +43,7 @@ const sections = [
                     <p class="text-[25px] lg:text-[60px] akira animated-text ">With over 20+ years of combined</p>
                 </div>
                 <div class="w-full h-full overflow-hidden">
-                    <p class="text-[25px] lg:text-[60px] akira animated-text">contact center experience, we’re here to</p>
+                    <p class="text-[25px] lg:text-[60px] akira animated-text">contact center experience, we're here to</p>
                 </div>
                 <div class="w-full h-full overflow-hidden">
                     <p class="text-[25px] lg:text-[60px] akira animated-text">solve real business problems with CX</p>
@@ -83,6 +83,9 @@ const sections = [
                         </p>
                     </div>
                 </div>
+            </div>
+            <div class="w-full flex px-0 lg:px-18 pt-10">
+                <video src="/assets/03_morningbuilding_1_company.mp4" class="w-full h-full company-video rounded-3xl" autoplay loop muted></video>
             </div>
             <div class="w-full flex px-0 lg:px-18 pt-10" id="locations">
                 <div class="w-full h-full lg:pt-12">
@@ -125,12 +128,14 @@ const sections = [
 
 
         <div class="w-full h-fit mt-32 lg:mt-20 lg:pt-8 lg:px-32 flex flex-col items-start justify-around lg:justify-between">
-            <div class="lg:w-[60%] akira text-4xl ">
-                <div class="flex lg:flex-row flex-col gap-2 px-2 lg:px-0">
-                    <img src={astrix.src} alt="astrix" class="w-[30px] h-[30px] astrix" />
-                    <p class="text-lg lg:text-3xl lg:flex hidden">And let’s be clear, we hate wasting time or money.</p>
-                </div>
-                <p class="text-xl lg:text-3xl lg:px-0 px-2">We don’t inflate our budgets just because we think you won’t accept our hourly rate. In fact, we don’t care about hourly rates. Thanks to our experience, we work at lightning speed. We focus on getting things done efficiently, without cutting corners.</p>
+            <div class="lg:w-[100%] ">
+                <div class="flex md:flex-row flex-col md:items-center items-start justify-start gap-4">
+					<svg class="astrix" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12.311 30.7873V21.195L3.95649 25.9911L0.862207 20.6535L9.21676 15.8574L0.862207 11.0612L3.95649 5.64626L12.311 10.4424V0.850127H18.577V10.4424L26.8541 5.64626L30.0258 11.0612L21.6712 15.8574L30.0258 20.6535L26.8541 25.9911L18.577 21.2724V30.7873H12.311Z" fill="black"></path>
+					</svg>
+					<p class="text-black font-semibold new md:text-[2rem] akira">The Team</p>
+				</div>
+                <p class="text-xl lg:text-lg lg:px-0 px-2 mt-10">Our founders are passionate Contact Center industry experts with a shared vision to revolutionize contact centers with powerful innovation. With ~ 25+ years of combined experience in Cloud, Automation, Contact centers and developing award winning innovative solutions, they have built a team of talented individuals who share their commitment to innovation and customer excellence. Kuldeep is our founder CEO bringing rich contact center skills to the table, while Pradeep (our VP Global Sales and CS) brings decades of leadership, sales and customer services experience, together with Vishwa (MD, UK) with strong global hyperscaler cloud platforms, Automation experience. Together they have created a company that is dedicated to company mission to Automate Contact center experiences that transforms CX visions into reality. Their leadership and expertise have enabled us to win our customers trust in delivering next generation AI enabled Contact Center automation solutions. We are proud to have them at the helm of our company</p>
             </div>
 
             <div id="testimonial" class="testimonial-content-sticky w-full flex flex-wrap items-center justify-center lg:mt-20" style="overflow-x: hidden;">
@@ -151,7 +156,7 @@ const sections = [
                         </div>
                         <div class="testimonial-content-block">
                             <h3 class="testimonial-author-name font-bold">Pradeep J</h3>
-                            <div class="testimonial-designation-text font-bold text-[#8D8D9B]">VP Sales & Service</div>
+                            <div class="testimonial-designation-text font-bold text-[#8D8D9B]">VP Sales & Service , India</div>
                         </div>
                     </div>
                     <div class="testimonial-single-card-block">
@@ -160,7 +165,7 @@ const sections = [
                         </div>
                         <div class="testimonial-content-block">
                             <h3 class="testimonial-author-name font-bold">Vishwa M</h3>
-                            <div class="testimonial-designation-text font-bold text-[#8D8D9B]">Managing Director</div>
+                            <div class="testimonial-designation-text font-bold text-[#8D8D9B]">Managing Director , UK</div>
                         </div>
                     </div>
                     <!-- <div class="testimonial-single-card-block">
@@ -298,6 +303,13 @@ const sections = [
 </Layout>
 
 <style>
+
+    .akira-2{
+        font-family: 'new', sans-serif;
+        font-weight: 500;
+        font-stretch: 500%;
+        line-height: 80%;
+    }
 
     .testimonial-image{
         width: 12rem;
@@ -565,6 +577,21 @@ const sections = [
         duration: 4,
         ease: 'linear',
         repeat: -1
+    });
+
+    // Add video animation with scrub
+    gsap.from('.company-video', {
+        scrollTrigger: {
+            trigger: '.company-video',
+            start: 'top 70%', 
+            end: 'top center',   
+            scrub: 1,            
+            markers: true,    
+        },
+        width: '85%',
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power2.out'
     });
 </script>
 
