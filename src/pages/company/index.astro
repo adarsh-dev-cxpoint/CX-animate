@@ -8,7 +8,7 @@ import ContactForm from '../../components/ContactForm.astro';
 import KuldeepImage from "../../../public/assets/Kuldeep.jpg";
 import PradeepImage from "../../../public/assets/Pradeep.jpeg";
 import VishwaImage from "../../../public/assets/Vishwa.jpg";
-import CompanyVideo from "/assets/03_morningbuilding_1_company.mp4"
+import CompanyVideo from "../../../public/assets/03_morningbuilding_1_company.mp4"
 
 const sections = [
     {
@@ -604,19 +604,19 @@ const sections = [
     });
 
     // Add video animation with scrub
-    gsap.from('.company-video', {
-        scrollTrigger: {
-            trigger: '.company-video',
-            start: 'top 70%', 
-            end: 'top center',   
-            scrub: 1,            
-            markers: true,    
-        },
-        width: '85%',
-        opacity: 0,
-        duration: 1.2,
-        ease: 'power2.out'
-    });
+    // gsap.from('.company-video', {
+    //     scrollTrigger: {
+    //         trigger: '.company-video',
+    //         start: 'top 70%', 
+    //         end: 'top center',   
+    //         scrub: 1,            
+    //         markers: true,    
+    //     },
+    //     width: '85%',
+    //     opacity: 0,
+    //     duration: 1.2,
+    //     ease: 'power2.out'
+    // });
 </script>
 
 
