@@ -4,83 +4,92 @@ const cards = [
   {
     title: "Evaluate and improve your product concept",
     description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
-    image: "/assets/first-card.png",
+    image: "/assets/aerospaceAndDefence.jpg",
     overlay_text: "Aerospace and Defense",
   },
   {
     title: "Automobile Industry Use Cases for CCaaS",
     description: "CCaaS (Contact Center as a Service) is revolutionizing customer service in various industries, including the automobile sector. The automobile industry can leverage CCaaS automation to improve customer experiences, streamline operations, and enhance efficiency.",
-    image: "/assets/third-card.png",
+    image: "/assets/automotive.jpg",
     overlay_text: "Automotive",
-    pdfLink:"/assets/automotive.pdf"
+    pdfLink:"/assets/automotive.pdf",
+    slug: "automotive"
   },
   {
     title: "Banking and Insurance Use Cases for CCaaS",
     description: "The Banking and Insurance Industries can greatly benefit from CCaaS (Contact Center as a Service) automation to streamline customer support, enhance operational efficiency, ensure compliance, and provide a personalized experience.",
-    image: "/assets/second-card.png",
+    image: "/assets/Banking.jpg",
     overlay_text: "Banking",
-    pdfLink:"/assets/banking.pdf"
+    pdfLink:"/assets/banking.pdf",
+    slug: "banking"
   },
   {
     title: "Media and Communication Use Cases for CCaaS",
     description: "The Media and Communication Industry faces unique challenges in managing high volumes of customer interactions across various channels, ensuring content personalization, and offering responsive support. CCaaS (Contact Center as a Service) automation can address these challenges by streamlining communication, reducing costs, and enhancing the customer experience.",
-    image: "/assets/second-card.png",
+    image: "/assets/Media.jpg",
     overlay_text: "Communication and Media",
-    pdfLink:"/assets/media_and_communication.pdf"
+    pdfLink:"/assets/media_and_communication.pdf",
+    slug: "media-and-communication"
   },
   {
     title: "Consumer Goods and Services Use Cases for CCaaS",
     description: "The FMCG (Fast-Moving Consumer Goods) industry can greatly benefit from CCaaS (Contact Center as a Service) automation to streamline customer interactions, improve supply chain management, enhance marketing efforts, and increase operational efficiency. Given the high volume of customer interactions, frequent product updates, and large customer base, automation is crucial for managing inquiries, maintaining customer satisfaction, and boosting sales.",
     image: "/assets/first-card.png",
     overlay_text: "Consumer Goods and Services",
-    pdfLink:"/assets/Customer_Goods and_Services.pdf"
+    pdfLink:"/assets/Customer_Goods and_Services.pdf",
+    slug: "fmcg"
   },
   {
     title: "Energy Use Cases for CCaaS",
     description: "The energy industry can benefit greatly from CCaaS (Contact Center as a Service) CX automation to enhance customer satisfaction, streamline operations, and optimize resources.",
-    image: "/assets/first-card.png",
+    image: "/assets/Energy.jpg",
     overlay_text: "Energy",
-    pdfLink:"/assets/Energy.pdf"
+    pdfLink:"/assets/Energy.pdf",
+    slug: "energy"
   },
   {
     title: "Health and Pharma Use Cases for CCaaS",
     description: "The Pharmaceutical Industry can leverage CCaaS (Contact Center as a Service) automation to improve customer engagement, streamline operations, and enhance overall efficiency. With increasing demands for compliance, patient-centric services, and complex product information, automation offers solutions to handle routine tasks, enhance communication, and maintain regulatory standards.",
-    image: "/assets/first-card.png",
+    image: "/assets/Health.jpg",
     overlay_text: "Health",
-    pdfLink:"/assets/Health_and_Pharma.pdf"
+    pdfLink:"/assets/Health_and_Pharma.pdf",
+    slug: "pharmaceutical"
   },
   {
     title: "Insurance Use Cases for CCaaS",
     description: "The Insurance Industry can greatly benefit from CCaaS (Contact Center as a Service) automation to streamline customer support, enhance operational efficiency, ensure compliance, and provide a personalized experience.",
-    image: "/assets/first-card.png",
+    image: "/assets/Insurance.jpg",
     overlay_text: "Insurance",
-    pdfLink:"/assets/Insurance.pdf"
+    pdfLink:"/assets/Insurance.pdf",
+    slug: "insurance"
   },
   {
     title: "Public Service Use Cases for CCaaS",
     description: "The Public Service Industry can greatly benefit from CCaaS (Contact Center as a Service) automation to streamline customer support, enhance operational efficiency, ensure compliance, and provide a personalized experience.",
-    image: "/assets/first-card.png",
+    image: "/assets/publicService.jpg",
     overlay_text: "Public Service"
   },
   {
     title: "Retail Use Cases for CCaaS",
     description: "The Retail Industry can greatly benefit from CCaaS (Contact Center as a Service) automation to streamline customer support, enhance operational efficiency, ensure compliance, and provide a personalized experience.",
-    image: "/assets/first-card.png",
+    image: "/assets/Retail.jpg",
     overlay_text: "Retail"
   },
   {
     title: "Travel Use Cases for CCaaS",
     description: "The travel industry can significantly enhance customer experiences and operational efficiency by leveraging CCaaS (Contact Center as a Service) solutions with CX automation.",
-    image: "/assets/first-card.png",
+    image: "/assets/Travel.jpg",
     overlay_text: "Travel",
-    pdfLink:"/assets/Travel.pdf"
+    pdfLink:"/assets/Travel.pdf",
+    slug: "travel"
   },
   {
     title: "Utilities Use Cases for CCaaS",
     description: "The Oil & Gas industry is a highly complex and capital-intensive sector that involves numerous stakeholders, from corporate clients and suppliers to regulatory bodies and field personnel. In such an environment, ensuring a smooth customer experience (CX) through CCaaS (Contact Center as a Service) automation can lead to greater efficiency, reduced operational costs, enhanced safety, and better customer satisfaction. By automating key customer interactions, oil and gas companies can improve operational agility, respond to customer needs more quickly, and optimize their support processes. ",
-    image: "/assets/first-card.png",
+    image: "/assets/Utilities.jpg",
     overlay_text: "Utilities",
-    pdfLink:"/assets/Oil-Gas-Utilities.pdf"
+    pdfLink:"/assets/Oil-Gas-Utilities.pdf",
+    slug: "oil-and-gas"
   },
   // Add more card data here...
 ];
@@ -100,9 +109,9 @@ const cards = [
                 <h2>{card.title}</h2>
                 <div class="">
                   <p>{card.description}</p>
-                  {card.pdfLink && (
-                    <a href={card.pdfLink} target="_blank" class="text-white my-4 font-semibold">
-                      Open PDF<File class="inline-flex ms-2" size={15}/>
+                  {card.slug && (
+                    <a href={`/services/${card.slug}`} class="text-white my-4 font-semibold">
+                      Learn More<File class="inline-flex ms-2" size={15}/>
                     </a>
                   )}
                 </div>
