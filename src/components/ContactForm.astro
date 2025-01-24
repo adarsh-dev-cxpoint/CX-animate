@@ -175,7 +175,8 @@ const licenseOptions = ['Free Trial', 'CXP1', 'CXP2', ];
         await emailjs.send(
           "service_6z5tguo",
           "template_wachfxt",
-          data
+          data,
+          import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
         );
 
         console.log(data);
