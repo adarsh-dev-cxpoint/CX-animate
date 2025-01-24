@@ -259,7 +259,7 @@ import { carouselData } from "../../data/carouselData.js";
         }, 5000);
     };
 
-    // Add pause listeners to all interactive elements
+    {/* // Add pause listeners to all interactive elements
     prevButton?.addEventListener('click', pauseAutoPlay);
     nextButton?.addEventListener('click', pauseAutoPlay);
     dots.forEach(dot => dot.addEventListener('click', pauseAutoPlay));
@@ -268,5 +268,5 @@ import { carouselData } from "../../data/carouselData.js";
     track?.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
     track?.addEventListener('mouseleave', () => {
         autoPlayInterval = setInterval(nextSlide, 2000);
-    });
+    }); */}
 </script>
