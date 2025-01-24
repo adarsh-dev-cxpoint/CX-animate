@@ -12,7 +12,7 @@
                 <li class="nav-links"><a href="/resources" class="text-white hover:text-[#ff6d00] transition-all duration-300">Resources</a></li>
                 <li class="nav-links"><a href="/company" class="text-white hover:text-[#ff6d00] transition-all duration-300">Company </a></li>
             </ul>
-            <a href="#form">
+            <a href="/company#form">
                 <button class="text-white text-[0.9rem] px-6 py-4 rounded-full bg-[#ff6d00] font-semibold ml-4" id="contact-btn">Get in touch</button> <!-- Get in touch button -->
             </a>
         </div>
@@ -53,17 +53,17 @@
     const contactBtn = document.getElementById('contact-btn');
 
     // Add smooth scroll for contact button
-    contactBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        gsap.to(window, {
-            duration: 1,
-            scrollTo: {
-                y: "#form",
-                offsetY: 50 // Optional offset from the top
-            },
-            ease: "power2.inOut"
-        });
-    });
+    // contactBtn.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     gsap.to(window, {
+    //         duration: 1,
+    //         scrollTo: {
+    //             y: "#form",
+    //             offsetY: 50 // Optional offset from the top
+    //         },
+    //         ease: "power2.inOut"
+    //     });
+    // });
 
     hamburger.addEventListener('click', () => {
         const isMenuOpen = !mobileMenu.classList.contains('hidden');
