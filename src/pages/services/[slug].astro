@@ -6,6 +6,76 @@ import Footer from "../../components/Footer.astro";
 // Get the slug from the URL
 export async function getStaticPaths() {
   const industries = [
+  {
+      slug: 'information-and-technology',
+      title: 'Information Technology Industry Use Cases for CCaaS',
+      image: '/assets/IT.jpg',
+      intro: 'CXPoint NEXA, VOYAGE and other upcoming products are highly useful for the Information Technology Industry to enhance users, agents, developers, supervisors and stake holders Contact center experience.',
+      description: 'The Information Technology (IT) industry can leverage CCaaS (Contact Center as a Service) solutions with CX automation to enhance customer engagement, streamline operations, and optimize IT service delivery. Here are key use cases tailored to the IT industry:',
+      useCases: [
+        {
+          title: '1. Technical Support and Issue Resolution',
+          useCase: 'Automated Troubleshooting: AI-powered chatbots and IVR systems can guide users through common technical issues (e.g., password resets, software installations) without needing an agent.',
+          automation: 'Knowledge Base Integration: Automate access to FAQs, guides, and how-to articles, empowering users to resolve issues independently. Incident Management: Enable users to log tickets, check status updates, or escalate unresolved issues automatically.'
+        },
+        {
+          title: '2. IT Service Desk Operations',
+          useCase: 'Ticketing System Integration: Automatically create, update, and close tickets in service management platforms like ServiceNow, Jira, or Zendesk based on user interactions.',
+          automation: 'Intelligent Call Routing: Route complex issues to the right IT specialist based on expertise, availability, and workload. Self-Service Portals: Allow employees or customers to request services like hardware upgrades, software access, or permissions directly via automated systems.'
+        },
+        {
+          title: '3. Software and Hardware Support',
+          useCase: 'License Management: Automate reminders for software license renewals, upgrades, or expiration alerts.',
+          automation: 'Remote Diagnostics: Use automation to gather diagnostic information from devices before connecting users with support teams. Hardware Replacement: Streamline warranty claims, parts replacement, or repair requests through self-service tools.'
+        },
+        {
+          title: '4. Cybersecurity Alerts and Education',
+          useCase: 'Security Notifications: Automate alerts for potential threats such as phishing attempts, suspicious login activity, or malware detections.',
+          automation: 'User Training: Provide automated modules or reminders for cybersecurity training, ensuring compliance with industry standards.'
+        },
+        {
+          title: '5. Proactive Customer Engagement',
+          useCase: 'System Downtime Alerts: Notify users about planned maintenance, service interruptions, or outages in advance via automated email, SMS, or voice calls.',
+          automation: 'Performance Monitoring: Alert customers when their systems approach capacity limits or experience unusual performance metrics.'
+        },
+        {
+          title: '6. Product Onboarding and Adoption',
+          useCase: 'Guided Onboarding: Automate step-by-step tutorials for new software or platform users, reducing the need for human assistance.',
+          automation: 'Usage Insights: Provide automated reports on how customers are using IT solutions and recommend features or tools to enhance productivity.'
+        },
+        {
+          title: '7. Subscription Management',
+          useCase: 'Billing and Invoicing Automation: Enable customers to view invoices, make payments, or update billing details without agent involvement.',
+          automation: 'Renewal Reminders: Send automated notifications about subscription renewals or expiring contracts. Upsell and Cross-Sell Opportunities: Use AI to recommend premium plans, additional features, or complementary products based on user behavior.'
+        },
+        {
+          title: '8. Multi-Language and Global Support',
+          useCase: 'Real-Time Translation: Offer support in multiple languages using AI-driven translation tools, making it easier to serve global customers.',
+          automation: 'Time-Zone Awareness: Automate communication scheduling to align with customers\' local time zones.'
+        },
+        {
+          title: '9. Feedback Collection and Sentiment Analysis',
+          useCase: 'Post-Interaction Surveys: Automatically request feedback after support interactions to gauge customer satisfaction (CSAT) and Net Promoter Scores (NPS).',
+          automation: 'Sentiment Analysis: Use AI to analyze customer sentiment during interactions and proactively address dissatisfaction.'
+        },
+        {
+          title: '10. Workforce Optimization',
+          useCase: 'Agent Assistance: Provide agents with real-time recommendations, scripts, or resources to resolve issues faster.',
+          automation: 'Workload Balancing: Use AI to dynamically allocate resources based on call volumes, issue severity, or SLA priorities. Skill Development: Analyze interaction data to identify training opportunities for IT support staff.'
+        },
+        {
+          title: '11. Incident and Disaster Recovery Management',
+          useCase: 'Crisis Communication: Automate communication during IT crises, such as system outages or security breaches, to keep stakeholders informed.',
+          automation: 'Escalation Protocols: Implement workflows that escalate critical incidents to senior engineers or managers seamlessly.'
+        },
+        {
+          title: '12. Data-Driven Decision Making',
+          useCase: 'Performance Dashboards: Use CCaaS analytics to track support metrics, agent productivity, and customer satisfaction trends.',
+          automation: 'Predictive Analytics: Leverage AI to forecast customer needs, such as system upgrades or additional support resources, based on historical data.'
+        }
+      ],
+      conclusion: 'Enhanced Productivity: Automation reduces manual tasks, enabling IT teams to focus on complex issues. Faster Resolution Times: Quick access to self-service tools and AI-driven solutions improves user satisfaction. Scalability: Handle increased support demand during product launches or critical events without overloading human resources. Cost Efficiency: Reduce operational costs by automating repetitive tasks and optimizing resource allocation.'
+    },
     {
       slug: 'automotive',
       title: 'Automobile Industry Use Cases for CCaaS',
@@ -346,7 +416,7 @@ export async function getStaticPaths() {
     {
       slug: 'fmcg',
       title: 'FMCG Industry Use Cases for CCaaS',
-      image: '/assets/fmcg-hero.jpg',
+      image: '/assets/consumer-goods.jpg',
       intro: 'CXPoint NEXA, VOYAGE and other upcoming products are highly useful for the FMCG Industry to enhance users, agents, developers, supervisors and stake holders Contact center experience.',
       description: 'The FMCG (Fast-Moving Consumer Goods) industry can greatly benefit from CCaaS (Contact Center as a Service) automation to streamline customer interactions, improve supply chain management, enhance marketing efforts, and increase operational efficiency. Given the high volume of customer interactions, frequent product updates, and large customer base, automation is crucial for managing inquiries, maintaining customer satisfaction, and boosting sales.',
       useCases: [

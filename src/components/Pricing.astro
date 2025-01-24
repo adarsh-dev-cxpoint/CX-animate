@@ -160,14 +160,16 @@ const serializedBasicFeatures = JSON.stringify(basicFeatures);
     <div class="w-full flex flex-wrap justify-center gap-6 px-4 md:px-2 py-12">
         <div class="w-full flex flex-col md:flex-row items-stretch justify-center gap-2 ">
             
-            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1600px] bg-white rounded-[3rem] p-6 md:p-10 border-2 border-gray-200 flex flex-col">
+            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1650px] 3xl:h-[1600px] bg-white rounded-[3rem] p-6 md:p-10 border-2 border-gray-200 flex flex-col">
                 <p class="font-new stretch text-[2rem] font-semibold">Free Trial</p>
                 <div class="h-full flex flex-col items-center gap-12 py-8">
                     <div class="flex flex-col items-center justify-center ">
-                        <p class="font-bold text-[2rem] text-black text-center">Free Trial </p>
+                        <p class="font-bold text-[2rem] text-black text-center">Free Trial <span class="text-[#ff6d00]">*</span></p>
                         <p class="font-semibold text-[1rem] text-black/60 text-center">07 day free Trial per User</p>
                     </div>
-                    <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Start Free Trial</button>
+                    <a href="/company/#form" class="py-3 px-6 bg-black text-white rounded-[2rem]">
+                        Start Free Trial
+                    </a>
                     <!-- <ul class="flex flex-col items-start justify-center gap-6">
                         <li class="font-black text-[1rem] text-black/60 leading-none flex items-center gap-2">
                             <div class="w-2 h-2 rounded-full bg-black"></div>
@@ -219,6 +221,7 @@ const serializedBasicFeatures = JSON.stringify(basicFeatures);
                     
                     <!-- Add new trial details section -->
                     <div class="w-full mt-auto pt-8 border-t border-gray-200">
+                        <p class="text-md text-[#ff6d00] font-semibold mb-3">*Terms and Conditions</p>
                         <p class="text-md text-black font-semibold mb-3">Free Trial includes 07 days free access</p>
                         <p class="text-md text-black font-semibold mb-3">2 users' activation</p>
                         <p class="text-md text-black font-semibold mb-3">API rate limits and restrictions may apply during Free Trial *</p>
@@ -227,14 +230,16 @@ const serializedBasicFeatures = JSON.stringify(basicFeatures);
                 </div>
             </div>
 
-            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1600px] bg-[#ff6d00] rounded-[3rem] p-6 md:p-10 flex flex-col">
+            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1650px] 3xl:h-[1600px] bg-[#ff6d00] rounded-[3rem] p-6 md:p-10 flex flex-col">
                 <p class="font-new stretch text-[2rem] font-semibold">CXP1</p>
                 <div class="h-full flex flex-col items-center gap-12 py-8">
                     <div class="flex flex-col items-center justify-center ">
                         <p class="font-bold text-[0.8rem] text-black/50 text-center"><span class="text-[2rem] text-black">$ 2.5</span> per user / per day</p>
                         <p class="font-semibold text-[1rem] text-black/60 text-center">Start 10 user license</p>
                     </div>
-                    <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Select Plan</button>
+                    <a href="/company/#form" class="py-3 px-6 bg-black text-white rounded-[2rem]">
+                        Start Free Trial
+                    </a>
                     <div class="w-full space-y-6">
                         <select class="feature-selector w-full bg-white/50 p-4 rounded-2xl font-semibold cursor-pointer outline-none">
                             {Object.keys(basicFeatures).map((category) => (
@@ -256,14 +261,17 @@ const serializedBasicFeatures = JSON.stringify(basicFeatures);
                 </div>
             </div>
 
-            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1600px] bg-[#FF6D00] rounded-[3rem] p-6 md:p-10 flex flex-col">
+            <div class="w-[100%] md:w-[28%] h-fit lg:h-[1650px] 3xl:h-[1600px] bg-[#FF6D00] rounded-[3rem] p-6 md:p-10 flex flex-col">
                 <p class="font-new stretch text-[2rem] font-semibold">CXP2</p>
                 <div class="h-full flex flex-col items-center gap-12 py-8">
                     <div class="flex flex-col items-center justify-center ">
                         <p class="font-bold text-[0.8rem] text-black/50 text-center"><span class="text-[2rem] text-black">$ 4.5</span>per user / per day</p>
                         <p class="font-semibold text-[1rem] text-black/60 text-center">Start 15 user license</p>
                     </div>
-                    <button class=" py-3 px-6 bg-black text-white rounded-[2rem]">Select Plan</button>
+                    <a href="/company/#form" class="py-3 px-6 bg-black text-white rounded-[2rem]">
+                        Start Free Trial
+                    </a>
+                    <p class="text-center font-bold">Includes both Nexa and Voyage products with Advance features</p>
                     <div class="w-full space-y-8">
                         <ul class="space-y-3">
                             {cxp2Points.map(point => (

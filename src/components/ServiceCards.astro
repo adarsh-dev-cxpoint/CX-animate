@@ -1,11 +1,13 @@
 ---
 import { File } from "@astropub/icons";
+import {ArrowTopRight} from "@astropub/icons"
 const cards = [
   {
-    title: "Evaluate and improve your product concept",
-    description: "Leverage our data-driven approach, powered by AI, to conduct a deep analysis of your product idea. We identify market potential and target audience, providing actionable insights to ensure your product matters to the right people.",
-    image: "/assets/aerospaceAndDefence.jpg",
-    overlay_text: "Aerospace and Defense",
+    title: "Tech Industry Use Cases for CCaaS",
+    description: "The Information Technology (IT) industry can leverage CCaaS (Contact Center as a Service) solutions with CX automation to enhance customer engagement, streamline operations, and optimize IT service delivery.",
+    image: "/assets/IT.jpg",
+    overlay_text: "Information & Technology",
+    slug:"information-and-technology"
   },
   {
     title: "Automobile Industry Use Cases for CCaaS",
@@ -29,12 +31,12 @@ const cards = [
     image: "/assets/Media.jpg",
     overlay_text: "Communication and Media",
     pdfLink:"/assets/media_and_communication.pdf",
-    slug: "media-and-communication"
+    slug: "media-communication"
   },
   {
     title: "Consumer Goods and Services Use Cases for CCaaS",
     description: "The FMCG (Fast-Moving Consumer Goods) industry can greatly benefit from CCaaS (Contact Center as a Service) automation to streamline customer interactions, improve supply chain management, enhance marketing efforts, and increase operational efficiency. Given the high volume of customer interactions, frequent product updates, and large customer base, automation is crucial for managing inquiries, maintaining customer satisfaction, and boosting sales.",
-    image: "/assets/first-card.png",
+    image: "/assets/consumer-goods.jpg",
     overlay_text: "Consumer Goods and Services",
     pdfLink:"/assets/Customer_Goods and_Services.pdf",
     slug: "fmcg"
@@ -111,7 +113,7 @@ const cards = [
                   <p>{card.description}</p>
                   {card.slug && (
                     <a href={`/services/${card.slug}`} class="text-white my-4 font-semibold">
-                      Learn More<File class="inline-flex ms-2" size={15}/>
+                      Learn More<ArrowTopRight class="inline-flex ms-2" size={20} />
                     </a>
                   )}
                 </div>
@@ -187,7 +189,7 @@ const cards = [
   }
 
   .overlay-1 {
-    background-image: url('/assets/aerospaceAndDefence.jpg');
+    background-image: url('/assets/IT.jpg');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,7 +253,7 @@ const cards = [
   }
 
   .overlay-5 {
-    background-image: url('/assets/first-card.png');
+    background-image: url('/assets/consumer-goods.jpg');
     display: flex;
     justify-content: center;
     align-items: center;

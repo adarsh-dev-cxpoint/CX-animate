@@ -34,12 +34,12 @@ const services = [
     </div>
     <p class="font animated-text xl:text-[1.6rem]">our products. We handle everything from platform discovery to design development and object management to migration, transforming your vision into a thriving business, faster. Using AI data-driven insights and creative innovation, we have built cohesive, scalable solutions to make you succeed in your journey to cloud using CXPoint powered automation.</p>
   </div>
-  <div class="flex md:flex-row flex-col items-start justify-around">
+  <div class="flex md:flex-row flex-col items-start justify-around 3xl:justify-center 3xl:gap-20">
   {services.map(service => (
     <div class="card">
       <div class="card-content px-8 py-4 overflow-hidden">
         <h2 class="leading-[1] ">{service.title}</h2>
-        <p class="text-muted">{service.description}</p>
+        <p class="text-muted 3xl:pt-6">{service.description}</p>
       </div>
       <img src={service.image.src} alt={service.title} />
     </div>
@@ -106,6 +106,19 @@ const services = [
       width: 100%;
       margin-bottom: 2rem;
       border-radius: 50px;
+    }
+  }
+
+  
+
+  @media (min-width: 1700px) {
+    .card{
+      height: 700px;
+    }
+
+    .card-content{
+      height: 60%;
+      
     }
   }
 
