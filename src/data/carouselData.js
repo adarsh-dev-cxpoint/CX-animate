@@ -1,10 +1,15 @@
+import firstImage from "../../public/assets/ProductsPage_AX Xperience01.png"
+import secondImage from "../../public/assets/ProductsPage_BX Xperience01.png"
+import thirdImage from "../../public/assets/ProductsPage_CX Xperience01.png"
+import fourthImage from "../../public/assets/ProductsPage_DX Xperience01.png"
+
 export const carouselData = [
     {
         id: "customer-experience-in-a-contact-center",
-        image: "/assets/Mockup-1.jpg",
+        image: "/assets/ProductsPage_CX Xperience01.png",
         title: "Customer Experience in a Contact Center​",
-        authorName: "Tom Garcy",
-        authorRole: "Founder",
+        authorName: " Dipendra",
+        authorRole: "CCaaS Developer",
         authorImage: "/assets/user.jpg",
         date: "March 15, 2024",
         readTime: "5 min",
@@ -92,10 +97,10 @@ export const carouselData = [
 
     {
         id: "developer-experience-in-contact-centres",
-        image: "/assets/Mockup-4.jpg",
+        image: "/assets/ProductsPage_DX Xperience01.png",
         title: "Developer Experience in contact centres",
-        authorName: "Sarah Chen",
-        authorRole: "CX Strategist",
+        authorName: "Amit T ",
+        authorRole: "Automation Developer",
         authorImage: "/assets/user.jpg",
         date: "March 18, 2024",
         readTime: "6 min",
@@ -209,9 +214,10 @@ export const carouselData = [
         readTime: "5 min",
         date: "24 October 2024",
         title: "Agent Experience in contact centres",
+        image:"/assets/ProductsPage_AX Xperience01.png",
         // subtitle: "How UX impacts customer satisfaction by enhancing usability and ensuring that users have a seamless experience across all platforms.",
-        authorName: "Jane Doe",
-        authorRole: "UX Designer",
+        authorName: "Satish M ​",
+        authorRole: "CCaaS Expert",
         illustrationSrc: "/assets/first.jpeg",
         introduction: 
         ` Agent Experience in a Contact Center refers to the overall experience and satisfaction that customer service agents have while performing their roles. It encompasses various aspects, such as: `,
@@ -268,9 +274,10 @@ export const carouselData = [
         readTime: "3 min",
         date: "24 October 2024",
         title: "Business user Experience in contact centres",
+        image:"/assets/ProductsPage_BX Xperience01.png",
         // subtitle: "Making the web usable for everyone by implementing best practices and ensuring compliance with accessibility standards to create an inclusive digital environment.",
-        authorName: "John Smith",
-        authorRole: "Accessibility Advocate",
+        authorName: "Sarah Chen",
+        authorRole: "CX Strategist",
         illustrationSrc: "/assets/second.jpeg",
         introduction: `Business Experience in a Contact Center refers to the overall effectiveness, satisfaction, and outcomes that a business or organization experiences through its contact center operations. This encompasses various aspects of the contact center's performance and its alignment with business goals, including:​`,
         keyPoints: [

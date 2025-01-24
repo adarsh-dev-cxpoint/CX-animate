@@ -1,3 +1,8 @@
+import firstImage from "../../public/assets/ProductsPage_AX Xperience01.png"
+import secondImage from "../../public/assets/ProductsPage_BX Xperience01.png"
+import thirdImage from "../../public/assets/ProductsPage_CX Xperience01.png"
+import fourthImage from "../../public/assets/ProductsPage_DX Xperience01.png"
+
 const articles = [
     {
         id: 1,
@@ -5,9 +10,9 @@ const articles = [
         date: "24 October 2024",
         title: "Agent Experience in contact centres",
         // subtitle: "How UX impacts customer satisfaction by enhancing usability and ensuring that users have a seamless experience across all platforms.",
-        authorName: "Jane Doe",
-        authorRole: "UX Designer",
-        illustrationSrc: "/assets/first.jpeg",
+        authorName: "Satish M ​",
+        authorRole: "CCaaS Expert",
+        illustrationSrc: "/assets/ProductsPage_AX Xperience01.png",
         introduction: 
         ` Agent Experience in a Contact Center refers to the overall experience and satisfaction that customer service agents have while performing their roles. It encompasses various aspects, such as: `,
         keyPoints: [
@@ -64,9 +69,9 @@ const articles = [
         date: "24 October 2024",
         title: "Business user Experience in contact centres",
         // subtitle: "Making the web usable for everyone by implementing best practices and ensuring compliance with accessibility standards to create an inclusive digital environment.",
-        authorName: "John Smith",
-        authorRole: "Accessibility Advocate",
-        illustrationSrc: "/assets/second.jpeg",
+        authorName: "Sarah Chen",
+        authorRole: "CX Strategist",
+        illustrationSrc: "/assets/ProductsPage_BX Xperience01.png",
         introduction: `Business Experience in a Contact Center refers to the overall effectiveness, satisfaction, and outcomes that a business or organization experiences through its contact center operations. This encompasses various aspects of the contact center's performance and its alignment with business goals, including:​`,
         keyPoints: [
             "Operational Efficiency: How well the contact center operates, including speed, accuracy, and cost-effectiveness.​" ,
