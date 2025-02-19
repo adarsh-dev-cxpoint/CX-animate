@@ -5,20 +5,20 @@ import help from "/public/assets/Help.jpg"
 
 <section
   id="help"
-  class="w-full h-auto py-12 md:h-screen md:py-0 opacity-0 fade-section"
+  class="w-full h-auto py-12 md:h-screen md:py-0 opacity-0 fade-section "
 >
-  <div class="w-[90%] h-full mx-auto">
-    <div class="flex flex-col md:flex-row p-8 bg-white rounded-[2rem] md:rounded-[4rem]">
+  <div class="w-[90%] h-full mx-auto ">
+    <div class="flex flex-col md:flex-row p-8 bg-white rounded-[2rem] md:rounded-[4rem] 2xl:px-16">
       {/* Text Content */}
       <div class="flex-1 space-y-6 flex flex-col justify-start md:justify-between items-start">
         <h1
-          class="text-6xl pt-16 md:text-5xl lg:text-[11rem] font-bold text-[#FF4500] leading-[0.7] fade-element"
+          class="text-6xl pt-16 md:pt-0 md:text-5xl lg:text-[11rem] font-bold text-[#FF4500] leading-[0.7] fade-element"
           data-index="2"
         >
           Help
         </h1>
 
-        <p class="text-gray-700 max-w-2xl fade-element" data-index="3">
+        <p class="text-gray-700 max-w-2xl 2xl:w-[90%] fade-element" data-index="3">
           Need assistance with our Contact Center CCaaS Automation solutions?
           You're in the right place! Our help section is designed to provide you
           with quick access to the resources you need to get the most out of our
@@ -71,7 +71,7 @@ import help from "/public/assets/Help.jpg"
 
       {/* Image */}
       <div
-        class="w-full md:w-[400px] lg:w-[500px] aspect-square bg-gray-200 rounded-lg overflow-hidden fade-element order-first md:order-last"
+        class="w-full md:w-[400px] lg:w-[500px] aspect-square bg-gray-200 rounded-[3rem] overflow-hidden fade-element order-first md:order-last"
         data-index="1"
       >
         <img src={help.src} class="w-full h-full object-cover" />
