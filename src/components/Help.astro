@@ -1,47 +1,129 @@
 ---
 import astrixblack from "/public/assets/asterisk.png"
+import help from "/public/assets/Help.jpg"
 ---
 
-<section class="h-screen w-full ">
-    <div class="w-[90%] h-full mx-auto">
-        <div class="flex p-16 bg-white rounded-[4rem]">
-            <div class="flex-1 space-y-6 flex flex-col justify-between">
-              <h1 class="text-5xl md:text-6xl lg:text-[11rem] font-bold text-[#FF4500] leading-none">
-                Help
-              </h1>
-              <p class="text-gray-700 max-w-2xl">
-                Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum.
-              </p>
-              <div class="pt-2">
-                <a 
-                  href="http://www.cxpoint.co.uk" 
-                  class="text-[#FF4500] hover:underline"
-                >
-                  Link : www.cxpoint.co.uk
-                </a>
-              </div>
-            </div>
-            
-            <div class="w-full md:w-[400px] lg:w-[500px] aspect-square bg-gray-200 rounded-lg">
-              <!-- Placeholder for image or content -->
-            </div>
-        
-        </div>
+<section
+  id="help"
+  class="w-full h-auto py-12 md:h-screen md:py-0 opacity-0 fade-section"
+>
+  <div class="w-[90%] h-full mx-auto">
+    <div class="flex flex-col md:flex-row p-8 bg-white rounded-[2rem] md:rounded-[4rem]">
+      {/* Text Content */}
+      <div class="flex-1 space-y-6 flex flex-col justify-start md:justify-between items-start">
+        <h1
+          class="text-6xl pt-16 md:text-5xl lg:text-[11rem] font-bold text-[#FF4500] leading-[0.7] fade-element"
+          data-index="2"
+        >
+          Help
+        </h1>
 
-    </div>    
+        <p class="text-gray-700 max-w-2xl fade-element" data-index="3">
+          Need assistance with our Contact Center CCaaS Automation solutions?
+          You're in the right place! Our help section is designed to provide you
+          with quick access to the resources you need to get the most out of our
+          products. Browse our comprehensive knowledge base, filled with
+          tutorials, guides, and FAQs to troubleshoot common issues. Can't find
+          what you're looking for? Reach out to our dedicated support team via
+          phone, email, or chat. We're committed to helping you achieve your
+          contact center goals. Explore our help resources today and get back to
+          delivering exceptional customer experiences!
+        </p>
+        <button class="pt-2 fade-element" data-index="4">
+          <a
+            href="/public/assets/Help.pdf"
+            class="group flex items-center gap-2 text-[#FF4500] hover:bg-[#fff8f5] px-6 py-3 rounded-2xl border-2 border-[#FF4500] transition-all duration-300 ease-out relative overflow-hidden"
+          >
+            <span>Explore Now</span>
+            <div class="relative w-5 h-5 overflow-hidden">
+              {/* Current arrow that moves up and fades out */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="absolute inset-0 transition-all duration-300 ease-out transform group-hover:-translate-y-full group-hover:opacity-0 text-[#FF4500]"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+              {/* New arrow that comes from below */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="absolute inset-0 transition-all duration-300 ease-out transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 text-[#FF4500]"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </a>
+        </button>
+      </div>
 
+      {/* Image */}
+      <div
+        class="w-full md:w-[400px] lg:w-[500px] aspect-square bg-gray-200 rounded-lg overflow-hidden fade-element order-first md:order-last"
+        data-index="1"
+      >
+        <img src={help.src} class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </div>
 </section>
 
 <script>
-    import { gsap } from 'gsap';
-    import { ScrollTrigger } from 'gsap/ScrollTrigger';
-    gsap.registerPlugin(ScrollTrigger);
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to(".astrix", {
-        rotate: 360,
-        repeat: -1,
-        ease: "linear",
-        duration: 3,
-    })
+  // Rotating asterisk animation
+  gsap.to(".astrix", {
+    rotate: 360,
+    repeat: -1,
+    ease: "linear",
+    duration: 3,
+  });
 
+  // Custom animation sequence
+  const fadeSection = document.querySelector(".fade-section");
+  const fadeElements = gsap.utils.toArray(".fade-element");
+
+  // Ensure the entire section is visible
+  gsap.set(fadeSection, { opacity: 1 });
+
+  // Initially hide all elements
+  gsap.set(fadeElements, { opacity: 0, y: 30 });
+
+  // Create the ScrollTrigger animation
+  ScrollTrigger.create({
+    trigger: fadeSection,
+    start: "top 60%", // Starts when top of section reaches 60% of viewport
+    once: true, // Only trigger once
+    onEnter: () => {
+      // Sort elements by data-index for custom animation order
+      const sortedElements = [...fadeElements].sort((a, b) => {
+        return (
+          Number((a as HTMLElement).dataset.index) - Number((b as HTMLElement).dataset.index)
+        );
+      });
+
+      // Staggered fade-in animation in custom order
+      gsap.to(sortedElements, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out",
+      });
+    },
+  });
 </script>
